@@ -1,0 +1,17 @@
+/* slider */
+
+#slider {
+    width: 100%;
+    border-radius: 3px;
+    appearance: none;
+    border: 1px solid brown;
+    outline: none;
+}
+
+/*--------------------------------------------Map*/
+
+#map {
+    left: 10%;
+    height: 630px;
+    width: 80%;
+}
