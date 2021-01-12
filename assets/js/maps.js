@@ -26,21 +26,58 @@ var battles = [
     }
 ]
 
+let tdate = [
+    {
+        battle: "battle of year 1914",
+        coords: { lat: 40.785091, lng: -73.968285 },
+        startDate: "03/24/1914",
+        endDate: "03/20/1915",
+        description: "The bloody battle took place in 1903 mostly"
+    },
+    {
+        battle: "battle of year 1915",
+        coords: { lat: 41.084045, lng: -73.874245 },
+        startDate: "03/24/1916",
+        endDate: "09/20/1916",
+        description: "The bloody battle took place in 1905 mostly"
+    },
+    {
+        battle: "battle of year 1918",
+        coords: { lat: 40.754932, lng: -73.984016 },
+        startDate: "03/20/1918",
+        endDate: "03/24/1918",
+        description: "The bloody battle took place in 1972 mostly"
+    }
+]
+
+
+
+
 slider.addEventListener('mouseup', function (e) {
-    year.textContent = slider.value;
-    yearInt = parseInt(year.textContent);
-    console.log(yearInt);
+    let sliderDif = parseInt(slider.value);
+    let dateShown = (1749252879000 - sliderDif) * (-1);
+    console.log(dateShown);
+    year.textContent = new Date(dateShown);
+
+    for (i = 0; i < tdate.length; i++) {
+        let startMsec = Date.parse(tdate[i].startDate);
+        let endMsec = Date.parse(tdate[i].endDate);
+
+        if (dateShown >= startMsec && dateShown <= endMsec) {
+            console.log(tdate[i].battle);
+        }
+    }
 
     contempBattles = battles.filter(o => o.year.includes(yearInt));
-    console.log(contempBattles);
+    // console.log(contempBattles);
     for (i = 0; i < contempBattles.length; i++) {
         locations.push(contempBattles[i].coords)
     }
 
-    console.log(locations);
+    // console.log(locations);
 
     initMap();
-    
+
     locations = [];
     contempCoords = [];
     contempBattles = [];
