@@ -1,16 +1,25 @@
-// document.write("<label id='year'>Tue Jul 28 1914 00:00:00 GMT-0025 (Irish Standard Time)</label><input id='slider' type='range' min='0' max='135397279000' step='86400000' value='0' onkeydown='return false;' /><br> <div id='map'>");
+document.write('<div><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><label id="year">Tue Jul 28 1914 00:00:00 GMT-0025 (Irish Standard Time)</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="86400000" value="0" /></div><br> <div id="map"></div></div>');
 
-function week() {
-    $("#slider").attr("step", "604800000")
-}
+const dayStep = 86400000;
+const weekStep = 604800000;
+const monthStep = 2654848607;
+const tmonthStep = 7964545823;
 
-function month() {
-    $("#slider").attr("step", "2628000000")
-}
+$("#day").click(function() {
+  $("#slider").attr("step", dayStep);
+});
 
-function threeMonths() {
-    $("#slider").attr("step", "7884000000")
-}
+$("#week").click(function() {
+  $("#slider").attr("step", weekStep);
+});
+
+$("#month").click(function() {
+  $("#slider").attr("step", monthStep);
+});
+
+$("#tmonth").click(function() {
+  $("#slider").attr("step", tmonthStep);
+});
 
 let locations = [];
 var slider = document.getElementById("slider");
@@ -40,20 +49,54 @@ let wwOne = [
     }
 ];
 
-
-slider.addEventListener('input', function (e) {
+slider.addEventListener('input', function () {
     let sliderDif = parseInt(slider.value);
     let dateShown = (1749252879000 - sliderDif) * (-1);
     console.log(dateShown);
-    year.textContent = new Date(dateShown);
+    let longDate = new Date(dateShown);
+    let longDateStr = JSON.stringify(longDate);
+    let shortDate = longDateStr.slice(1,11);
+    year.textContent = shortDate;
 
-    for (i = 0; i < wwOne.length; i++) {
-        let startMsec = Date.parse(wwOne[i].startDate);
-        let endMsec = Date.parse(wwOne[i].endDate);
-
-        if (dateShown >= startMsec && dateShown <= endMsec) {
-            console.log(wwOne[i].battle);
-            locations.push(wwOne[i].coords)
+    if ($("#slider").attr("step") == dayStep) {
+        for (i = 0; i < wwOne.length; i++) {
+            let startMsec = Date.parse(wwOne[i].startDate);
+            let endMsec = Date.parse(wwOne[i].endDate);
+            console.log("daily")
+            if (dateShown >= startMsec && dateShown <= endMsec) {
+                console.log(wwOne[i].battle);
+                locations.push(wwOne[i].coords);
+            }
+        }
+    } else if ($("#slider").attr("step") == weekStep) {
+        for (i = 0; i < wwOne.length; i++) {
+            let startMsec = Date.parse(wwOne[i].startDate) - 302400000;
+            let endMsec = Date.parse(wwOne[i].endDate) + 302400000;
+            console.log("weekly")
+            if (dateShown >= startMsec && dateShown <= endMsec) {
+                console.log(wwOne[i].battle);
+                locations.push(wwOne[i].coords);
+            }
+        }
+    } else if ($("#slider").attr("step") == monthStep) {
+        for (i = 0; i < wwOne.length; i++) {
+            let startMsec = Date.parse(wwOne[i].startDate) - 1314000000;
+            let endMsec = Date.parse(wwOne[i].endDate) + 1314000000;
+            console.log("monthly")
+            if (dateShown >= startMsec && dateShown <= endMsec) {
+                console.log(wwOne[i].battle);
+                locations.push(wwOne[i].coords);
+            }
+        }
+    } else {
+        for (i = 0; i < wwOne.length; i++) {
+            let startMsec = Date.parse(wwOne[i].startDate) - 3942000000;
+            let endMsec = Date.parse(wwOne[i].endDate) + 3942000000;
+            console.log("3monthly")
+            if (dateShown >= startMsec && dateShown <= endMsec) {
+                console.log(wwOne[i].battle);
+                locations.push(wwOne[i].coords);
+            }
         }
     }
 
@@ -86,7 +129,7 @@ function initMap() {
             position: location,
             label: labels[i % labels.length]
         })
-    })
+    });
 
     new MarkerClusterer(map, markers, {
         gridSize: 5,
