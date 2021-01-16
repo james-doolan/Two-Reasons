@@ -860,15 +860,735 @@ let wws = [
         battleType: "Siege",
         description: "The siege of Kut Al Amara, 'the First Battle of Kut', was the besieging of an 8,000 strong British Army garrison in the town of Kut, 160 kilometres south of Baghdad, by the Ottoman Army. In 1915, its population was around 6,500. Following the surrender of the garrison on 29 April 1916, the survivors of the siege were marched to imprisonment at Aleppo, during which many died." 
     },
+    {
+        battle: "Battle of Salaita Hill",
+        coords: { lat: -3.3878, lng: 37.7882 },
+        startDate: "02/12/1916",
+        endDate: "02/12/1916",
+        allies: "South Africa",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Salaita Hill was the first large-scale engagement of the East African Campaign of the First World War to involve British, Indian, Rhodesian, and South African troops. The battle took place on February 12, 1916, as part of the three-pronged offensive into German East Africa, who had been given overall command of the Allied forces in the region." 
+    },
+    {
+        battle: "Battle of Verdun",
+        coords: { lat: 49.208056, lng: 5.421944 },
+        startDate: "02/21/1916",
+        endDate: "12/18/1916",
+        allies: "France",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Verdun was fought from 21 February to 18 December 1916 on the Western Front in France. The battle was the longest of the First World War and took place on the hills north of Verdun-sur-Meuse. The German 5th Army attacked the defences of the Fortified Region of Verdun and those of the French Second Army on the right (east) bank of the Meuse. " 
+    },
+    {
+        battle: "Battle of Dujaila",
+        coords: { lat: 32.5056, lng: 45.8247 },
+        startDate: "03/08/1916",
+        endDate: "03/08/1916",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Dujaila (Turkish: Sâbis Muharebesi) was fought on 8 March 1916, between British and Ottoman forces during the First World War. The Ottoman forces, led by Colmar Freiherr von der Goltz were besieging Kut, when the Anglo-Indian relief force, led by Lieutenant-General Fenton Aylmer, attempted to relieve the city. The attempt failed, and Aylmer lost 4,000 men." 
+    },
+    {
+        battle: "Battle of Asiago",
+        coords: { lat: 45.901944, lng: 11.508889 },
+        startDate: "05/15/1916",
+        endDate: "06/10/1916",
+        allies: "Kingdom of Italy",
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Battle of Asiago (Battle of the Plateaux) or the Trentino Offensive by the Italians, was a major counteroffensive launched by the Austro-Hungarians on the Italian Front on 15 May 1916, during World War I. It was an unexpected attack that took place near Asiago in the province of Vicenza after the Fifth Battle of the Isonzo (March 1916)." 
+    },
+    {
+        battle: "Battle of Kahe",
+        coords: { lat: -2.266667, lng: 37.866667 },
+        startDate: "03/18/1916",
+        endDate: "03/18/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Kahe, fought during the East African Campaign of WWI, was the last action between German and Entente forces before the German retreat. British and South African forces surrounded German positions at Kahe, south of Mount Kilimanjaro. Entente forces inflicted heavy casualties and captured large German artillery pieces while receiving comparably little casualties." 
+    },
+    {
+        battle: "Battle of Latema Nek",
+        coords: { lat: -3.4, lng: 37.5833 },
+        startDate: "03/11/1916",
+        endDate: "03/12/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Latema Nek was a battle of the East African Campaign in World War I. After the Battle of Salaita, General Paul von Lettow-Vorbeck, commander of German forces in East Africa, reorganised the defences to the north of the colony in anticipation of another assault. The Salaita positions were abandoned, and German forces moved south to the Latema-Reata Hills." 
+    },
+    {
+        battle: "Raid on Jifjafa",
+        coords: { lat: 29.5, lng: 33.833333 },
+        startDate: "04/11/1916",
+        endDate: "04/14/1916",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "Austro-Hungarian"],
+        battleType: "Ground",
+        description: "The Raid on Jifjafa (11–14 April 1916) was a long range pre-emptive operation by a composite formation of the British Empire against Ottoman forces at the Jifjafa well in the Sinai Desert. It was part of the Sinai and Palestine Campaign of World War I." 
+    },
+    {
+        battle: "Battle of Kondoa Irangi",
+        coords: { lat: -4.903611, lng: 35.776667 },
+        startDate: "05/07/1916",
+        endDate: "05/10/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Kondoa Irangi was a battle of the East African Campaign of World War I. Following successes at the battles of Latema Nek and Kahe, Entente forces under the overall command of General Jan Smuts continued their advance southwards into German East Africa." 
+    },
+    {
+        battle: "Battle of Jutland",
+        coords: { lat: 56.7, lng: 5.866667 },
+        startDate: "05/31/1916",
+        endDate: "06/01/1916",
+        allies: "United Kingdom",
+        adversaries: "German Empire",
+        battleType: "Naval",
+        description: "The Battle of Jutland (German: Skagerrakschlacht, the Battle of Skagerrak) was a naval battle fought between Britain's Royal Navy Grand Fleet, under Admiral Sir John Jellicoe, and the Imperial German Navy's High Seas Fleet, under Vice-Admiral Reinhard Scheer, during the First World War." 
+    },
+    {
+        battle: "Brusilov Offensive",
+        coords: { lat: 49.83, lng: 24.014167 },
+        startDate: "06/04/1916",
+        endDate: "09/20/1916",
+        allies: "Russian Empire",
+        adversaries: ["Austro-Hungarian Empire", "German Empire", "Ottoman Empire"],
+        battleType: "Ground",
+        description: "The Brusilov Offensive (Russian: Брусиловский прорыв Brusilovskiĭ proryv, literally: 'Brusilov's breakthrough'), also known as the 'June Advance', of June to September 1916 was the Russian Empire's greatest feat of arms during World War I, and among the most lethal offensives in world history." 
+    },
+    {
+        battle: "Battle of Albert",
+        coords: { lat: 50.015556, lng: 2.6975 },
+        startDate: "07/01/1916",
+        endDate: "07/01/1916",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The first day on the Somme was the beginning of the Battle of Albert, the name given by the British to the first two weeks of the Battle of the Somme. Nine corps of the French Sixth Army and the British Fourth and Third armies attacked the German 2nd Army from Foucaucourt south of the Somme northwards across the Ancre to Serre and at Gommecourt in the Third Army area." 
+    },
+    {
+        battle: "Battle of the Somme",
+        coords: { lat: 50.015556, lng: 2.6975 },
+        startDate: "07/01/1916",
+        endDate: "11/18/1916",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of the Somme, also known as the Somme Offensive, was a battle of the First World War fought by the armies of the British Empire and French Third Republic against the German Empire. It took place between 1 July and 18 November 1916 on both sides of the upper reaches of the River Somme in France. The battle was intended to hasten a victory for the Allies." 
+    },
+    {
+        battle: "Battle of Bazentin Ridge",
+        coords: { lat: 50.027444, lng: 2.754167 },
+        startDate: "07/14/1916",
+        endDate: "07/17/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Bazentin Ridge (14–17 July 1916) was part of the Battle of the Somme (1 July – 18 November) on the Western Front in France, during the First World War. On 14 July, the British Fourth Army (General Henry Rawlinson) made a dawn attack against the German 2nd Army in the Brown Position (Braune Stellung), from Delville Wood westwards to Bazentin le Petit Wood."
+    },
+    {
+        battle: "Attack at Fromelles",
+        coords: { lat: 50.60625, lng: 2.854694 },
+        startDate: "07/19/1916",
+        endDate: "07/20/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Attack at Fromelles (French pronunciation: ​[fʁɔmɛl], Battle of Fromelles, Battle of Fleurbaix or Schlacht von Fromelles) 19–20 July 1916, was a military operation on the Western Front during the First World War. The attack was carried out by British and Australian troops and was subsidiary to the Battle of the Somme." 
+    },
+    {
+        battle: "Battle of Pozières",
+        coords: { lat: 50.016667, lng: 2.8 },
+        startDate: "07/23/1916",
+        endDate: "09/03/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Pozières (23 July – 3 September 1916) took place in northern France around the village of Pozières, during the Battle of the Somme. The costly fighting ended with the British in possession of the plateau north and east of the village, in a position to menace the German bastion of Thiepval from the rear." 
+    },
+    {
+        battle: "Battle of Romani",
+        coords: { lat: 30.992, lng: 32.648 },
+        startDate: "08/03/1916",
+        endDate: "08/05/1916",
+        allies: "British Empire",
+        adversaries: ["Austro-Hungarian Empire", "German Empire", "Ottoman Empire"],
+        battleType: "Ground",
+        description: "The Battle of Romani was the last ground attack of the Central Powers on the Suez Canal at the beginning of the Sinai and Palestine Campaign during the First World War. The battle was fought between 3 and 5 August 1916 near the Egyptian town of Romani and the site of ancient Pelusium on the Sinai Peninsula, 23 miles (37 km) east of the Suez Canal." 
+    },
+    {
+        battle: "Sixth Battle of the Isonzo",
+        coords: { lat: 45.933, lng: 13.616 },
+        startDate: "08/04/1916",
+        endDate: "08/16/1916",
+        allies: "Kingdom of Italy",
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Sixth Battle of the Isonzo also known as the Battle of Gorizia was the most successful Italian offensive along the Soča (Isonzo) River during World War I. Franz Conrad von Hötzendorf had reduced the Austro-Hungarian forces along the Soča (Isonzo) front to reinforce his Trentino Offensive and also to assist with the defense of the Russian Brusilov Offensive." 
+    },
+    {
+        battle: "Battle of Mouquet Farm",
+        coords: { lat: 50.051469, lng: 2.712733 },
+        startDate: "07/23/1916",
+        endDate: "09/26/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Mouquet Farm, also known as the Fighting for Mouquet Farm was part of the Battle of the Somme and began during the Battle of Pozières (23 July – 3 September). The fighting began on 23 July with attacks by the British Reserve Army. The farm was captured by the 3rd Canadian Division of the Canadian Corps on 16 September." 
+    },
+    {
+        battle: "Battle of Bir el Abd",
+        coords: { lat: 31.018056, lng: 33.011111 },
+        startDate: "08/09/1916",
+        endDate: "08/09/1916",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Bir el Abd or the Abd well (9 August 1916) was fought between the forces of the British Empire and the Ottoman Turkish Empire, during the Sinai and Palestine Campaign of the First World War. The battle took place in the Sinai Desert following the British victory at the Battle of Romani (3–5 August)." 
+    },
+    {
+        battle: "Battle of Mlali",
+        coords: { lat: -6.96667, lng: 37.55 },
+        startDate: "08/24/1916",
+        endDate: "08/24/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Mlali was fought during the East African Campaign of World War I. In mid-August 1916, the British General led three divisions from Kenya south into the Imperial German colony of Tanganyika in order to seize and disrupt their vital railway. The German commander was informed by his scouts of the British movement and sent Captain Otto to investigate." 
+    },
+    {
+        battle: "Battle of Guillemont",
+        coords: { lat: 50.013778, lng: 2.824444 },
+        startDate: "09/03/1916",
+        endDate: "09/06/1916",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Guillemont was an attack by the British Fourth Army on the village of Guillemont. The village is on the D 20 running east to Combles and the D 64 south-west to Montauban. Longueval and Delville Wood lie to the north-west and Ginchy to the north-east. The village was on the right flank of the British sector, near the boundary with the French Sixth Army."
+    },
+    {
+        battle: "Battle of Herkulesfürdő",
+        coords: { lat: 45.7, lng: 120.9 },
+        startDate: "09/06/1916",
+        endDate: "09/10/1916",
+        allies: "Romania",
+        adversaries: ["Austro-Hungarian Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Herkulesfürdő was a military engagement during the Romanian Campaign of World War I. It was fought between Romanian forces on one side and Central Powers forces (Austria-Hungary and Germany) on the other side. It resulted in a Romanian victory."
+    },
+    {
+        battle: "Battle of Kisaki",
+        coords: { lat: -7.486111, lng: 37.601389 },
+        startDate: "09/07/1916",
+        endDate: "09/11/1916",
+        allies: "South Africa",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Kisaki was a confrontation between German and South Africa forces near the town of Kisaki, German East Africa, on 7–11 September 1916. Paul Emil von Lettow-Vorbeck was appointed the military commander of the German colonial forces known as the Schutztruppe protection force in German East Africa on 13 April 1914."
+    },
+    {
+        battle: "Battle of Ginchy",
+        coords: { lat: 50.022667, lng: 2.832444 },
+        startDate: "09/09/1916",
+        endDate: "09/09/1916",
+        allies: ["United Kingdom", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Ginchy took place on 9 September 1916 during the Battle of the Somme, when the 16th (Irish) Division captured the German-held village. Ginchy is 0.93 mi (1.5 km) north-east of Guillemont, at the junction of six roads, on a rise overlooking Combles, 2.5 mi (4 km) to the south-east."
+    },
+    {
+        battle: "Battle of Flers–Courcelette",
+        coords: { lat: 50.058889, lng: 2.747778 },
+        startDate: "09/15/1916",
+        endDate: "09/22/1916",
+        allies: ["United Kingdom", "New Zealand", "Canada", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Flers–Courcelette was fought during the Battle of the Somme, by the French Sixth Army and the British Fourth Army and Reserve Army, against the German 1st Army. The Anglo-French attack began the third period of the Battle of the Somme but by its conclusion on 22 September, the strategic objective of a decisive victory had not been achieved."
+    },
+    {
+        battle: "Battle of Morval",
+        coords: { lat: 50.031944, lng: 2.873333 },
+        startDate: "09/25/1916",
+        endDate: "09/28/1916",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Morval was an attack during the Battle of the Somme by the British Fourth Army on the villages of Morval, Gueudecourt and Lesbœufs held by the German 1st Army, which had been the final objectives of the Battle of Flers–Courcelette. The main British attack was postponed to combine with attacks by the French Sixth Army on the village of Combles south of Morval."
+    },
+    {
+        battle: "Battle of Thiepval Ridge",
+        coords: { lat: 50.054528, lng: 2.688389 },
+        startDate: "09/26/1916",
+        endDate: "09/28/1916",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Thiepval Ridge was the first large offensive of the Reserve Army (Lieutenant General Hubert Gough), during the Battle of the Somme on the Western Front during the First World War. The attack was intended to benefit from the Fourth Army attack in the Battle of Morval, by starting 24 hours afterwards."
+    },
+    {
+        battle: "Battle of Le Transloy",
+        coords: { lat: 50.057389, lng: 2.887722 },
+        startDate: "10/01/1916",
+        endDate: "10/18/1916",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Le Transloy was the last big attack by the Fourth Army of the British Expeditionary Force in the 1916 Battle of the Somme in France, during the First World War. The battle was fought in conjunction with attacks by the French Tenth and Sixth armies on the southern flank and the Reserve/5th Army on the northern flank, against Army Group Rupprecht of Bavaria."
+    },
+    {
+        battle: "Battle of Kőhalom",
+        coords: { lat: 46.216667, lng: 24.8 },
+        startDate: "10/02/1916",
+        endDate: "10/02/1916",
+        allies: "Romania",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Kőhalom was a military engagement during the Battle of Transylvania, at the beginning of the Romanian Campaign of World War I. It consisted in a German offensive that was successfully repulsed by the Romanians, who then carried out a largely unhindered tactical retreat."
+    },
+    {
+        battle: "Battle of Cinghinarele Island",
+        coords: { lat: 43.67, lng: 25.19 },
+        startDate: "10/02/1916",
+        endDate: "10/08/1916",
+        allies: "Romania",
+        adversaries: ["German Empire", "Austro-Hungarian Empire"],
+        battleType: "Ground",
+        description: "The Battle of Cinghinarele Island was a military engagement between Central Powers forces on one side and Romanian forces on the other side during the Romanian Campaign of World War I. It took place in early October 1916. In late September 1916, Romanian forces occupied the island, setting up a garrison comprising an infantry company and six guns in two batteries."
+    },
+    {
+        battle: "Battle of the Ancre",
+        coords: { lat: 50.066667, lng: 2.7 },
+        startDate: "11/13/1916",
+        endDate: "11/18/1916",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of the Ancre (13–18 November 1916), was fought by the British Fifth Army (Lieutenant-General Hubert Gough), against the German 1st Army (General Fritz von Below). The battle was the last of the big British attacks of the Battle of the Somme; the Reserve Army had been renamed the Fifth Army on 30 October."
+    },
+    {
+        battle: "Battle of Magdhaba",
+        coords: { lat: 30.89, lng: 34.02 },
+        startDate: "12/23/1916",
+        endDate: "12/23/1916",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Magdhaba (officially known by the British as the Affair of Magdhaba) took place on 23 December 1916 during the Defence of Egypt section of the Sinai and Palestine Campaign in the First World War.[1][Note 1] The attack by the Anzac Mounted Division took place against an entrenched Ottoman Army garrison to the south and east of Bir Lahfan in the Sinai desert."
+    },
+    {
+        battle: "Battle of Rafa",
+        coords: { lat: 31.267, lng: 34.223 },
+        startDate: "01/09/1917",
+        endDate: "01/09/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Rafa, also known as the Action of Rafah, was the third and final battle to complete the recapture of the Sinai Peninsula by British forces during the Sinai and Palestine campaign of the First World War. The Desert Column of the Egyptian Expeditionary Force attacked an entrenched Ottoman Army garrison at El Magruntein to the south of Rafah."
+    },
+    {
+        battle: "Second Battle of Kut",
+        coords: { lat: 32.505556, lng: 45.824722 },
+        startDate: "02/23/1917",
+        endDate: "02/23/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Kut was fought on 23 February 1917, between British and Ottoman forces at Kut, Mesopotamia (present-day Iraq). The battle was part of the British advance to Baghdad begun in December 1916 by a 50,000-man British force (mainly from British India) organised in two army corps."
+    },
+    {
+        battle: "Fall of Baghdad",
+        coords: { lat: 33.2208, lng: 44.5064 },
+        startDate: "03/08/1917",
+        endDate: "03/11/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Fall of Baghdad (11 March 1917) occurred during the Mesopotamia Campaign, fought between the forces of the British Indian Army and the Ottoman Empire in the First World War."
+    },
+    {
+        battle: "Battle of Nambanje",
+        coords: { lat: -8.709063, lng: 38.600262 },
+        startDate: "03/13/1917",
+        endDate: "03/13/1917",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Nambanje was a minor engagement between British and German colonial forces during the East African Campaign of World War I. It involved the 1st East African Division and took place on 13 March 1917.[1] Several British units were ordered to attack German forces that had been spotted near Nambanje."
+    },
+    {
+        battle: "Battle of Mount Hamrin",
+        coords: { lat: 35.0325, lng: 43.646389 },
+        startDate: "03/25/1917",
+        endDate: "03/25/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Mount Hamrin was an unsuccessful British effort to cut off part of the Ottoman Sixth Army after the capture of Baghdad during the Mesopotamia campaign during the First World War."
+    },
+    {
+        battle: "First Battle of Gaza",
+        coords: { lat: 31.4893, lng: 34.4737 },
+        startDate: "03/26/1917",
+        endDate: "03/26/1917",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire", "Austro-Hungarian Empire"],
+        battleType: "Ground",
+        description: "The First Battle of Gaza was fought during the first attempt by the Egyptian Expeditionary Force to invade the south of Palestine in the Ottoman Empire during the Sinai and Palestine Campaign of the First World War. Fighting took place in and around the town of Gaza on the Mediterranean coast when infantry and mounted infantry from the Desert Column attacked the town."
+    },
+    {
+        battle: "Battle of Vimy Ridge",
+        coords: { lat: 50.379, lng: 2.774 },
+        startDate: "04/09/1917",
+        endDate: "04/12/1917",
+        allies: ["United Kingdom", "Canada"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Vimy Ridge was part of the Battle of Arras, in the Nord-Pas-de-Calais region of France. The main combatants were the four divisions of the Canadian Corps in the First Army, against three divisions of the German 6th Army. The battle took place from 9 to 12 April 1917 at the beginning of the Battle of Arras, the first attack of the Nivelle Offensive."
+    },
+    {
+        battle: "Battle of Arras",
+        coords: { lat: 50.289722, lng: 2.780833 },
+        startDate: "04/09/1917",
+        endDate: "05/16/1917",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Arras was a British offensive on the Western Front during World War I. From 9 April to 16 May 1917, British troops attacked German defences near the French city of Arras on the Western Front. The British achieved the longest advance since trench warfare had begun, surpassing the record set by the French Sixth Army on 1 July 1916."
+    },
+    {
+        battle: "Nivelle Offensive",
+        coords: { lat: 49.5, lng: 3.5 },
+        startDate: "04/16/1917",
+        endDate: "05/09/1917",
+        allies: ["France", "United Kingdom", "Russian Empire"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Nivelle Offensive (16 April – 9 May 1917), was a Franco-British operation on the Western Front in the First World War. The French part of the offensive was intended to be strategically decisive by breaking through the German defences on the Aisne front within 48 hours, with casualties expected to be around 10,000 men. "
+    },
+    {
+        battle: "Second Battle of Gaza",
+        coords: { lat: 31.4893, lng: 34.4737 },
+        startDate: "04/17/1917",
+        endDate: "04/19/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Gaza was fought between 17 and 19 April 1917, following the defeat of the Egyptian Expeditionary Force (EEF) at the First Battle of Gaza in March, during the Sinai and Palestine Campaign of the First World War. Gaza was defended by the strongly entrenched Ottoman Army garrison, which had been reinforced after the first battle by substantial forces."
+    },
+    {
+        battle: "Battle of Istabulat",
+        coords: { lat: 34.2667, lng: 44.5167 },
+        startDate: "04/21/1917",
+        endDate: "04/21/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Istabulat was a part of the Samarrah Campaign during the First World War occurring when the British Empire attempted to further its strategic position after the capture of Baghdad from the Ottoman Empire."
+    },
+    {
+        battle: "Action of 4 May 1917",
+        coords: { lat: 56, lng: 3 },
+        startDate: "05/04/1917",
+        endDate: "05/04/1917",
+        allies: ["United Kingdom", "Australia"],
+        adversaries: "German Empire",
+        battleType: "Naval",
+        description: "The Action of 4 May 1917 was a naval and air engagement of the First World War in the North Sea. The action took place between the German Zeppelin LZ 92 (tactical name: L.43), several German submarines and a naval force led by the Australian light cruiser HMAS Sydney."
+    },
+    {
+        battle: "Raid on the Beersheba to Hafir el Auja railway",
+        coords: { lat: 26, lng: 30 },
+        startDate: "05/23/1917",
+        endDate: "05/23/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Raid on the Beersheba to Hafir el Auja railway took place on 23 May 1917 after the Second Battle of Gaza and before the Battle of Beersheba during the Stalemate in Southern Palestine in the Sinai and Palestine Campaign of World War I."
+    },
+    {
+        battle: "Battle of Messines",
+        coords: { lat: 50.7625, lng: 2.895278 },
+        startDate: "06/07/1917",
+        endDate: "06/14/1917",
+        allies: ["United Kingdom", "Australia", "Canada", "New Zealand"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Messines (7–14 June 1917) was an attack by the British Second Army, on the Western Front near the village of Messines in West Flanders, Belgium, during the First World War.[a] The Nivelle Offensive in April and May had failed to achieve its more grandiose aims, had led to the demoralisation of French troops and confounded the Anglo-French strategy for 1917."
+    },
+    {
+        battle: "Battle of Mount Ortigara",
+        coords: { lat: 46.445556, lng: 11.173056 },
+        startDate: "06/10/1917",
+        endDate: "06/25/1917",
+        allies: "Kingdom of Italy",
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Battle of Mount Ortigara was fought from 10 to 25 June 1917 between the Italian and Austro-Hungarian armies for possession of Mount Ortigara, in the Asiago Plateau."
+    },
+    {
+        battle: "Battle of Zboriv",
+        coords: { lat: 49.666667, lng: 25.15 },
+        startDate: "07/01/1917",
+        endDate: "07/02/1917",
+        allies: ["Czechoslovak Legions", "Russian Empire"],
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Battle of Zborov was a part of the Kerensky Offensive (the last Russian offensive in World War I, taking place in July 1917). The battle was the first significant action of the Czechoslovak Legions (volunteers fighting against the Central Powers) on the Eastern Front and the only successful engagement of the failed Russian offensive."
+    },
+    {
+        battle: "Battle of Aqaba",
+        coords: { lat: 29.531944, lng: 35.005556 },
+        startDate: "07/06/1917",
+        endDate: "07/06/1917",
+        allies: ["Hejaz", "British Empire"],
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Aqaba (6 July 1917) was fought for the Red Sea port of Aqaba (now in Jordan) during the Arab Revolt of World War I. The attacking forces, led by Auda abu Tayi and advised by T. E. Lawrence ('Lawrence of Arabia'), were victorious over the Ottoman Empire defenders."
+    },
+    {
+        battle: "Battle of Kiawe Bridge",
+        coords: { lat: -1.25825, lng: 36.64875 },
+        startDate: "07/29/1917",
+        endDate: "07/29/1917",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Kiawe Bridge was fought during the East African Campaign of World War I."
+    },
+    {
+        battle: "Battle of Passchendaele",
+        coords: { lat: 50.900278, lng: 3.021111 },
+        startDate: "07/31/1917",
+        endDate: "11/10/1917",
+        allies: ["British Empire", "France", "Belgium"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "Also Known as 'The Third Battle of Ypres', it was a campaign of the First World War, fought by the Allies against the German Empire. The battle took place on the Western Front for control of the ridges south and east of the Belgian city of Ypres in West Flanders, as part of a strategy decided by the Allies at conferences in November 1916 and May 1917."
+    },
+    {
+        battle: "Battle of Pilckem Ridge",
+        coords: { lat: 50.916667, lng: 2.916667 },
+        startDate: "07/31/1917",
+        endDate: "08/02/1917",
+        allies: ["United Kingdom", "New Zealand", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Pilckem Ridge was the opening attack of the Third Battle of Ypres in WW1. The British Fifth Army, supported by the Second Army on the southern flank and the French 1reArmée (First Army) on the northern flank, attacked the German 4th Army, which defended the Western Front from Lille northwards to the Ypres Salient in Belgium and on to the North Sea coast."
+    },
+    {
+        battle: "Battle of Langemarck",
+        coords: { lat: 50.916667, lng: 2.916667 },
+        startDate: "08/16/1917",
+        endDate: "08/18/1917",
+        allies: ["United Kingdom", "Newfoundland", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Langemarck was the second Anglo-French general attack of the Third Battle of Ypres. The battle took place near Ypres in Belgian Flanders, on the Western Front against the Germans. The French had a big success on the northern flank from Bixschoote to Drie Grachten and the British gained a lot of ground northwards from Langemark to the boundary with the French."
+    },
+    {
+        battle: "Battle of Megiddo",
+        coords: { lat: 32.4, lng: 34.883 },
+        startDate: "09/19/1917",
+        endDate: "09/25/1917",
+        allies: ["British Empire", "Hejaz", "France"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Megiddo (Turkish: Megiddo Muharebesi) also known in Turkish as the Nablus Hezimeti ('Rout of Nablus'), or the Nablus Yarması ('Breakthrough at Nablus') was fought between 19 and 25 September 1918, on the Plain of Sharon, in front of Tulkarm, Tabsor and Arara in the Judean Hills as well as on the Esdralon Plain at Nazareth, Afulah, Beisan, Jenin and Samakh."
+    },
+    {
+        battle: "Battle of the Menin Road Ridge",
+        coords: { lat: 50.900278, lng: 3.016667 },
+        startDate: "09/20/1917",
+        endDate: "09/26/1917",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of the Menin Road Ridge, sometimes called 'Battle of the Menin Road', was the third British general attack of the Third Battle of Ypres in the First World War. The battle took place from 20 to 25 September 1917, in the Ypres Salient in Belgium on the Western Front."
+    },
+    {
+        battle: "Battle of Broodseinde",
+        coords: { lat: 50.851944, lng: 2.890556 },
+        startDate: "10/04/1917",
+        endDate: "10/04/1917",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Broodseinde was fought near Ypres, at the east end of the Gheluvelt plateau, by the British Second and Fifth armies against the German 4th Army. The battle was the most successful Allied attack of the Third Battle of Ypres. The British devastated the German defence, which prompted a crisis among the German commanders and caused a severe loss of morale."
+    },
+    {
+        battle: "Battle of Poelcappelle",
+        coords: { lat: 50.922, lng: 2.963 },
+        startDate: "10/09/1917",
+        endDate: "10/09/1917",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Poelcappelle was fought in Flanders, by the British Second Army and Fifth Army against the German 4th Army, during the First World War. The battle marked the end of the string of highly successful British attacks in late September and early October, during the Third Battle of Ypres. Only the supporting attack in the north achieved a substantial advance."
+    },
+    {
+        battle: "Battle of Wadi Musa",
+        coords: { lat: 30.32, lng: 35.478333 },
+        startDate: "10/23/1917",
+        endDate: "10/23/1917",
+        allies: "Hejaz",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Wadi Musa was a battle fought between the Arab Army and the Ottoman Empire during the Arab Revolt of 1916–1918. The battle began when General Djemal Pasha ordered his forces to secure the Hejaz Railway by 'any and all means'. The Ottoman Army at Ma'an was sent to deal with the North Arab Army."
+    },
+    {
+        battle: "Battle of Caporetto",
+        coords: { lat: 46.214444, lng: 13.6425 },
+        startDate: "10/24/1917",
+        endDate: "11/19/1917",
+        allies: "Kingdom of Italy",
+        adversaries: ["German Empire", "Austro-Hungarian Empire"],
+        battleType: "Ground",
+        description: "The Battle of Caporetto (also known as the Twelfth Battle of the Isonzo, the Battle of Kobarid or the Battle of Karfreit) was a battle on the Italian front. The battle was fought between the Kingdom of Italy and the Central Powers and took place from 24 October to 19 November 1917, near the town of Kobarid (now in north-western Slovenia, then part of the Austrian Littoral)."
+    },
+    {
+        battle: "Second Battle of Passchendaele",
+        coords: { lat: 50.900278, lng: 3.021111 },
+        startDate: "10/26/1917",
+        endDate: "11/10/1917",
+        allies: ["British Empire", "France", "Belgium"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Passchendaele was the culminating attack during the Third Battle of Ypres of the First World War. The battle took place in the Ypres Salient area of the Western Front, in and around the Belgian village of Passchendaele, between 26 October and 10 November 1917."
+    },
+    {
+        battle: "Battle of Beersheba",
+        coords: { lat: 31.249722, lng: 34.799722 },
+        startDate: "10/31/1917",
+        endDate: "10/31/1917",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Beersheba (Turkish: Birüssebi Muharebesi, German: Schlacht von Birüssebi) was fought on 31 October 1917, when the British Empire's Egyptian Expeditionary Force (EEF) attacked and captured the Yildirim Army Group garrison at Beersheba, beginning the Southern Palestine Offensive of the Sinai and Palestine campaign of World War I."
+    },
+    {
+        battle: "Third Battle of Gaza",
+        coords: { lat: 31.4893, lng: 34.4737 },
+        startDate: "11/01/1917",
+        endDate: "11/02/1917",
+        allies: ["British Empire", "France", "Kingdom of Italy"],
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Third Battle of Gaza was fought on the night of 1 November 1917 between British and Ottoman forces during the Sinai and Palestine Campaign of World War I and came after the British Egyptian Expeditionary Force (EEF) victory at the Battle of Beersheba had ended the Stalemate in Southern Palestine. The fighting occurred at the beginning of the Southern Palestine Offensive."
+    },
+    {
+        battle: "Battle of Tel el Khuweilfe",
+        coords: { lat: 31.666667, lng: 35.166667 },
+        startDate: "11/01/1917",
+        endDate: "11/06/1917",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Tel el Khuweilfe, part of the Southern Palestine Offensive, began on 1 November 1917, the day after the Egyptian Expeditionary Force (EEF) victory at the Battle of Beersheba during the Sinai and Palestine Campaign of World War I. "
+    },
+    {
+        battle: "Battle of Hareira and Sheria",
+        coords: { lat: 31.382117, lng: 34.606522 },
+        startDate: "11/06/1917",
+        endDate: "11/07/1917",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Hareira and Sheria was fought on 6–7 November 1917 when the Egyptian Expeditionary Force attacked and captured the Yildirim Army Group's defensive systems protecting Hareira and Sheria in the centre of the Gaza to Beersheba line, during the Southern Palestine Offensive of the Sinai and Palestine Campaign in World War I."
+    },
+    {
+        battle: "Battle of Mughar Ridge",
+        coords: { lat: 31.258889, lng: 34.799722 },
+        startDate: "11/13/1917",
+        endDate: "11/13/1917",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Mughar Ridge, officially known by the British as the Action of El Mughar, took place during the Pursuit phase of the Southern Palestine Offensive of the Sinai and Palestine Campaign. Fighting between the advancing Egyptian Expeditionary Force and the retreating Yildirim Army Group, occurred after the Battle of Beersheba and the Third Battle of Gaza."
+    },
+    {
+        battle: "Battle of Ayun Kara",
+        coords: { lat: 31.948333, lng: 34.775556 },
+        startDate: "11/14/1917",
+        endDate: "11/14/1917",
+        allies: "New Zealand",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Ayun Kara (14 November 1917) was an engagement in the Sinai and Palestine Campaign during the First World War. The battle was fought between the New Zealand Mounted Rifles Brigade and a similar-sized rearguard from the Turkish 3rd Infantry Division, which was part of the XXII Corps of the Ottoman Eighth Army under Kress von Kressenstein."
+    },
+    {
+        battle: "Second Battle of Heligoland Bight",
+        coords: { lat: 54.166667, lng: 8.066667 },
+        startDate: "11/17/1917",
+        endDate: "11/17/1917",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Heligoland Bight, also the Action in the Helgoland Bight and the Zweiten Seeschlacht bei Helgoland, was an inconclusive naval engagement fought between British and German squadrons on 17 November 1917 during the First World War."
+    },
+    {
+        battle: "Battle of Cambrai",
+        coords: { lat: 50.176667, lng: 3.235556 },
+        startDate: "11/20/1917",
+        endDate: "12/07/1917",
+        allies: ["United Kingdom", "India", "France", "United States"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Cambrai (Battle of Cambrai, 1917, First Battle of Cambrai and Schlacht von Cambrai) was a British attack followed by the biggest German counter-attack against the British Expeditionary Force (BEF) since 1914, in the First World War. The town of Cambrai, in the département of Nord, was an important supply point for the German Siegfriedstellung (Hindendburg)."
+    },
+    {
+        battle: "Battle of Ngomano",
+        coords: { lat: -11.428333, lng: 38.493611 },
+        startDate: "11/25/1917",
+        endDate: "11/25/1917",
+        allies: "Portugal",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Ngomano or Negomano was fought between Germany and Portugal during the East African Campaign of World War I. A force of Germans and Askaris under Paul Emil von Lettow-Vorbeck had recently won a costly victory against the British at the Battle of Mahiwa, in present-day Tanzania and ran very short of food and other supplies."
+    },
+    {
+        battle: "Battle of Polygon Wood",
+        coords: { lat: 50.851944, lng: 2.985278 },
+        startDate: "09/26/1917",
+        endDate: "10/03/1917",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Polygon Wood took place from 26 September to 3 October 1917, during the second phase of the Third Battle of Ypres in the First World War. The battle was fought near Ypres in Belgium, in the area from the Menin road to Polygon Wood and thence north, to the area beyond St Julien."
+    },
+    {
+        battle: "Battle of Buqqar Ridge",
+        coords: { lat: 31.2036, lng: 34.535097 },
+        startDate: "10/27/1917",
+        endDate: "10/27/1917",
+        allies: "British Empire",
+        adversaries: ["Ottoman", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of el Buqqar Ridge took place on 27 October 1917, when one infantry regiment and cavalry troops of the Yildirim Army Group, attacked the 8th Mounted Brigade of the Egyptian Expeditionary Force (EEF) in the last days of the stalemate in Southern Palestine during the Sinai and Palestine campaign of World War I."
+    },
+    {
+        battle: "Battle of Jerusalem",
+        coords: { lat: 31.783333, lng: 35.216667 },
+        startDate: "11/17/1917",
+        endDate: "12/30/1917",
+        allies: "British Empire",
+        adversaries: ["Ottoman", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Jerusalem occurred during the British Empire's 'Jerusalem Operations' against the Ottoman Empire, in World War I, when fighting for the city developed from 17 November, continuing after the surrender until 30 December 1917, to secure the final objective of the Southern Palestine Offensive during the Sinai and Palestine Campaign of World War I."
+    },
     // {
     //     battle: "B",
-    //     coords: { lat: 1, lng: 1 },
-    //     startDate: "09/25/1915",
-    //     endDate: "10/08/1915",
+    //     coords: { lat: 5, lng: 3 },
+    //     startDate: "11/20/1917",
+    //     endDate: "11/26/1917",
     //     allies: "British Empire",
     //     adversaries: "German Empire",
     //     battleType: "Ground",
-    //     description: "B" 
+    //     description: "B"
     // },
 ];
 
