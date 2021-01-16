@@ -5,22 +5,6 @@ const weekStep = 604800000;
 const monthStep = 2654848607;
 const tmonthStep = 7964545823;
 
-$("#day").click(function() {
-  $("#slider").attr("step", dayStep);
-});
-
-$("#week").click(function() {
-  $("#slider").attr("step", weekStep);
-});
-
-$("#month").click(function() {
-  $("#slider").attr("step", monthStep);
-});
-
-$("#tmonth").click(function() {
-  $("#slider").attr("step", tmonthStep);
-});
-
 let locations = [];
 let slider = document.getElementById("slider");
 let year = document.getElementById("year");
@@ -486,49 +470,425 @@ let wws = [
         battleType: "Ground",
         description: "The Battle of the Falkland Islands was a First World War naval action between the British Royal Navy and Imperial German Navy. The British, after their defeat at the Battle of Coronel on 1 November, sent a large force to track down and destroy the German cruiser squadron. The battle is commemorated every year on 8 December in the Falkland Islands as a public holiday."
     },
+    {
+        battle: "Second Battle of Edea",
+        coords: { lat: 3.8, lng: 10.133333 },
+        startDate: "05/01/1915",
+        endDate: "05/01/1915",
+        allies: "France",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Edea was the German counter-attack against French forces stationed in the village of Edea during the Kamerun Campaign of the First World War. Allied forces from Duala occupied the town following the First Battle of Edea in October 1914. The Germans, eager to retake the position attacked on 5 January 1915 but were repulsed by the French force."
+    },
+    {
+        battle: "Battle of Jassin",
+        coords: { lat: -4.6814, lng: 39.1847 },
+        startDate: "01/18/1915",
+        endDate: "01/19/1915",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Jassin (also known as the Battle of Yasin, the Battle of Jasin, the Battle of Jasini[1] or the Battle of Jassini)[2] [3] was a World War I battle that took place on 18– 19 January 1915 at Jassin on the German East African side of the border with British East Africa between a German Schutztruppe force and British and Indian troops."
+    },
+    {
+        battle: "Battle of Dogger Bank",
+        coords: { lat: 54.557778, lng: 5.463889 },
+        startDate: "01/24/1915",
+        endDate: "01/24/1915",
+        allies: "United Kingdom",
+        adversaries: "German Empire",
+        battleType: "Naval",
+        description: "The Battle of Dogger Bank was a naval engagement, between squadrons of the British Grand Fleet and the Kaiserliche Marine (High Seas Fleet). The British had intercepted and decoded German wireless transmissions, gaining advance knowledge that a German raiding squadron was heading for Dogger Bank and ships of the Grand Fleet sailed to intercept the raiders."
+    },
+    {
+        battle: "Raid on the Suez Canal",
+        coords: { lat: 30.705, lng: 32.344167 },
+        startDate: "01/26/1915",
+        endDate: "02/04/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Raid on the Suez Canal, also known as Actions on the Suez Canal, took place between 26 January and 4 February 1915 when a German-led Ottoman Army force advanced from Southern Palestine to attack the British Empire-protected Suez Canal, marking the beginning of the Sinai and Palestine Campaign (1915-1918) of World War I (1914-1918)."
+    },
+    {
+        battle: "Battle of Battle of Bolimów",
+        coords: { lat: 52.076389, lng: 20.163056 },
+        startDate: "01/31/1915",
+        endDate: "01/31/1915",
+        allies: "Russian Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Bolimów was an inconclusive battle of World War I fought on January 31, 1915 between Germany and Russia and considered a preliminary to the Second Battle of the Masurian Lakes."
+    },
+    {
+        battle: "Battle of Kakamas",
+        coords: { lat: -28.8, lng: 20.65 },
+        startDate: "02/04/1915",
+        endDate: "02/04/1915",
+        allies: "South Africa",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The battle of Kakamas took place in Kakamas, Northern Cape Province of South Africa on 4 February 1915. It was a skirmish for control of two river fords over the Orange River between contingents of a German invasion force and South African armed forces. The South Africans succeed in preventing the Germans gaining control of the fords and crossing the river."
+    },
+    {
+        battle: "Second Battle of the Masurian Lakes",
+        coords: { lat: 54, lng: 22 },
+        startDate: "02/07/1915",
+        endDate: "02/22/1915",
+        allies: "Russian Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of the Masurian Lakes, also known as the Winter Battle of the Masurian Lakes, was the northern part of the Central Powers' offensive on the Eastern Front in the winter of 1915. The offensive was intended to advance beyond the Vistula River and perhaps knock Russia out of the war."
+    },
+    {
+        battle: "Gallipoli campaign",
+        coords: { lat: 40.366667, lng: 26.45 },
+        startDate: "02/17/1915",
+        endDate: "01/09/1916",
+        allies: ["British Empire", "France", "Russian Empire"],
+        adversaries: ["Ottoman Empire", "German Empire", "Austro-Hungarian Empire"],
+        battleType: "Ground",
+        description: "The Gallipoli campaign was a military campaign in the First World War that took place on the Gallipoli peninsula (Gelibolu in modern Turkey), from 17 February 1915 to 9 January 1916. The Entente powers, Britain, France and Russia, sought to weaken the Ottoman Empire, one of the Central Powers, by taking control of the Turkish straits."
+    },
+    {
+        battle: "Naval operations in the Dardanelles campaign",
+        coords: { lat: 40.2, lng: 26.4 },
+        startDate: "02/19/1915",
+        endDate: "03/18/1915",
+        allies: ["United Kingdom", "France", "Russian Empire"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Naval",
+        description: "The naval operations in the Dardanelles campaign took place against the Ottoman Empire during the First World War. Ships of the Royal Navy, French Marine nationale, Imperial Russian Navy and the Royal Australian Navy, attempted to force the Dardanelles Straits, a narrow waterway connecting the Mediterranean Sea with the Sea of Marmara and the Black Sea further north."
+    },
+    {
+        battle: "Battle of Hill 60",
+        coords: { lat: 50.821389, lng: 2.931667 },
+        startDate: "04/17/1915",
+        endDate: "05/07/1915",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Hill 60 took place near Hill 60 south of Ypres on the Western Front, during the First World War. Hill 60 had been captured by the German 30th Division, during the First Battle of Ypres. Initial French preparations to raid the hill were continued by the British 28th Division, which took over the line in February 1915 and then by the 5th Division."
+    },
+    {
+        battle: "Second Battle of Ypres",
+        coords: { lat: 50.899444, lng: 2.940556 },
+        startDate: "04/22/1915",
+        endDate: "05/25/1915",
+        allies: ["British Empire", "France", "Belgium"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "During the First World War, the Second Battle of Ypres was fought from 22 April – 25 May 1915 for control of the strategic Flemish town of Ypres in western Belgium. The First Battle of Ypres had been fought the previous autumn. The Second Battle of Ypres was the first mass use by Germany of poison gas on the Western Front."
+    },
+    {
+        battle: "Landing at Cape Helles",
+        coords: { lat: 40.0431, lng: 26.1753 },
+        startDate: "04/25/1915",
+        endDate: "04/26/1915",
+        allies: ["United Kingdom", "France"],
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The landing at Cape Helles was part of the amphibious invasion of the Gallipoli peninsula by British and French forces on 25 April 1915. Helles, at the foot of the peninsula, was the main landing area. With the support of the guns of the Royal Navy, the 29th Division was to advance along the peninsula on the first day and seize the heights of Achi Baba."
+    },
+    {
+        battle: "Landing at Anzac Cove",
+        coords: { lat: 40.246111, lng: 26.277778 },
+        startDate: "04/25/1915",
+        endDate: "04/25/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The landing at Anzac Cove on Sunday, 25 April 1915, also known as the landing at Gaba Tepe, and to the Turks as the Arıburnu Battle, was part of the amphibious invasion of the Gallipoli Peninsula by the forces of the British Empire, which began the land phase of the Gallipoli Campaign of the First World War."
+    },
+    {
+        battle: "Battle of Trekkopjes",
+        coords: { lat: -22.293, lng: 15.103 },
+        startDate: "04/26/1915",
+        endDate: "04/26/1915",
+        allies: "South Africa",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Trekkopjes on 26 April 1915 was a German assault on the South African held town of Trekkopjes during the South West Africa Campaign of World War I. The South African Major Skinner had been ordered to defend Trekkopjes, and came into contact with a German column advancing on that town. Skinner withdrew back into Trekkopjes and dug in his forces."
+    },
+    {
+        battle: "First Battle of Krithia",
+        coords: { lat: 40.0431, lng: 26.1753 },
+        startDate: "04/28/1915",
+        endDate: "04/28/1915",
+        allies: ["United Kingdom", "France"],
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The First Battle of Krithia was the first Allied attempt to advance in the Battle of Gallipoli. Starting on 28 April, three days after the Landing at Cape Helles, the defensive power of the Ottoman forces quickly overwhelmed the attack, which suffered from poor leadership and planning, lack of communications and exhaustion and demoralisation of the troops."
+    },
+    {
+        battle: "Battle of Gurin",
+        coords: { lat: 9.114889, lng: 12.877278 },
+        startDate: "04/29/1915",
+        endDate: "04/29/1915",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Gurin took place on 29 April 1915 during the Kamerun Campaign of World War I in Gurin, British Nigeria near the border with German Kamerun. The battle was one of the largest of the German forays into the British colony. It ended in a successful British repulsion of the German force."
+    },
+    {
+        battle: "Battle for Baby 700",
+        coords: { lat: 40.246121, lng: 26.277788 },
+        startDate: "05/02/1915",
+        endDate: "05/03/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle for Baby 700 (2/3 May 1915), was an engagement fought during the Gallipoli Campaign of the First World War, between the forces of the British Empire and the Ottoman Turkish Empire. On 25 April 1915, the Australian and New Zealand Army Corps (ANZAC), conducted an amphibious landing on the Gallipoli Peninsula."
+    },
+    {
+        battle: "Second Battle of Krithia",
+        coords: { lat: 40.078889, lng: 26.203889 },
+        startDate: "05/06/1915",
+        endDate: "05/08/1915",
+        allies: ["British Empire", "France"],
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Krithia continued the Allies' attempts to advance on the Helles battlefield during the Battle of Gallipoli of the First World War. The village of Krithia and neighbouring hill of Achi Baba had to be captured in order for the British to advance up the Gallipoli peninsula to the forts that controlled passage of the Dardanelles straits."
+    },
+    {
+        battle: "Third attack on Anzac Cove",
+        coords: { lat: 40.246131, lng: 26.277798 },
+        startDate: "05/19/1915",
+        endDate: "05/19/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The third attack on Anzac Cove (19 May 1915) was an engagement during the Gallipoli Campaign of the First World War. The attack was conducted by the forces of the Ottoman Turkish Empire, against the forces of the British Empire defending the cove."
+    },
+    {
+        battle: "Second Battle of Garua",
+        coords: { lat: 9.3, lng: 13.4 },
+        startDate: "05/31/1915",
+        endDate: "06/10/1915",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Garua took place from 31 May to 10 June 1915 during the Kamerun campaign of the First World War in Garua, German Kamerun. The battle was between a combined French and British force and defending German garrison and resulted in an Allied victory."
+    },
+    {
+        battle: "Second attack on Anzac Cove",
+        coords: { lat: 40.367222, lng: 26.455 },
+        startDate: "04/27/1915",
+        endDate: "04/27/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The second attack on ANZAC Cove (27 April 1915) was an engagement during the Gallipoli Campaign of the First World War. The attack was conducted by the forces of the Ottoman Turkish Empire, against the forces of the British Empire defending the cove."
+    },
+    {
+        battle: "Third Battle of Krithia",
+        coords: { lat: 40.078889, lng: 26.203889 },
+        startDate: "06/04/1915",
+        endDate: "06/04/1915",
+        allies: ["British Empire", "France"],
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Third Battle of Krithia, fought on the Gallipoli peninsula, was the last in a series of Allied attacks against the Ottoman defences aimed at achieving the original objectives of 25 April 1915. The previous failures in the first and second battles resulted in a less ambitious plan being developed for the attack, but the outcome was another costly failure for the Allies."
+    },
+    {
+        battle: "Battle of Bukoba",
+        coords: { lat: -1.333333, lng: 31.816667 },
+        startDate: "06/21/1915",
+        endDate: "06/23/1915",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Bukoba was the first victory for Entente forces in German East Africa, coming after the disastrous battles of Tanga and Jassin. The British objective was the destruction of the Bukoba wireless station. Due to Bukoba's location on the shore of Lake Victoria, it was decided that the raid should take the form of an amphibious assault."
+    },
+    {
+        battle: "Battle of Gully Ravine",
+        coords: { lat: 40.078333, lng: 26.188611 },
+        startDate: "06/28/1915",
+        endDate: "07/05/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Gully Ravine was a WWI battle fought at Cape Helles on the Gallipoli peninsula. By June 1915 all thoughts the Allies had of a swift decisive victory over the Ottoman Empire had vanished. The preceding Third Battle of Krithia and the attack at Gully Ravine had limited objectives and had much in common with the trench warfare prevailing on the Western Front."
+    },
+    {
+        battle: "First Battle of the Isonzo",
+        coords: { lat: 45.9425, lng: 13.6025 },
+        startDate: "06/23/1915",
+        endDate: "07/07/1915",
+        allies: "Kingdom of Italy",
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The First Battle of the Isonzo was fought between the Armies of Italy and Austria-Hungary on the Italian Front in World War I, between 23 June and 7 July 1915. The aim of the Italian Army was to drive the Austrians away from its defensive positions along the Isonzo (Soča) and on the nearby mountains."
+    },
+    {
+        battle: "Second Battle of the Isonzo",
+        coords: { lat: 45.863333, lng: 13.528056 },
+        startDate: "07/18/1915",
+        endDate: "08/03/1915",
+        allies: "Kingdom of Italy",
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Second Battle of the Isonzo was fought between the armies of the Kingdom of Italy and of Austria-Hungary in the Italian Front in World War I, between 18 July and 3 August 1915." 
+    },
+    {
+        battle: "Battle of Chunuk Bair",
+        coords: { lat: 40.252, lng: 26.3085 },
+        startDate: "08/07/1915",
+        endDate: "08/19/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Chunuk Bair (Turkish: Conk Bayırı Muharebesi) was a World War I battle fought between the Ottoman defenders and troops of the British Empire over control of the peak in August 1915. The capture of Chunuk Bair, (Turkish: Çanak Bayır Basin Slope, now Conk Bayırı), the secondary peak of the Sari Bair range, was one of the two objectives of the Battle of Sari Bair." 
+    },
+    {
+        battle: "Battle of Lone Pine",
+        coords: { lat: 40.230278, lng: 26.287222 },
+        startDate: "08/06/1915",
+        endDate: "08/10/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Lone Pine (also known as the Battle of Kanlı Sırt) was fought between Australian and New Zealand Army Corps (ANZAC) and Ottoman Empire[Note 2] forces during the Gallipoli Campaign of the First World War, between 6 and 10 August 1915. The battle was part of a diversionary attack to draw Ottoman attention away from the main assaults being conducted by British." 
+    },
+    {
+        battle: "Battle of Krithia Vineyard",
+        coords: { lat: 40.078, lng: 26.216 },
+        startDate: "08/06/1915",
+        endDate: "08/13/1915",
+        allies: "United Kingdom",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Krithia Vineyard was fought during the Gallipoli Campaign. It was intended as a minor British action at Helles on the Gallipoli peninsula to divert attention from the imminent launch of the August Offensive, but instead, the British commander mounted a futile and bloody series of attacks that in the end gained a small patch of ground known as 'The Vineyard'." 
+    },
+    {
+        battle: "Landing at Suvla Bay",
+        coords: { lat: 40.305278, lng: 26.228333 },
+        startDate: "08/06/1915",
+        endDate: "08/15/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The landing at Suvla Bay was an amphibious landing made at Suvla on the Aegean coast of the Gallipoli peninsula in the Ottoman Empire as part of the August Offensive, the final British attempt to break the deadlock of the Battle of Gallipoli. The landing was intended to support a breakout from the ANZAC sector, five miles (8 km) to the south." 
+    },
+    {
+        battle: "Battle of the Nek",
+        coords: { lat: 40.2414, lng: 26.288385 },
+        startDate: "08/07/1915",
+        endDate: "08/07/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of the Nek was a minor battle that took place on 7 August 1915, during the Gallipoli campaign of World War I. 'The Nek' was a narrow stretch of ridge on the Gallipoli Peninsula. The name derives from the Afrikaans word for a 'mountain pass' but the terrain itself was a perfect bottleneck and easy to defend, as had been proven during an Ottoman attack in June." 
+    },
+    {
+        battle: "Battle of Scimitar Hill",
+        coords: { lat: 40.3031, lng: 26.23 },
+        startDate: "08/21/1915",
+        endDate: "08/21/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Scimitar Hill was the last offensive mounted by the British at Suvla during the Battle of Gallipoli in World War I. It was also the largest single-day attack ever mounted by the Allies at Gallipoli, involving three divisions. The purpose of the attack was to remove the immediate Ottoman threat from the exposed Suvla landing." 
+    },
+    {
+        battle: "Battle of Hill 60 (Gallipoli)",
+        coords: { lat: 40.2726, lng: 26.2931 },
+        startDate: "08/22/1915",
+        endDate: "08/29/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Hill 60 was the last major assault of the Gallipoli Campaign. It was launched on 21 August 1915 to coincide with the attack on Scimitar Hill made from the Suvla front by Major-General Frederick Stopford having been replaced in the few days previous. Hill 60 was a low knoll at the northern end of the Sari Bair range which dominated the Suvla landing." 
+    },
+    {
+        battle: "Battle of Loos",
+        coords: { lat: 50.458333, lng: 2.794167 },
+        startDate: "09/25/1915",
+        endDate: "10/08/1915",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Loos took place from 25 September – 8 October 1915 in France on the Western Front. It was the biggest British attack of 1915, the first time that the British used poison gas and the first mass engagement of New Army units. The French and British tried to break through the German defences in Artois and Champagne and restore a war of movement." 
+    },
+    {
+        battle: "Battle of Es Sinn",
+        coords: { lat: 33.9414, lng: 41.17626 },
+        startDate: "09/28/1915",
+        endDate: "09/28/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Es Sinn between Anglo-Indian and Ottoman forces took place on 28 September 1915, during the Mesopotamian Campaign. The sides fought to determine control of the lower Tigres and Euphrates rivers, in what is now Iraq. The British and Indian governments also viewed it as a test of the Ottoman forces, and whether a further advance to capture Baghdad was possible." 
+    },
+    {
+        battle: "Third Battle of the Isonzo",
+        coords: { lat: 45.856667, lng: 13.400278 },
+        startDate: "10/18/1915",
+        endDate: "11/04/1915",
+        allies: "Kingdom of Italy",
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Third Battle of the Isonzo was fought from 18 October through 4 November 1915 between the armies of Italy and Austria-Hungary. The first move was made in Italy, on the eastern sector; because this was their third attack that year, it was named as the Third Battle of the Isonzo (as the previous two were named the First and Second Battles of the Isonzo)." 
+    },
+    {
+        battle: "Battle of Banjo",
+        coords: { lat: 6.775, lng: 11.818333 },
+        startDate: "11/04/1915",
+        endDate: "11/06/1915",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "During the Battle of Banjo, British forces besieged German forces entrenched on the Banjo mountain from 4 to 6 November 1915 during the Kamerun campaign of the First World War. By 6 November much of the German force had deserted, while the rest surrendered. The battle resulted in victory for the Allies and breakdown of German resistance in northern Kamerun." 
+    },
+    {
+        battle: "Battle of Ctesiphon",
+        coords: { lat: 33.093611, lng: 44.5805561 },
+        startDate: "11/22/1915",
+        endDate: "11/25/1915",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Battle of Ctesiphon was fought by the British Empire and British India, against the Ottoman Empire, within the Mesopotamian Campaign of World War I. Indian Expeditionary Force D, mostly made up of Indian units and under the command of Gen. Sir John Nixon, had met with success in Mesopotamia since landing at Al Faw upon the Ottoman Empire's Declaration of War." 
+    },
+    {
+        battle: "Siege of Kut",
+        coords: { lat: 32.505556, lng: 45.824722 },
+        startDate: "12/07/1915",
+        endDate: "04/29/1916",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Siege",
+        description: "The siege of Kut Al Amara, 'the First Battle of Kut', was the besieging of an 8,000 strong British Army garrison in the town of Kut, 160 kilometres south of Baghdad, by the Ottoman Army. In 1915, its population was around 6,500. Following the surrender of the garrison on 29 April 1916, the survivors of the siege were marched to imprisonment at Aleppo, during which many died." 
+    },
     // {
-    //     battle: "Battle of ",
+    //     battle: "B",
     //     coords: { lat: 1, lng: 1 },
-    //     startDate: "11/03/1914",
-    //     endDate: "11/05/1914",
+    //     startDate: "09/25/1915",
+    //     endDate: "10/08/1915",
     //     allies: "British Empire",
     //     adversaries: "German Empire",
     //     battleType: "Ground",
-    //     description: "1"
-    // },
-    // {
-    //     battle: "Battle of ",
-    //     coords: { lat: 1, lng: 1 },
-    //     startDate: "11/03/1914",
-    //     endDate: "11/05/1914",
-    //     allies: "British Empire",
-    //     adversaries: "German Empire",
-    //     battleType: "Ground",
-    //     description: "1"
-    // },
-    // {
-    //     battle: "Battle of ",
-    //     coords: { lat: 1, lng: 1 },
-    //     startDate: "11/03/1914",
-    //     endDate: "11/05/1914",
-    //     allies: "British Empire",
-    //     adversaries: "German Empire",
-    //     battleType: "Ground",
-    //     description: "1"
-    // },
-    // {
-    //     battle: "Battle of ",
-    //     coords: { lat: 1, lng: 1 },
-    //     startDate: "11/03/1914",
-    //     endDate: "11/05/1914",
-    //     allies: "British Empire",
-    //     adversaries: "German Empire",
-    //     battleType: "Ground",
-    //     description: "1"
+    //     description: "B" 
     // },
 ];
 
-slider.addEventListener('input', function () {
+$("#day").click(function() {
+  $("#slider").attr("step", dayStep);
+});
+
+$("#week").click(function() {
+  $("#slider").attr("step", weekStep);
+});
+
+$("#month").click(function() {
+  $("#slider").attr("step", monthStep);
+});
+
+$("#tmonth").click(function() {
+  $("#slider").attr("step", tmonthStep);
+});
+
+slider.addEventListener('mouseup', function () {
     let sliderDif = parseInt(slider.value);
     let dateShown = (1749252879000 - sliderDif) * (-1);
     console.log(dateShown);
@@ -602,16 +962,21 @@ function initMap() {
     });
 
     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
     var markers = locations.map(function (location, i) {
         return new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
             position: location,
-            label: labels[i % labels.length]
-        })
+            // label: labels[i % labels.length],
+            icon: image,
+            // map: map,
+            // collisionBehavior: google.maps.CollisionBehavior.REQUIRED,
+        });
     });
 
     new MarkerClusterer(map, markers, {
-        gridSize: 1,
+        gridSize: 0.000000000000000001,
         imagePath:
             "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
