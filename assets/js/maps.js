@@ -1,9 +1,10 @@
-document.write('<div><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="86400000" value="0" /></div><br> <div id="map"></div></div>');
+document.write('<div><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" /></div><br> <div id="map"></div></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
 const monthStep = 2654848607;
 const tmonthStep = 7964545823;
+const smonthStep = 15929091646;
 
 let locations = [];
 let slider = document.getElementById("slider");
@@ -12,7 +13,7 @@ let year = document.getElementById("year");
 let wws = [
     {
         battle: "Battle of Liege",
-        coords: { lat: 50.473889, lng:  5.572222},
+        coords: { lat: 50.473889, lng: 5.572222 },
         startDate: "08/04/1914",
         endDate: "08/17/1914",
         allies: "Belgium",
@@ -612,7 +613,7 @@ let wws = [
     },
     {
         battle: "First Battle of Krithia",
-        coords: { lat: 40.0431, lng: 26.1753 },
+        coords: { lat: 40.05, lng: 26.1753 },
         startDate: "04/28/1915",
         endDate: "04/28/1915",
         allies: ["United Kingdom", "France"],
@@ -728,7 +729,7 @@ let wws = [
         allies: "Kingdom of Italy",
         adversaries: "Austro-Hungarian Empire",
         battleType: "Ground",
-        description: "The Second Battle of the Isonzo was fought between the armies of the Kingdom of Italy and of Austria-Hungary in the Italian Front in World War I, between 18 July and 3 August 1915." 
+        description: "The Second Battle of the Isonzo was fought between the armies of the Kingdom of Italy and of Austria-Hungary in the Italian Front in World War I, between 18 July and 3 August 1915."
     },
     {
         battle: "Battle of Chunuk Bair",
@@ -738,7 +739,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Chunuk Bair (Turkish: Conk Bayırı Muharebesi) was a World War I battle fought between the Ottoman defenders and troops of the British Empire over control of the peak in August 1915. The capture of Chunuk Bair, (Turkish: Çanak Bayır Basin Slope, now Conk Bayırı), the secondary peak of the Sari Bair range, was one of the two objectives of the Battle of Sari Bair." 
+        description: "The Battle of Chunuk Bair (Turkish: Conk Bayırı Muharebesi) was a World War I battle fought between the Ottoman defenders and troops of the British Empire over control of the peak in August 1915. The capture of Chunuk Bair, (Turkish: Çanak Bayır Basin Slope, now Conk Bayırı), the secondary peak of the Sari Bair range, was one of the two objectives of the Battle of Sari Bair."
     },
     {
         battle: "Battle of Lone Pine",
@@ -748,7 +749,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Lone Pine (also known as the Battle of Kanlı Sırt) was fought between Australian and New Zealand Army Corps (ANZAC) and Ottoman Empire[Note 2] forces during the Gallipoli Campaign of the First World War, between 6 and 10 August 1915. The battle was part of a diversionary attack to draw Ottoman attention away from the main assaults being conducted by British." 
+        description: "The Battle of Lone Pine (also known as the Battle of Kanlı Sırt) was fought between Australian and New Zealand Army Corps (ANZAC) and Ottoman Empire[Note 2] forces during the Gallipoli Campaign of the First World War, between 6 and 10 August 1915. The battle was part of a diversionary attack to draw Ottoman attention away from the main assaults being conducted by British."
     },
     {
         battle: "Battle of Krithia Vineyard",
@@ -758,7 +759,7 @@ let wws = [
         allies: "United Kingdom",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Krithia Vineyard was fought during the Gallipoli Campaign. It was intended as a minor British action at Helles on the Gallipoli peninsula to divert attention from the imminent launch of the August Offensive, but instead, the British commander mounted a futile and bloody series of attacks that in the end gained a small patch of ground known as 'The Vineyard'." 
+        description: "The Battle of Krithia Vineyard was fought during the Gallipoli Campaign. It was intended as a minor British action at Helles on the Gallipoli peninsula to divert attention from the imminent launch of the August Offensive, but instead, the British commander mounted a futile and bloody series of attacks that in the end gained a small patch of ground known as 'The Vineyard'."
     },
     {
         battle: "Landing at Suvla Bay",
@@ -768,7 +769,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The landing at Suvla Bay was an amphibious landing made at Suvla on the Aegean coast of the Gallipoli peninsula in the Ottoman Empire as part of the August Offensive, the final British attempt to break the deadlock of the Battle of Gallipoli. The landing was intended to support a breakout from the ANZAC sector, five miles (8 km) to the south." 
+        description: "The landing at Suvla Bay was an amphibious landing made at Suvla on the Aegean coast of the Gallipoli peninsula in the Ottoman Empire as part of the August Offensive, the final British attempt to break the deadlock of the Battle of Gallipoli. The landing was intended to support a breakout from the ANZAC sector, five miles (8 km) to the south."
     },
     {
         battle: "Battle of the Nek",
@@ -778,7 +779,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of the Nek was a minor battle that took place on 7 August 1915, during the Gallipoli campaign of World War I. 'The Nek' was a narrow stretch of ridge on the Gallipoli Peninsula. The name derives from the Afrikaans word for a 'mountain pass' but the terrain itself was a perfect bottleneck and easy to defend, as had been proven during an Ottoman attack in June." 
+        description: "The Battle of the Nek was a minor battle that took place on 7 August 1915, during the Gallipoli campaign of World War I. 'The Nek' was a narrow stretch of ridge on the Gallipoli Peninsula. The name derives from the Afrikaans word for a 'mountain pass' but the terrain itself was a perfect bottleneck and easy to defend, as had been proven during an Ottoman attack in June."
     },
     {
         battle: "Battle of Scimitar Hill",
@@ -788,7 +789,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Scimitar Hill was the last offensive mounted by the British at Suvla during the Battle of Gallipoli in World War I. It was also the largest single-day attack ever mounted by the Allies at Gallipoli, involving three divisions. The purpose of the attack was to remove the immediate Ottoman threat from the exposed Suvla landing." 
+        description: "The Battle of Scimitar Hill was the last offensive mounted by the British at Suvla during the Battle of Gallipoli in World War I. It was also the largest single-day attack ever mounted by the Allies at Gallipoli, involving three divisions. The purpose of the attack was to remove the immediate Ottoman threat from the exposed Suvla landing."
     },
     {
         battle: "Battle of Hill 60 (Gallipoli)",
@@ -798,7 +799,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Hill 60 was the last major assault of the Gallipoli Campaign. It was launched on 21 August 1915 to coincide with the attack on Scimitar Hill made from the Suvla front by Major-General Frederick Stopford having been replaced in the few days previous. Hill 60 was a low knoll at the northern end of the Sari Bair range which dominated the Suvla landing." 
+        description: "The Battle of Hill 60 was the last major assault of the Gallipoli Campaign. It was launched on 21 August 1915 to coincide with the attack on Scimitar Hill made from the Suvla front by Major-General Frederick Stopford having been replaced in the few days previous. Hill 60 was a low knoll at the northern end of the Sari Bair range which dominated the Suvla landing."
     },
     {
         battle: "Battle of Loos",
@@ -808,7 +809,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Loos took place from 25 September – 8 October 1915 in France on the Western Front. It was the biggest British attack of 1915, the first time that the British used poison gas and the first mass engagement of New Army units. The French and British tried to break through the German defences in Artois and Champagne and restore a war of movement." 
+        description: "The Battle of Loos took place from 25 September – 8 October 1915 in France on the Western Front. It was the biggest British attack of 1915, the first time that the British used poison gas and the first mass engagement of New Army units. The French and British tried to break through the German defences in Artois and Champagne and restore a war of movement."
     },
     {
         battle: "Battle of Es Sinn",
@@ -818,7 +819,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Es Sinn between Anglo-Indian and Ottoman forces took place on 28 September 1915, during the Mesopotamian Campaign. The sides fought to determine control of the lower Tigres and Euphrates rivers, in what is now Iraq. The British and Indian governments also viewed it as a test of the Ottoman forces, and whether a further advance to capture Baghdad was possible." 
+        description: "The Battle of Es Sinn between Anglo-Indian and Ottoman forces took place on 28 September 1915, during the Mesopotamian Campaign. The sides fought to determine control of the lower Tigres and Euphrates rivers, in what is now Iraq. The British and Indian governments also viewed it as a test of the Ottoman forces, and whether a further advance to capture Baghdad was possible."
     },
     {
         battle: "Third Battle of the Isonzo",
@@ -828,7 +829,7 @@ let wws = [
         allies: "Kingdom of Italy",
         adversaries: "Austro-Hungarian Empire",
         battleType: "Ground",
-        description: "The Third Battle of the Isonzo was fought from 18 October through 4 November 1915 between the armies of Italy and Austria-Hungary. The first move was made in Italy, on the eastern sector; because this was their third attack that year, it was named as the Third Battle of the Isonzo (as the previous two were named the First and Second Battles of the Isonzo)." 
+        description: "The Third Battle of the Isonzo was fought from 18 October through 4 November 1915 between the armies of Italy and Austria-Hungary. The first move was made in Italy, on the eastern sector; because this was their third attack that year, it was named as the Third Battle of the Isonzo (as the previous two were named the First and Second Battles of the Isonzo)."
     },
     {
         battle: "Battle of Banjo",
@@ -838,7 +839,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "During the Battle of Banjo, British forces besieged German forces entrenched on the Banjo mountain from 4 to 6 November 1915 during the Kamerun campaign of the First World War. By 6 November much of the German force had deserted, while the rest surrendered. The battle resulted in victory for the Allies and breakdown of German resistance in northern Kamerun." 
+        description: "During the Battle of Banjo, British forces besieged German forces entrenched on the Banjo mountain from 4 to 6 November 1915 during the Kamerun campaign of the First World War. By 6 November much of the German force had deserted, while the rest surrendered. The battle resulted in victory for the Allies and breakdown of German resistance in northern Kamerun."
     },
     {
         battle: "Battle of Ctesiphon",
@@ -848,7 +849,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Ctesiphon was fought by the British Empire and British India, against the Ottoman Empire, within the Mesopotamian Campaign of World War I. Indian Expeditionary Force D, mostly made up of Indian units and under the command of Gen. Sir John Nixon, had met with success in Mesopotamia since landing at Al Faw upon the Ottoman Empire's Declaration of War." 
+        description: "The Battle of Ctesiphon was fought by the British Empire and British India, against the Ottoman Empire, within the Mesopotamian Campaign of World War I. Indian Expeditionary Force D, mostly made up of Indian units and under the command of Gen. Sir John Nixon, had met with success in Mesopotamia since landing at Al Faw upon the Ottoman Empire's Declaration of War."
     },
     {
         battle: "Siege of Kut",
@@ -858,7 +859,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Siege",
-        description: "The siege of Kut Al Amara, 'the First Battle of Kut', was the besieging of an 8,000 strong British Army garrison in the town of Kut, 160 kilometres south of Baghdad, by the Ottoman Army. In 1915, its population was around 6,500. Following the surrender of the garrison on 29 April 1916, the survivors of the siege were marched to imprisonment at Aleppo, during which many died." 
+        description: "The siege of Kut Al Amara, 'the First Battle of Kut', was the besieging of an 8,000 strong British Army garrison in the town of Kut, 160 kilometres south of Baghdad, by the Ottoman Army. In 1915, its population was around 6,500. Following the surrender of the garrison on 29 April 1916, the survivors of the siege were marched to imprisonment at Aleppo, during which many died."
     },
     {
         battle: "Battle of Salaita Hill",
@@ -868,7 +869,7 @@ let wws = [
         allies: "South Africa",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Salaita Hill was the first large-scale engagement of the East African Campaign of the First World War to involve British, Indian, Rhodesian, and South African troops. The battle took place on February 12, 1916, as part of the three-pronged offensive into German East Africa, who had been given overall command of the Allied forces in the region." 
+        description: "The Battle of Salaita Hill was the first large-scale engagement of the East African Campaign of the First World War to involve British, Indian, Rhodesian, and South African troops. The battle took place on February 12, 1916, as part of the three-pronged offensive into German East Africa, who had been given overall command of the Allied forces in the region."
     },
     {
         battle: "Battle of Verdun",
@@ -878,7 +879,7 @@ let wws = [
         allies: "France",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Verdun was fought from 21 February to 18 December 1916 on the Western Front in France. The battle was the longest of the First World War and took place on the hills north of Verdun-sur-Meuse. The German 5th Army attacked the defences of the Fortified Region of Verdun and those of the French Second Army on the right (east) bank of the Meuse. " 
+        description: "The Battle of Verdun was fought from 21 February to 18 December 1916 on the Western Front in France. The battle was the longest of the First World War and took place on the hills north of Verdun-sur-Meuse. The German 5th Army attacked the defences of the Fortified Region of Verdun and those of the French Second Army on the right (east) bank of the Meuse. "
     },
     {
         battle: "Battle of Dujaila",
@@ -888,7 +889,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "Ottoman Empire",
         battleType: "Ground",
-        description: "The Battle of Dujaila (Turkish: Sâbis Muharebesi) was fought on 8 March 1916, between British and Ottoman forces during the First World War. The Ottoman forces, led by Colmar Freiherr von der Goltz were besieging Kut, when the Anglo-Indian relief force, led by Lieutenant-General Fenton Aylmer, attempted to relieve the city. The attempt failed, and Aylmer lost 4,000 men." 
+        description: "The Battle of Dujaila (Turkish: Sâbis Muharebesi) was fought on 8 March 1916, between British and Ottoman forces during the First World War. The Ottoman forces, led by Colmar Freiherr von der Goltz were besieging Kut, when the Anglo-Indian relief force, led by Lieutenant-General Fenton Aylmer, attempted to relieve the city. The attempt failed, and Aylmer lost 4,000 men."
     },
     {
         battle: "Battle of Asiago",
@@ -898,7 +899,7 @@ let wws = [
         allies: "Kingdom of Italy",
         adversaries: "Austro-Hungarian Empire",
         battleType: "Ground",
-        description: "The Battle of Asiago (Battle of the Plateaux) or the Trentino Offensive by the Italians, was a major counteroffensive launched by the Austro-Hungarians on the Italian Front on 15 May 1916, during World War I. It was an unexpected attack that took place near Asiago in the province of Vicenza after the Fifth Battle of the Isonzo (March 1916)." 
+        description: "The Battle of Asiago (Battle of the Plateaux) or the Trentino Offensive by the Italians, was a major counteroffensive launched by the Austro-Hungarians on the Italian Front on 15 May 1916, during World War I. It was an unexpected attack that took place near Asiago in the province of Vicenza after the Fifth Battle of the Isonzo (March 1916)."
     },
     {
         battle: "Battle of Kahe",
@@ -908,7 +909,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Kahe, fought during the East African Campaign of WWI, was the last action between German and Entente forces before the German retreat. British and South African forces surrounded German positions at Kahe, south of Mount Kilimanjaro. Entente forces inflicted heavy casualties and captured large German artillery pieces while receiving comparably little casualties." 
+        description: "The Battle of Kahe, fought during the East African Campaign of WWI, was the last action between German and Entente forces before the German retreat. British and South African forces surrounded German positions at Kahe, south of Mount Kilimanjaro. Entente forces inflicted heavy casualties and captured large German artillery pieces while receiving comparably little casualties."
     },
     {
         battle: "Battle of Latema Nek",
@@ -918,7 +919,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Latema Nek was a battle of the East African Campaign in World War I. After the Battle of Salaita, General Paul von Lettow-Vorbeck, commander of German forces in East Africa, reorganised the defences to the north of the colony in anticipation of another assault. The Salaita positions were abandoned, and German forces moved south to the Latema-Reata Hills." 
+        description: "The Battle of Latema Nek was a battle of the East African Campaign in World War I. After the Battle of Salaita, General Paul von Lettow-Vorbeck, commander of German forces in East Africa, reorganised the defences to the north of the colony in anticipation of another assault. The Salaita positions were abandoned, and German forces moved south to the Latema-Reata Hills."
     },
     {
         battle: "Raid on Jifjafa",
@@ -928,7 +929,7 @@ let wws = [
         allies: "British Empire",
         adversaries: ["Ottoman Empire", "Austro-Hungarian"],
         battleType: "Ground",
-        description: "The Raid on Jifjafa (11–14 April 1916) was a long range pre-emptive operation by a composite formation of the British Empire against Ottoman forces at the Jifjafa well in the Sinai Desert. It was part of the Sinai and Palestine Campaign of World War I." 
+        description: "The Raid on Jifjafa (11–14 April 1916) was a long range pre-emptive operation by a composite formation of the British Empire against Ottoman forces at the Jifjafa well in the Sinai Desert. It was part of the Sinai and Palestine Campaign of World War I."
     },
     {
         battle: "Battle of Kondoa Irangi",
@@ -938,7 +939,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Kondoa Irangi was a battle of the East African Campaign of World War I. Following successes at the battles of Latema Nek and Kahe, Entente forces under the overall command of General Jan Smuts continued their advance southwards into German East Africa." 
+        description: "The Battle of Kondoa Irangi was a battle of the East African Campaign of World War I. Following successes at the battles of Latema Nek and Kahe, Entente forces under the overall command of General Jan Smuts continued their advance southwards into German East Africa."
     },
     {
         battle: "Battle of Jutland",
@@ -948,7 +949,7 @@ let wws = [
         allies: "United Kingdom",
         adversaries: "German Empire",
         battleType: "Naval",
-        description: "The Battle of Jutland (German: Skagerrakschlacht, the Battle of Skagerrak) was a naval battle fought between Britain's Royal Navy Grand Fleet, under Admiral Sir John Jellicoe, and the Imperial German Navy's High Seas Fleet, under Vice-Admiral Reinhard Scheer, during the First World War." 
+        description: "The Battle of Jutland (German: Skagerrakschlacht, the Battle of Skagerrak) was a naval battle fought between Britain's Royal Navy Grand Fleet, under Admiral Sir John Jellicoe, and the Imperial German Navy's High Seas Fleet, under Vice-Admiral Reinhard Scheer, during the First World War."
     },
     {
         battle: "Brusilov Offensive",
@@ -958,17 +959,17 @@ let wws = [
         allies: "Russian Empire",
         adversaries: ["Austro-Hungarian Empire", "German Empire", "Ottoman Empire"],
         battleType: "Ground",
-        description: "The Brusilov Offensive (Russian: Брусиловский прорыв Brusilovskiĭ proryv, literally: 'Brusilov's breakthrough'), also known as the 'June Advance', of June to September 1916 was the Russian Empire's greatest feat of arms during World War I, and among the most lethal offensives in world history." 
+        description: "The Brusilov Offensive (Russian: Брусиловский прорыв Brusilovskiĭ proryv, literally: 'Brusilov's breakthrough'), also known as the 'June Advance', of June to September 1916 was the Russian Empire's greatest feat of arms during World War I, and among the most lethal offensives in world history."
     },
     {
         battle: "Battle of Albert",
-        coords: { lat: 50.015556, lng: 2.6975 },
+        coords: { lat: 50.01555, lng: 2.697 },
         startDate: "07/01/1916",
         endDate: "07/01/1916",
         allies: ["British Empire", "France"],
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The first day on the Somme was the beginning of the Battle of Albert, the name given by the British to the first two weeks of the Battle of the Somme. Nine corps of the French Sixth Army and the British Fourth and Third armies attacked the German 2nd Army from Foucaucourt south of the Somme northwards across the Ancre to Serre and at Gommecourt in the Third Army area." 
+        description: "The first day on the Somme was the beginning of the Battle of Albert, the name given by the British to the first two weeks of the Battle of the Somme. Nine corps of the French Sixth Army and the British Fourth and Third armies attacked the German 2nd Army from Foucaucourt south of the Somme northwards across the Ancre to Serre and at Gommecourt in the Third Army area."
     },
     {
         battle: "Battle of the Somme",
@@ -978,7 +979,7 @@ let wws = [
         allies: ["British Empire", "France"],
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of the Somme, also known as the Somme Offensive, was a battle of the First World War fought by the armies of the British Empire and French Third Republic against the German Empire. It took place between 1 July and 18 November 1916 on both sides of the upper reaches of the River Somme in France. The battle was intended to hasten a victory for the Allies." 
+        description: "The Battle of the Somme, also known as the Somme Offensive, was a battle of the First World War fought by the armies of the British Empire and French Third Republic against the German Empire. It took place between 1 July and 18 November 1916 on both sides of the upper reaches of the River Somme in France. The battle was intended to hasten a victory for the Allies."
     },
     {
         battle: "Battle of Bazentin Ridge",
@@ -998,7 +999,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Attack at Fromelles (French pronunciation: ​[fʁɔmɛl], Battle of Fromelles, Battle of Fleurbaix or Schlacht von Fromelles) 19–20 July 1916, was a military operation on the Western Front during the First World War. The attack was carried out by British and Australian troops and was subsidiary to the Battle of the Somme." 
+        description: "The Attack at Fromelles (French pronunciation: ​[fʁɔmɛl], Battle of Fromelles, Battle of Fleurbaix or Schlacht von Fromelles) 19–20 July 1916, was a military operation on the Western Front during the First World War. The attack was carried out by British and Australian troops and was subsidiary to the Battle of the Somme."
     },
     {
         battle: "Battle of Pozières",
@@ -1008,7 +1009,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Pozières (23 July – 3 September 1916) took place in northern France around the village of Pozières, during the Battle of the Somme. The costly fighting ended with the British in possession of the plateau north and east of the village, in a position to menace the German bastion of Thiepval from the rear." 
+        description: "The Battle of Pozières (23 July – 3 September 1916) took place in northern France around the village of Pozières, during the Battle of the Somme. The costly fighting ended with the British in possession of the plateau north and east of the village, in a position to menace the German bastion of Thiepval from the rear."
     },
     {
         battle: "Battle of Romani",
@@ -1018,7 +1019,7 @@ let wws = [
         allies: "British Empire",
         adversaries: ["Austro-Hungarian Empire", "German Empire", "Ottoman Empire"],
         battleType: "Ground",
-        description: "The Battle of Romani was the last ground attack of the Central Powers on the Suez Canal at the beginning of the Sinai and Palestine Campaign during the First World War. The battle was fought between 3 and 5 August 1916 near the Egyptian town of Romani and the site of ancient Pelusium on the Sinai Peninsula, 23 miles (37 km) east of the Suez Canal." 
+        description: "The Battle of Romani was the last ground attack of the Central Powers on the Suez Canal at the beginning of the Sinai and Palestine Campaign during the First World War. The battle was fought between 3 and 5 August 1916 near the Egyptian town of Romani and the site of ancient Pelusium on the Sinai Peninsula, 23 miles (37 km) east of the Suez Canal."
     },
     {
         battle: "Sixth Battle of the Isonzo",
@@ -1028,7 +1029,7 @@ let wws = [
         allies: "Kingdom of Italy",
         adversaries: "Austro-Hungarian Empire",
         battleType: "Ground",
-        description: "The Sixth Battle of the Isonzo also known as the Battle of Gorizia was the most successful Italian offensive along the Soča (Isonzo) River during World War I. Franz Conrad von Hötzendorf had reduced the Austro-Hungarian forces along the Soča (Isonzo) front to reinforce his Trentino Offensive and also to assist with the defense of the Russian Brusilov Offensive." 
+        description: "The Sixth Battle of the Isonzo also known as the Battle of Gorizia was the most successful Italian offensive along the Soča (Isonzo) River during World War I. Franz Conrad von Hötzendorf had reduced the Austro-Hungarian forces along the Soča (Isonzo) front to reinforce his Trentino Offensive and also to assist with the defense of the Russian Brusilov Offensive."
     },
     {
         battle: "Battle of Mouquet Farm",
@@ -1038,7 +1039,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Mouquet Farm, also known as the Fighting for Mouquet Farm was part of the Battle of the Somme and began during the Battle of Pozières (23 July – 3 September). The fighting began on 23 July with attacks by the British Reserve Army. The farm was captured by the 3rd Canadian Division of the Canadian Corps on 16 September." 
+        description: "The Battle of Mouquet Farm, also known as the Fighting for Mouquet Farm was part of the Battle of the Somme and began during the Battle of Pozières (23 July – 3 September). The fighting began on 23 July with attacks by the British Reserve Army. The farm was captured by the 3rd Canadian Division of the Canadian Corps on 16 September."
     },
     {
         battle: "Battle of Bir el Abd",
@@ -1048,7 +1049,7 @@ let wws = [
         allies: "British Empire",
         adversaries: ["Ottoman Empire", "German Empire"],
         battleType: "Ground",
-        description: "The Battle of Bir el Abd or the Abd well (9 August 1916) was fought between the forces of the British Empire and the Ottoman Turkish Empire, during the Sinai and Palestine Campaign of the First World War. The battle took place in the Sinai Desert following the British victory at the Battle of Romani (3–5 August)." 
+        description: "The Battle of Bir el Abd or the Abd well (9 August 1916) was fought between the forces of the British Empire and the Ottoman Turkish Empire, during the Sinai and Palestine Campaign of the First World War. The battle took place in the Sinai Desert following the British victory at the Battle of Romani (3–5 August)."
     },
     {
         battle: "Battle of Mlali",
@@ -1058,7 +1059,7 @@ let wws = [
         allies: "British Empire",
         adversaries: "German Empire",
         battleType: "Ground",
-        description: "The Battle of Mlali was fought during the East African Campaign of World War I. In mid-August 1916, the British General led three divisions from Kenya south into the Imperial German colony of Tanganyika in order to seize and disrupt their vital railway. The German commander was informed by his scouts of the British movement and sent Captain Otto to investigate." 
+        description: "The Battle of Mlali was fought during the East African Campaign of World War I. In mid-August 1916, the British General led three divisions from Kenya south into the Imperial German colony of Tanganyika in order to seize and disrupt their vital railway. The German commander was informed by his scouts of the British movement and sent Captain Otto to investigate."
     },
     {
         battle: "Battle of Guillemont",
@@ -1755,7 +1756,7 @@ let wws = [
         coords: { lat: 49.898889, lng: 2.570556 },
         startDate: "07/04/1918",
         endDate: "07/04/1918",
-        allies:["Australia", "United States", "United Kingdom"],
+        allies: ["Australia", "United States", "United Kingdom"],
         adversaries: "German Empire",
         battleType: "Ground",
         description: "The Battle of Hamel (4 July 1918) was a successful attack by Australian Army and US Army infantry, supported by British tanks, against German positions in and around the town of Le Hamel, in northern France, during World War I. The attack was planned and commanded by Lieutenant General John Monash, commander of the Australian Corps."
@@ -2072,20 +2073,24 @@ let wws = [
     // },
 ];
 
-$("#day").click(function() {
-  $("#slider").attr("step", dayStep);
+$("#day").click(function () {
+    $("#slider").attr("step", dayStep);
 });
 
-$("#week").click(function() {
-  $("#slider").attr("step", weekStep);
+$("#week").click(function () {
+    $("#slider").attr("step", weekStep);
 });
 
-$("#month").click(function() {
-  $("#slider").attr("step", monthStep);
+$("#month").click(function () {
+    $("#slider").attr("step", monthStep);
 });
 
-$("#tmonth").click(function() {
-  $("#slider").attr("step", tmonthStep);
+$("#tmonth").click(function () {
+    $("#slider").attr("step", tmonthStep);
+});
+
+$("#smonth").click(function () {
+    $("#slider").attr("step", smonthStep);
 });
 
 slider.addEventListener('mouseup', function () {
@@ -2094,7 +2099,7 @@ slider.addEventListener('mouseup', function () {
     console.log(dateShown);
     let longDate = new Date(dateShown);
     let longDateStr = JSON.stringify(longDate);
-    let shortDate = longDateStr.slice(1,11);
+    let shortDate = longDateStr.slice(1, 11);
     year.textContent = shortDate;
 
     if ($("#slider").attr("step") == dayStep) {
@@ -2127,10 +2132,20 @@ slider.addEventListener('mouseup', function () {
                 locations.push(wws[i].coords);
             }
         }
-    } else {
+    } else if ($("#slider").attr("step") == tmonthStep) {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 3942000000;
             let endMsec = Date.parse(wws[i].endDate) + 3942000000;
+            console.log("3monthly")
+            if (dateShown >= startMsec && dateShown <= endMsec) {
+                console.log(wws[i].battle);
+                locations.push(wws[i].coords);
+            }
+        }
+    } else {
+        for (i = 0; i < wws.length; i++) {
+            let startMsec = Date.parse(wws[i].startDate) - 7964545823;
+            let endMsec = Date.parse(wws[i].endDate) + 7964545823;
             console.log("3monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
                 console.log(wws[i].battle);
@@ -2153,31 +2168,165 @@ function setMarkers() {
 }
 
 function initMap() {
+    const styledMapType = new google.maps.StyledMapType(
+        [
+            { elementType: "geometry", stylers: [{ color: "#ebe3cd" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#523735" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#f5f1e6" }] },
+            {
+                featureType: "administrative",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#c9b2a6" }],
+            },
+            {
+                featureType: "administrative.land_parcel",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#dcd2be" }],
+            },
+            {
+                featureType: "administrative.land_parcel",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#ae9e90" }],
+            },
+            {
+                featureType: "landscape.natural",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "poi",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "poi",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#93817c" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "geometry.fill",
+                stylers: [{ color: "#a5b076" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#447530" }],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [{ color: "#f5f1e6" }],
+            },
+            {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [{ color: "#fdfcf8" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry",
+                stylers: [{ color: "#f8c967" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#e9bc62" }],
+            },
+            {
+                featureType: "road.highway.controlled_access",
+                elementType: "geometry",
+                stylers: [{ color: "#e98d58" }],
+            },
+            {
+                featureType: "road.highway.controlled_access",
+                elementType: "geometry.stroke",
+                stylers: [{ color: "#db8555" }],
+            },
+            {
+                featureType: "road.local",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#806b63" }],
+            },
+            {
+                featureType: "transit.line",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "transit.line",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#8f7d77" }],
+            },
+            {
+                featureType: "transit.line",
+                elementType: "labels.text.stroke",
+                stylers: [{ color: "#ebe3cd" }],
+            },
+            {
+                featureType: "transit.station",
+                elementType: "geometry",
+                stylers: [{ color: "#dfd2ae" }],
+            },
+            {
+                featureType: "water",
+                elementType: "geometry.fill",
+                stylers: [{ color: "#b9d3c2" }],
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#92998d" }],
+            },
+        ],
+        { name: "War Style" }
+    );
+
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 2.3,
         center: {
             lat: 20.047867,
             lng: 12.898272
-        }
+        },
+        mapTypeControlOptions: {
+            mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
+        },
     });
+
+    map.mapTypes.set("styled_map", styledMapType);
+    map.setMapTypeId("styled_map");
 
     const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
-    var markers = locations.map(function (location, i) {
-        return new google.maps.Marker({
+    let markers = locations.map(function (location, i) {
+
+        battleTitle = wws.find(x => x.coords === location).battle;
+
+        const infowindow = new google.maps.InfoWindow({
+            content: battleTitle,
+        });
+
+        const marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: location,
-            // label: labels[i % labels.length],
+            label: labels[i % labels.length],
             icon: image,
-            // map: map,
-            // collisionBehavior: google.maps.CollisionBehavior.REQUIRED,
+            map,
         });
+
+        marker.addListener("click", () => {
+            infowindow.open(map, marker);
+        });
+
+        return marker;
     });
 
     new MarkerClusterer(map, markers, {
-        gridSize: 0.000000000000000001,
+        gridSize: 0.00000000000000000000000000000000000000000001,
         imagePath:
             "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
+
+    console.log(markers);
 }
