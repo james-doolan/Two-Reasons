@@ -1566,7 +1566,7 @@ let wws = [
         startDate: "10/27/1917",
         endDate: "10/27/1917",
         allies: "British Empire",
-        adversaries: ["Ottoman", "German Empire"],
+        adversaries: ["Ottoman Empire", "German Empire"],
         battleType: "Ground",
         description: "The Battle of el Buqqar Ridge took place on 27 October 1917, when one infantry regiment and cavalry troops of the Yildirim Army Group, attacked the 8th Mounted Brigade of the Egyptian Expeditionary Force (EEF) in the last days of the stalemate in Southern Palestine during the Sinai and Palestine campaign of World War I."
     },
@@ -1576,15 +1576,495 @@ let wws = [
         startDate: "11/17/1917",
         endDate: "12/30/1917",
         allies: "British Empire",
-        adversaries: ["Ottoman", "German Empire"],
+        adversaries: ["Ottoman Empire", "German Empire"],
         battleType: "Ground",
         description: "The Battle of Jerusalem occurred during the British Empire's 'Jerusalem Operations' against the Ottoman Empire, in World War I, when fighting for the city developed from 17 November, continuing after the surrender until 30 December 1917, to secure the final objective of the Southern Palestine Offensive during the Sinai and Palestine Campaign of World War I."
+    },
+    {
+        battle: "Battle of Kämärä",
+        coords: { lat: 60.59144, lng: 29.04473 },
+        startDate: "01/27/1918",
+        endDate: "01/27/1918",
+        allies: "Finnish Reds",
+        adversaries: "Finnish Whites",
+        battleType: "Ground",
+        description: "The Battle of Kämärä was a 1918 Finnish Civil War battle fought at the Kämärä (now Gavrilovo, Leningrad oblast, Russia) railway station on 27 January 1918 between the Whites and the Reds. The battle began as a White Guard battalion from Vyborg attacked Kämärä on its march to the White controlled side of the Karelian Isthmus."
+    },
+    {
+        battle: "Battle of Vilppula",
+        coords: { lat: 62.012382, lng: 24.485806 },
+        startDate: "01/31/1918",
+        endDate: "03/18/1918",
+        allies: "Finnish Reds",
+        adversaries: "Finnish Whites",
+        battleType: "Ground",
+        description: "Battle of Vilppula was a Finnish Civil War battle fought in Vilppula and Ruovesi, Finland in 31 January – 18 March 1918 between the Whites and the Reds. Due to its location by the Tampere–Haapamäki railway, Vilppula was a gateway to the White controlled Central Finland."
+    },
+    {
+        battle: "Battle of Ruovesi",
+        coords: { lat: 61.896865, lng: 24.106484 },
+        startDate: "02/05/1918",
+        endDate: "03/19/1918",
+        allies: ["Russian Empire", "Finnish Reds"],
+        adversaries: "Finnish Whites",
+        battleType: "Ground",
+        description: "The Battle of Ruovesi was a major battle during the Finnish Civil War and on the Eastern Front of World War I fought in Ruovesi, Finland from 5 February to 19 March 1918 between the Whites and the Reds with support from Russian volunteers. The fighting took mostly place in the villages of Pekkala, Jäminkipohja ja Pihlajalahti in the southern part of the Ruovesi municipality."
+    },
+    {
+        battle: "Battle of Antrea",
+        coords: { lat: 60.861936, lng: 28.962024 },
+        startDate: "02/11/1918",
+        endDate: "04/25/1918",
+        allies: ["Finnish Reds", "Russian Empire"],
+        adversaries: "Finnish Whites",
+        battleType: "Ground",
+        description: "Battle of Antrea was a Finnish Civil War battle, fought in Antrea (now Kamennogorsk, Russia) and Jääski (now Lesogorsky, Russia), between the Finnish Whites against the Finnish Reds. It was fought by the Vyborg–Joensuu railroad between Vyborg, the Red capital in Eastern Finland, and Antrea, an important railroad junction 30 kilometres north of Vyborg."
+    },
+    {
+        battle: "Battle of Rarańcza",
+        coords: { lat: 48.337222, lng: 26.066667 },
+        startDate: "02/15/1918",
+        endDate: "02/16/1918",
+        allies: "Poland",
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Battle of Rarańcza was fought between Polish Legionnaires, and Austria-Hungary, from February 15 to 16, 1918, near Rarańcza in Bukovina, and ended with a Polish victory."
+    },
+    {
+        battle: "Capture of Jericho",
+        coords: { lat: 31.871111, lng: 35.444167 },
+        startDate: "02/19/1918",
+        endDate: "02/21/1918",
+        allies: "British Empire",
+        adversaries: "Ottoman Empire",
+        battleType: "Ground",
+        description: "The Capture of Jericho occurred between 19 and 21 February 1918 to the east of Jerusalem beginning the Occupation of the Jordan Valley during the Sinai and Palestine Campaign of the First World War. Fighting took place in an area bordered by the Bethlehem–Nablus road in the west, the Jordan River in the east, and north of a line from Jerusalem to the Dead Sea."
+    },
+    {
+        battle: "Battle of Varkaus",
+        coords: { lat: 62.316667, lng: 27.893056 },
+        startDate: "02/19/1918",
+        endDate: "02/21/1918",
+        allies: "Finnish Reds",
+        adversaries: "Finnish Whites",
+        battleType: "Ground",
+        description: "Battle of Varkaus was a battle of the 1918 Finnish Civil War, fought 19–21 February between the Whites and the Reds in Varkaus, Leppävirta. The victory was important for the Whites, all of Northern Finland was now under their control. The battle is best known of its bloody aftermath as the Whites executed up to 180 surrendered Reds."
+    },
+    {
+        battle: "Battle of Rautu",
+        coords: { lat: 60.547069, lng: 30.216672 },
+        startDate: "02/21/1918",
+        endDate: "04/05/1918",
+        allies: ["Finnish Reds", "Russian Empire"],
+        adversaries: "Finnish Whites",
+        battleType: "Ground",
+        description: "Battle of Rautu was a 1918 Finnish Civil War battle, fought in Rautu, Finland (now Sosnovo, Leningrad Oblast, Russia) from 21 February to 5 April 1918 between the Finnish Whites against the Finnish Reds and the Russian Bolsheviks."
+    },
+    {
+        battle: "Battle of Tell 'Asur",
+        coords: { lat: 32.035833, lng: 35.286111 },
+        startDate: "03/08/1918",
+        endDate: "03/12/1918",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Tell 'Asur, known as the Action of Tell 'Asur, took place between 8 and 12 March 1918, after the decisive victory at the Battle of Jerusalem and the Capture of Jericho during the Sinai and Palestine Campaign of World War I. Fighting took place over an area which extended from the Mediterranean to Abu Tellul and Mussalabeh on the edge of the Jordan Valley."
+    },
+    {
+        battle: "Battle of Bakhmach",
+        coords: { lat: 51.183056, lng: 32.829722 },
+        startDate: "03/08/1918",
+        endDate: "03/13/1918",
+        allies: ["Czechoslovak Legions", "Russian Empire"],
+        adversaries: ["German Empire", "Austro-Hungarian Empire"],
+        battleType: "Ground",
+        description: "Battle of Bakhmach (Bitva u Bachmače in Czech), was one of the last battles on the Eastern Front in World War I between the Entente-backed Czechoslovak Legion, Soviet Russia and the Central Powers occupying Ukraine after the Treaty of Brest-Litovsk."
+    },
+    {
+        battle: "Battle of Tampere",
+        coords: { lat: 61.498011, lng: 23.763686 },
+        startDate: "03/15/1918",
+        endDate: "04/06/1918",
+        allies: "Finnish Reds",
+        adversaries: ["Finnish Whites", "Swedish Brigade"],
+        battleType: "Ground",
+        description: "The Battle of Tampere was a 1918 Finnish Civil War battle, fought in Tampere, Finland, between the Whites and the Reds. It is the most famous and the heaviest of all the Finnish Civil War battles. Today it is particularly remembered for its bloody aftermath as the Whites executed hundreds of capitulated Reds and took 11,000 prisoners placed in the Kalevankangas camp."
+    },
+    {
+        battle: "Battle of Länkipohja",
+        coords: { lat: 61.735883, lng: 24.795573 },
+        startDate: "03/16/1918",
+        endDate: "03/16/1918",
+        allies: "Finnish Reds",
+        adversaries: "Finnish Whites",
+        battleType: "Ground",
+        description: "The Battle of Länkipohja was a Finnish Civil War battle fought in the village of Länkipohja between the Whites and the Reds. Together with the battles fought in Kuru, Ruovesi and Vilppula between 15 and 18 March, the Battle of Länkipohja was one the first military operations related to the Battle of Tampere, which was the decisive battle of the Finnish Civil War."
+    },
+    {
+        battle: "First Transjordan attack on Amman",
+        coords: { lat: 31.94, lng: 35.94 },
+        startDate: "03/21/1918",
+        endDate: "04/02/1918",
+        allies: ["British Empire", "Hejaz"],
+        adversaries: ["German Empire", "Ottoman Empire"],
+        battleType: "Ground",
+        description: "The First Transjordan attack on Amman and to their enemy as the First Battle of the Jordan[5] took place between 21 March and 2 April 1918, as a consequence of the successful Battle of Tell 'Asur which occurred after the Capture of Jericho in February and the Occupation of the Jordan Valley began, during the Sinai and Palestine Campaign of World War I."
+    },
+    {
+        battle: "First Battle of Amman",
+        coords: { lat: 31.933333, lng: 35.933333 },
+        startDate: "03/27/1918",
+        endDate: "03/31/1918",
+        allies: ["British Empire", "Hejaz"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The First Battle of Amman was fought from 27 to 31 March 1918 during the First Transjordan attack on Amman of the Sinai and Palestine Campaign of the First World War. The 60th Division and the Anzac Mounted Division attacked the Ottoman garrison at Amman deep in enemy occupied territory, 48 kilometres (30 mi) from their front line, after capturing Es Salt and Shunet Nimrin."
+    },
+    {
+        battle: "First Battle of Morlancourt",
+        coords: { lat: 49.9517, lng: 2.6294 },
+        startDate: "03/28/1918",
+        endDate: "03/30/1918",
+        allies: ["Australia", "United Kingdom"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The First Battle of Morlancourt was fought over the period 28–30 March 1918, on the Western Front during World War I. The battle saw troops from the Australian 3rd Division advance to fill a gap in the Allied line that had formed north of the River Somme during the German Spring Offensive."
+    },
+    {
+        battle: "Second Battle of the Piave River",
+        coords: { lat: 45.830556, lng: 12.209444 },
+        startDate: "06/15/1918",
+        endDate: "06/23/1918",
+        allies: ["Kingdom of Italy", "France", "United Kingdom"],
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Second Battle of the Piave River, fought between 15 and 23 June 1918, was a decisive victory[3][4] for the Italian Army against the Austro-Hungarian Empire during World War I. Though the battle proved to be a decisive blow to the Austro-Hungarian Empire and by extension the Central Powers, its full significance was not initially appreciated in Italy."
+    },
+    {
+        battle: "Battle of Belleau Wood",
+        coords: { lat: 49.073, lng: 3.29 },
+        startDate: "06/01/1918",
+        endDate: "06/26/1918",
+        allies: ["United States", "France", "United Kingdom"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Belleau Wood occurred during the German Spring Offensive in World War I, near the Marne River in France. The battle was fought between the U.S. 2nd (under the command of Major General Omar Bundy) and 3rd Divisions along with French and British forces against an assortment of German units including elements from the 237th, 10th, 197th, 87th, and 28th Divisions."
+    },
+    {
+        battle: "Battle of Hamel",
+        coords: { lat: 49.898889, lng: 2.570556 },
+        startDate: "07/04/1918",
+        endDate: "07/04/1918",
+        allies:["Australia", "United States", "United Kingdom"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Hamel (4 July 1918) was a successful attack by Australian Army and US Army infantry, supported by British tanks, against German positions in and around the town of Le Hamel, in northern France, during World War I. The attack was planned and commanded by Lieutenant General John Monash, commander of the Australian Corps."
+    },
+    {
+        battle: "Battle of Abu Tellul",
+        coords: { lat: 31.6253, lng: 35.1453 },
+        startDate: "07/14/1918",
+        endDate: "07/14/1918",
+        allies: "British Empire",
+        adversaries: ["German Empire", "Ottoman Empire"],
+        battleType: "Ground",
+        description: "The Battle of Abu Tellul (called the Affair of Abu Tellul by the British) was fought on 14 July 1918 during the Sinai and Palestine Campaign of World War I after German and Ottoman Empire forces attacked the British Empire garrison in the Jordan Valley. The valley had been occupied by the Egyptian Expeditionary Force (EEF) from February 1918 when Jericho was captured."
+    },
+    {
+        battle: "Second Battle of the Marne",
+        coords: { lat: 49.083333, lng: 3.666667 },
+        startDate: "07/15/1918",
+        endDate: "08/06/1918",
+        allies: ["France", "United States", "United Kingdom", "Kingdom of Italy", "Russian Empire"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of the Marne (French: Seconde Bataille de la Marne) (15 July – 6 August 1918) was the last major German offensive on the Western Front during the First World War. The attack failed when an Allied counterattack, supported by several hundred tanks, overwhelmed the Germans on their right flank, inflicting severe casualties."
+    },
+    {
+        battle: "Battle of Château-Thierry",
+        coords: { lat: 49.041944, lng: 3.371944 },
+        startDate: "07/18/1918",
+        endDate: "07/18/1918",
+        allies: ["United States", "France", "Belgium"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Château-Thierry was fought on 31 May 1918 and was one of the first actions of the American Expeditionary Forces (AEF) under General John J. 'Black Jack' Pershing. It was a battle in World War I as part of the Second Battle of the Marne, initially prompted by a German Spring Offensive."
+    },
+    {
+        battle: "Battle of Amiens",
+        coords: { lat: 49.893889, lng: 2.294167 },
+        startDate: "08/08/1918",
+        endDate: "08/12/1918",
+        allies: ["British Empire", "France", "United States"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Amiens, also known as the Third Battle of Picardy (French: 3ème Bataille de Picardie), was the opening phase of the Allied offensive which began on 8 August 1918, later known as the Hundred Days Offensive, that ultimately led to the end of the First World War. Allied forces advanced over 11 kilometres on the first day, one of the greatest advances of the war."
+    },
+    {
+        battle: "Hundred Days Offensive",
+        coords: { lat: 49.892, lng: 2.299 },
+        startDate: "08/08/1918",
+        endDate: "11/11/1918",
+        allies: ["France", "British Empire", "United States", "Belgium", "Kingdom of Italy", "Porugal", "Siam"],
+        adversaries: ["German Empire", "Austro-Hungarian"],
+        battleType: "Ground",
+        description: "The Hundred Days Offensive (8 August to 11 November 1918) was a series of massive Allied offensives which ended the First World War. Beginning with the Battle of Amiens (8–12 August) on the Western Front, the Allies pushed the Central Powers back, undoing their gains from the Spring Offensive."
+    },
+    {
+        battle: "Battle of the Ailette",
+        coords: { lat: 49.577778, lng: 3.161389 },
+        startDate: "08/17/1918",
+        endDate: "08/23/1918",
+        allies: "France",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of the Ailette was a battle that took place during the First World War in August 1918, on the banks of the Ailette between Laon and Aisne."
+    },
+    {
+        battle: "Second Battle of the Somme",
+        coords: { lat: 50.1867, lng: 1.6431 },
+        startDate: "08/21/1918",
+        endDate: "09/02/1918",
+        allies: ["British Empire", "United States"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of the Somme of 1918 was fought during the First World War on the Western Front from late August to early September, in the basin of the River Somme. It was part of a series of successful counter-offensives in response to the German Spring Offensive, after a pause for redeployment and supply."
+    },
+    {
+        battle: "Battle of Baku",
+        coords: { lat: 40.45, lng: 49.783333 },
+        startDate: "08/26/1918",
+        endDate: "09/14/1918",
+        allies: ["Centrocaspian Dictatorship", "Dashnaktsutyun", "United Kingdom", "Russian Empire"],
+        adversaries: ["Ottoman Empire", "Azerbaijan"],
+        battleType: "Ground",
+        description: "The Battle of Baku (Azerbaijani: Bakı döyüşü, Turkish: Bakü Muharebesi, Russian: Битва за Баку) was a battle in World War I that took place between August–September 1918 between the Ottoman–Azerbaijani coalition forces led by Nuri Pasha and Bolshevik–Dashnak Baku Soviet forces, later succeeded by the British–Armenian–White Russian forces."
+    },
+    {
+        battle: "Battle of Ambos Nogales",
+        coords: { lat: 31.3328, lng: -110.942224 },
+        startDate: "08/27/1918",
+        endDate: "08/27/1918",
+        allies: "United States",
+        adversaries: ["Mexico", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Ambos Nogales (The Battle of Both Nogales), or as it is known in Mexico La batalla del 27 de agosto (The Battle of 27 August), was an engagement fought on 27 August 1918 between Mexican military and civilian militia forces and elements of U.S. Army troops of the 35th Infantry Regiment, who were reinforced by the Buffalo Soldiers of the 10th Cavalry Regiment."
+    },
+    {
+        battle: "Battle of Mont Saint-Quentin",
+        coords: { lat: 49.947222, lng: 2.9325 },
+        startDate: "08/31/1918",
+        endDate: "09/03/1918",
+        allies: "Australia",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Mont Saint-Quentin was a battle on the Western Front during World War I. As part of the Allied Hundred Days Offensive on the Western Front in the late summer of 1918, the Australian Corps crossed the Somme River on the night of August 31, and broke the German lines at Mont Saint-Quentin and Péronne."
+    },
+    {
+        battle: "Battle of Havrincourt",
+        coords: { lat: 50.111944, lng: 3.086944 },
+        startDate: "09/12/1918",
+        endDate: "09/12/1918",
+        allies: "British Empire",
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Havrincourt was fought on 12 September 1918, involving the British Third Army against German troops, including those of the 3rd and 10th Corps, in the town of Havrincourt, France. Although these battles were relatively small achievements in light of what would follow it marked the first time that the Hindenburg Line was pierced."
+    },
+    {
+        battle: "Battle of Saint-Mihiel",
+        coords: { lat: 48.889167, lng: 5.543611 },
+        startDate: "09/12/1918",
+        endDate: "09/15/1918",
+        allies: ["United States", "France"],
+        adversaries: ["German Empire", "Austro-Hungarian Empire"],
+        battleType: "Ground",
+        description: "The Battle of Saint-Mihiel was a major World War I battle fought from 12–15 September 1918, involving the American Expeditionary Forces (AEF) and 110,000 French troops under the command of General John J. Pershing of the United States against German positions. The U.S. Army Air Service played a significant role in this action."
+    },
+    {
+        battle: "Battle of Épehy",
+        coords: { lat: 50, lng: 3.116667 },
+        startDate: "09/18/1918",
+        endDate: "09/18/1918",
+        allies: ["British Empire", "France"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of Épehy was a battle of the First World War fought on 18 September 1918, involving the British Fourth Army under the command of General Henry Rawlinson against German outpost positions in front of the Hindenburg Line. The village of Épehy was captured on 18 September by the 12th (Eastern) Division."
+    },
+    {
+        battle: "Battle of Megiddo",
+        coords: { lat: 32.4, lng: 34.883 },
+        startDate: "09/19/1918",
+        endDate: "09/25/1918",
+        allies: ["British Empire", "Hejaz", "France"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Megiddo (Turkish: Megiddo Muharebesi) also known in Turkish as the Nablus Hezimeti ('Rout of Nablus'), or the Nablus Yarması ('Breakthrough at Nablus') was fought between 19 and 25 September 1918, on the Plain of Sharon, in front of Tulkarm, Tabsor and Arara in the Judean Hills as well as on the Esdralon Plain at Nazareth, Afulah, Beisan, Jenin and Samakh."
+    },
+    {
+        battle: "Battle of Tulkarm",
+        coords: { lat: 32.311528, lng: 35.027039 },
+        startDate: "09/19/1918",
+        endDate: "09/19/1918",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Tulkarm took place on 19 September 1918, beginning of the Battle of Sharon, which along with the Battle of Nablus formed the set piece Battle of Megiddo fought between 19 and 25 September in the last months of the Sinai and Palestine Campaign of the First World War."
+    },
+    {
+        battle: "Battle of Tabsor",
+        coords: { lat: 32.193333, lng: 34.877222 },
+        startDate: "09/19/1918",
+        endDate: "09/20/1918",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Tabsor was fought on 19–20 September 1918 beginning the Battle of Sharon, which along with the Battle of Nablus formed the set piece Battle of Megiddo fought between 19 and 25 September in the last months of the Sinai and Palestine Campaign of the First World War."
+    },
+    {
+        battle: "Battle of Sharon",
+        coords: { lat: 32.596389, lng: 35.241944 },
+        startDate: "09/19/1918",
+        endDate: "09/25/1918",
+        allies: ["British Empire", "France"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Sharon began the set piece Battle of Megiddo half a day before the Battle of Nablus, in which large formations engaged and responded to movements by the opposition in the last months of the Sinai and Palestine Campaign. The fighting took place over a wide area from the Mediterranean Sea east to the Rafat salient in the Judean Hills."
+    },
+    {
+        battle: "Battle of Nablus",
+        coords: { lat: 32.220278, lng: 35.278889 },
+        startDate: "09/19/1918",
+        endDate: "09/25/1918",
+        allies: ["British Empire", "Hejaz"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Nablus took place during the set piece Battle of Megiddo between 19 and 25 September 1918 in the last months of the Sinai and Palestine Campaign of the First World War. Fighting took place in the Judean Hills where the British Empire's XX Corps attacked the Ottoman Empire's Yildirim Army Group's Seventh Army defending their line in front of Nablus."
+    },
+    {
+        battle: "Capture of Jenin",
+        coords: { lat: 32.461808, lng: 35.301356 },
+        startDate: "09/20/1918",
+        endDate: "09/20/1918",
+        allies: "British Empire",
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Capture of Jenin occurred on 20 September 1918, during the Battle of Sharon which together with the Battle of Nablus formed the set piece Battle of Megiddo fought between 19 and 25 September during the last months of the Sinai and Palestine Campaign of the First World War."
+    },
+    {
+        battle: "Second Battle of Amman",
+        coords: { lat: 31.933333, lng: 35.933333 },
+        startDate: "10/01/1918",
+        endDate: "10/01/1918",
+        allies: ["British Empire", "Hejaz"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Second Battle of Amman was fought on 25 September 1918 during the Third Transjordan attack as part of the Battle of Nablus which together with the main Battle of Sharon form the major set piece offensive known as the Battle of Megiddo of the Sinai and Palestine Campaign in World War I."
+    },
+    {
+        battle: "Capture of Damascus",
+        coords: { lat: 33.513, lng: 36.292 },
+        startDate: "09/26/1918",
+        endDate: "10/01/1918",
+        allies: ["Hejaz", "British Empire"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Capture of Damascus occurred after the capture of Haifa and the victory at the Battle of Samakh which opened the way for the pursuit north from the Sea of Galilee and the Third Transjordan attack which opened the way to Deraa, after the decisive Egyptian Expeditionary Force victory at the Battle of Megiddo during the Sinai and Palestine Campaign of World War I."
+    },
+    {
+        battle: "Meuse–Argonne offensive",
+        coords: { lat: 49.2725, lng: 5.141944 },
+        startDate: "09/26/1918",
+        endDate: "11/11/1918",
+        allies: ["United States", "France", "Siam"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Meuse–Argonne offensive (also known as the Meuse River–Argonne Forest offensive,[6] the Battles of the Meuse–Argonne, and the Meuse–Argonne campaign) was a major part of the final Allied offensive of World War I that stretched along the entire Western Front. It was fought from September 26, 1918, until the Armistice of November 11, 1918, a total of 47 days."
+    },
+    {
+        battle: "Battle of Jisr Benat Yakub",
+        coords: { lat: 33.186667, lng: 35.619167 },
+        startDate: "09/27/1918",
+        endDate: "09/27/1918",
+        allies: ["British Empire", "France"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Jisr Benat Yakub was fought on 27 September 1918 at the beginning of the pursuit by the Desert Mounted Corps of the retreating remnants of the Yildirim Army Group towards Damascus during the Sinai and Palestine Campaign of World War I. After the Battle of Samakh and the Capture of Tiberias, which completed the Egyptian Expeditionary Force's decisive victory."
+    },
+    {
+        battle: "Battle of St Quentin Canal",
+        coords: { lat: 49.961667, lng: 3.236667 },
+        startDate: "09/29/1918",
+        endDate: "10/10/1918",
+        allies: ["United Kingdom", "United States"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Battle of St. Quentin Canal was a pivotal battle of World War I that began on 29 September 1918 and involved British, Australian and American forces operating as part of the British Fourth Army under the overall command of General Sir Henry Rawlinson."
+    },
+    {
+        battle: "Battle of Durazzo",
+        coords: { lat: 41.301389, lng: 19.363333 },
+        startDate: "10/02/1918",
+        endDate: "10/02/1918",
+        allies: ["Kingdom of Italy", "United Kingdom", "United States", "Australia"],
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Second Battle of Durazzo, or the Bombardment of Durazzo was a naval battle fought in the Adriatic Sea during the First World War. A large allied fleet led by the Regia Marina attacked the enemy-held port at Durazzo, Albania. The fleet destroyed the Austro-Hungarian shore defenses and skirmished with a small naval force."
+    },
+    {
+        battle: "Pursuit to Haritan",
+        coords: { lat: 34.730833, lng: 36.709444 },
+        startDate: "10/03/1918",
+        endDate: "10/27/1918",
+        allies: ["British Empire", "Hejaz", "France"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Pursuit to Haritan occurred between 29 September and 26 October 1918 when the XXI Corps and Desert Mounted Corps of the Egyptian Expeditionary Force (EEF) pursued the retreating remnants of the Yildirim Army Group advanced north from Damascus after that city was captured on 1 October during the final weeks of the Sinai and Palestine Campaign of the First World War."
+    },
+    {
+        battle: "Battle of Vittorio Veneto",
+        coords: { lat: 45.955833, lng: 12.346944 },
+        startDate: "10/24/1918",
+        endDate: "11/04/1918",
+        allies: ["Kingdom of Italy", "United Kingdom", "France", "United States"],
+        adversaries: "Austro-Hungarian Empire",
+        battleType: "Ground",
+        description: "The Battle of Vittorio Veneto was fought from 24 October to 3 November 1918 (with an armistice taking effect 24 hours later) near Vittorio Veneto on the Italian Front. The Italian victory marked the end of the war on the Italian Front, secured the dissolution of the Austro-Hungarian Empire and contributed to the end of the First World War just one week later."
+    },
+    {
+        battle: "Battle of Aleppo",
+        coords: { lat: 36.216667, lng: 37.166667 },
+        startDate: "10/25/1918",
+        endDate: "10/25/1918",
+        allies: ["Hejaz", "British Empire"],
+        adversaries: ["Ottoman Empire", "German Empire"],
+        battleType: "Ground",
+        description: "The Battle of Aleppo was fought on 25 October 1918, when Prince Feisal's Sherifial Forces captured the city during the Pursuit to Haritan from Damascus, in the last days of the Sinai and Palestine Campaign in the First World War."
+    },
+    {
+        battle: "Battle of the Sambre",
+        coords: { lat: 50.4667, lng: 4.86667 },
+        startDate: "11/04/1918",
+        endDate: "11/04/1918",
+        allies: ["British Empire", "France", "United States"],
+        adversaries: "German Empire",
+        battleType: "Ground",
+        description: "The Second Battle of the Sambre (4 November 1918) (which included the Second Battle of Guise (French: 2ème Bataille de Guise) and the Battle of Thiérache (French: Bataille de Thiérache) was part of the final European Allied offensives of World War I."
+    },
+    {
+        battle: "Battle of Tulgas",
+        coords: { lat: 63.5, lng: 43 },
+        startDate: "11/11/1918",
+        endDate: "11/14/1918",
+        allies: ["United Kingdom", "United States", "Canada", "White Russians"],
+        adversaries: "Russian Empire",
+        battleType: "Ground",
+        description: "The Battle of Tulgas was part of the North Russia Intervention into the Russian Civil War and was fought between Allied and Bolshevik troops on the Northern Dvina River 200 miles south of Archangel. It took place on the day the armistice ending World War I was signed, November 11, 1918, and is sometimes referred to as 'The Battle of Armistice Day.'"
     },
     // {
     //     battle: "B",
     //     coords: { lat: 5, lng: 3 },
-    //     startDate: "11/20/1917",
-    //     endDate: "11/26/1917",
+    //     startDate: "10/01/1918",
+    //     endDate: "10/01/1918",
     //     allies: "British Empire",
     //     adversaries: "German Empire",
     //     battleType: "Ground",
