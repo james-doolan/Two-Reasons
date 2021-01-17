@@ -643,7 +643,7 @@ let wws = [
     },
     {
         battle: "Second Battle of Krithia",
-        coords: { lat: 40.078889, lng: 26.203889 },
+        coords: { lat: 40.07, lng: 26.2 },
         startDate: "05/06/1915",
         endDate: "05/08/1915",
         allies: ["British Empire", "France"],
@@ -1233,7 +1233,7 @@ let wws = [
     },
     {
         battle: "First Battle of Gaza",
-        coords: { lat: 31.4893, lng: 34.4737 },
+        coords: { lat: 31.48, lng: 34.47 },
         startDate: "03/26/1917",
         endDate: "03/26/1917",
         allies: "British Empire",
@@ -1383,7 +1383,7 @@ let wws = [
     },
     {
         battle: "Battle of Langemarck",
-        coords: { lat: 50.916667, lng: 2.916667 },
+        coords: { lat: 50.91, lng: 2.917 },
         startDate: "08/16/1917",
         endDate: "08/18/1917",
         allies: ["United Kingdom", "Newfoundland", "France"],
@@ -1453,7 +1453,7 @@ let wws = [
     },
     {
         battle: "Second Battle of Passchendaele",
-        coords: { lat: 50.900278, lng: 3.021111 },
+        coords: { lat: 50.9, lng: 3.02 },
         startDate: "10/26/1917",
         endDate: "11/10/1917",
         allies: ["British Empire", "France", "Belgium"],
@@ -2093,7 +2093,7 @@ $("#smonth").click(function () {
     $("#slider").attr("step", smonthStep);
 });
 
-slider.addEventListener('mouseup', function () {
+slider.addEventListener('change', function () {
     let sliderDif = parseInt(slider.value);
     let dateShown = (1749252879000 - sliderDif) * (-1);
     console.log(dateShown);
@@ -2146,7 +2146,7 @@ slider.addEventListener('mouseup', function () {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 7964545823;
             let endMsec = Date.parse(wws[i].endDate) + 7964545823;
-            console.log("3monthly")
+            console.log("6monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
                 console.log(wws[i].battle);
                 locations.push(wws[i].coords);
@@ -2282,7 +2282,7 @@ function initMap() {
         { name: "War Style" }
     );
 
-    var map = new google.maps.Map(document.getElementById("map"), {
+    let map = new google.maps.Map(document.getElementById("map"), {
         zoom: 2.3,
         center: {
             lat: 20.047867,
@@ -2296,22 +2296,41 @@ function initMap() {
     map.mapTypes.set("styled_map", styledMapType);
     map.setMapTypeId("styled_map");
 
-    const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+    // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+    const image = {
+        url:
+            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        // This marker is 20 pixels wide by 32 pixels high.
+        size: new google.maps.Size(20, 32),
+        // The origin for this image is (0, 0).
+        origin: new google.maps.Point(0, 0),
+        // The anchor for this image is the base of the flagpole at (0, 32).
+        anchor: new google.maps.Point(0, 32),
+    };
+    // Shapes define the clickable region of the icon. The type defines an HTML
+    // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+    // The final coordinate closes the poly by connecting to the first coordinate.
+    const shape = {
+        coords: [1, 1, 1, 20, 18, 20, 18, 1],
+        type: "poly",
+    };
 
     let markers = locations.map(function (location, i) {
 
         battleTitle = wws.find(x => x.coords === location).battle;
+        infoContent = battleTitle.toUpperCase();
 
         const infowindow = new google.maps.InfoWindow({
-            content: battleTitle,
+            content: infoContent,
         });
 
         const marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: location,
-            label: labels[i % labels.length],
+            // label: labels[i % labels.length],
             icon: image,
+            shape: shape,
             map,
         });
 
@@ -2323,10 +2342,8 @@ function initMap() {
     });
 
     new MarkerClusterer(map, markers, {
-        gridSize: 0.00000000000000000000000000000000000000000001,
+        gridSize: 0.1,
         imagePath:
             "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
-
-    console.log(markers);
 }
