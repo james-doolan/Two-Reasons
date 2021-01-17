@@ -1,10 +1,15 @@
-document.write('<div><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" /></div><br> <div id="map"></div></div>');
+document.write('<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" /></div><br> <div id="map"></div><div id="overview"></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
 const monthStep = 2654848607;
 const tmonthStep = 7964545823;
 const smonthStep = 15929091646;
+
+let map, overview;
+const OVERVIEW_DIFFERENCE = 5;
+const OVERVIEW_MIN_ZOOM = 2;
+const OVERVIEW_MAX_ZOOM = 5;
 
 let locations = [];
 let slider = document.getElementById("slider");
@@ -653,7 +658,7 @@ let wws = [
     },
     {
         battle: "Third attack on Anzac Cove",
-        coords: { lat: 40.246131, lng: 26.277798 },
+        coords: { lat: 40.24614, lng: 26.29 },
         startDate: "05/19/1915",
         endDate: "05/19/1915",
         allies: "British Empire",
@@ -783,7 +788,7 @@ let wws = [
     },
     {
         battle: "Battle of Scimitar Hill",
-        coords: { lat: 40.3031, lng: 26.23 },
+        coords: { lat: 40.303, lng: 26.25 },
         startDate: "08/21/1915",
         endDate: "08/21/1915",
         allies: "British Empire",
@@ -2290,7 +2295,30 @@ function initMap() {
         },
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
         },
+    });
+    // instantiate the overview map without controls
+    overview = new google.maps.Map(document.getElementById("overview"), {
+        center: { lat: 20.047867, lng: 12.898272 },
+        zoom: 1,
+        disableDefaultUI: true,
+        gestureHandling: "none",
+        zoomControl: false,
+    });
+
+    function clamp(num, min, max) {
+        return Math.min(Math.max(num, min), max);
+    }
+    map.addListener("bounds_changed", () => {
+        overview.setCenter(map.getCenter());
+        overview.setZoom(
+            clamp(
+                map.getZoom() - OVERVIEW_DIFFERENCE,
+                OVERVIEW_MIN_ZOOM,
+                OVERVIEW_MAX_ZOOM
+            )
+        );
     });
 
     map.mapTypes.set("styled_map", styledMapType);

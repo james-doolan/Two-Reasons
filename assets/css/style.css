@@ -15,3 +15,12 @@
     height: 630px;
     width: 80%;
 }
+
+#overview {
+  position: absolute;
+  left: 40px;
+  height: 175px;
+  width: 175px;
+  bottom: 50px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
