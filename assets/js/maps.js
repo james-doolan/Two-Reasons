@@ -1,5 +1,3 @@
-
-
 document.write('<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button>' + 
 '<label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return false;"/></div><br>' +
 ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div>');
@@ -2383,7 +2381,7 @@ function initMap() {
             infowindow.open(map, marker);
             map.setZoom(7);
             map.setCenter(marker.getPosition())
-            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries);
+            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType);
         });
 
         return marker;
@@ -2396,13 +2394,14 @@ function initMap() {
     });
 }
 
-function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries) {
+function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType) {
     $("#battleInfoBox").html(
         "<h1>"+battleTitle+"</h1>" +
         "<hr>" +
         "<p>This battle started in "+startDate+".</p>" +
         "<p>This battle ended in "+endDate+".</p>" +
         "<p>"+description+"</p>" +
-        "<p>It was fought between "+allies+" and "+adversaries+".</p>"
+        "<p>It was fought between "+allies+" and "+adversaries+".</p>" +
+        "<p>It was "+battleType+" warfare.</p>"
         );
 }
