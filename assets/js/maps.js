@@ -1,4 +1,6 @@
-document.write('<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" /></div><br> <div id="map"></div><div id="overview"></div>');
+document.write('<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button>' + 
+'<label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" /></div><br> <div id="map"></div><div id="overview"></div>' +
+'<div id="battleInfoBox"></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -2323,6 +2325,8 @@ function initMap() {
 
     map.mapTypes.set("styled_map", styledMapType);
     map.setMapTypeId("styled_map");
+    overview.mapTypes.set("styled_map", styledMapType);
+    overview.setMapTypeId("styled_map");
 
     // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     // const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
@@ -2346,8 +2350,14 @@ function initMap() {
 
     let markers = locations.map(function (location, i) {
 
-        battleTitle = wws.find(x => x.coords === location).battle;
-        infoContent = battleTitle.toUpperCase();
+        const startDate = wws.find(x => x.coords === location).startDate;
+        const endDate = wws.find(x => x.coords === location).endDate;
+        const description = wws.find(x => x.coords === location).description;
+        const allies = wws.find(x => x.coords === location).allies;
+        const adversaries = wws.find(x => x.coords === location).adversaries;
+        const battleType = wws.find(x => x.coords === location).battleType;
+        const battleTitle = wws.find(x => x.coords === location).battle;
+        const infoContent = battleTitle.toUpperCase();
 
         const infowindow = new google.maps.InfoWindow({
             content: infoContent,
@@ -2356,7 +2366,6 @@ function initMap() {
         const marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: location,
-            // label: labels[i % labels.length],
             icon: image,
             shape: shape,
             map,
@@ -2364,6 +2373,9 @@ function initMap() {
 
         marker.addListener("click", () => {
             infowindow.open(map, marker);
+            map.setZoom(8);
+            map.setCenter(marker.getPosition())
+            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries);
         });
 
         return marker;
@@ -2374,4 +2386,15 @@ function initMap() {
         imagePath:
             "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
+}
+
+function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries) {
+    $("#battleInfoBox").html(
+        "<h1>"+battleTitle+"</h1>" +
+        "<hr>" +
+        "<p>This battle started in "+startDate+".</p>" +
+        "<p>This battle ended in "+endDate+".</p>" +
+        "<p>"+description+"</p>" +
+        "<p>It was fought between "+allies+" and "+adversaries+".</p>"
+        );
 }

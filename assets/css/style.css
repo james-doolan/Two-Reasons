@@ -18,9 +18,13 @@
 
 #overview {
   position: absolute;
-  left: 40px;
+  left: 70px;
   height: 175px;
   width: 175px;
-  bottom: 50px;
+  bottom: 80px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#battleInfoBox {
+    text-align: Center;
 }
