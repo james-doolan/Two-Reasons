@@ -1,6 +1,8 @@
+
+
 document.write('<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button>' + 
-'<label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" /></div><br> <div id="map"></div><div id="overview"></div>' +
-'<div id="battleInfoBox"></div>');
+'<label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return false;"/></div><br>' +
+' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -2100,7 +2102,13 @@ $("#smonth").click(function () {
     $("#slider").attr("step", smonthStep);
 });
 
-slider.addEventListener('change', function () {
+$("#slider").click(function() {
+    sliderMapChange();
+});
+
+$(document).ready(sliderMapChange());
+
+function sliderMapChange() {
     let sliderDif = parseInt(slider.value);
     let dateShown = (1749252879000 - sliderDif) * (-1);
     console.log(dateShown);
@@ -2164,7 +2172,7 @@ slider.addEventListener('change', function () {
     initMap();
 
     locations = [];
-});
+};
 
 function setMarkers() {
     let latv = parseFloat(document.getElementById("latitude").value, 10);
@@ -2303,7 +2311,7 @@ function initMap() {
     // instantiate the overview map without controls
     overview = new google.maps.Map(document.getElementById("overview"), {
         center: { lat: 20.047867, lng: 12.898272 },
-        zoom: 1,
+        zoom: 1.5,
         disableDefaultUI: true,
         gestureHandling: "none",
         zoomControl: false,
@@ -2373,7 +2381,7 @@ function initMap() {
 
         marker.addListener("click", () => {
             infowindow.open(map, marker);
-            map.setZoom(8);
+            map.setZoom(7);
             map.setCenter(marker.getPosition())
             battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries);
         });
