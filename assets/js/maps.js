@@ -3236,7 +3236,7 @@ let wws = [
     },
     {
         battle: "Battle of Changsha",
-        coords: { lat: 28.2, lng: 112.967 },
+        coords: { lat: 28, lng: 113 },
         startDate: "12/24/1941",
         endDate: "01/15/1942",
         allies: "Republic of China",
@@ -3312,12 +3312,397 @@ let wws = [
         description: "The naval Battle of the Eastern Solomons (also known as the Battle of the Stewart Islands and, in Japanese sources, as the Second Battle of the Solomon Sea) was the third carrier battle of the Pacific campaign of World War II and the second major engagement fought between the United States Navy and the Imperial Japanese Navy during the Guadalcanal campaign."
     },
     {
+        battle: "Battle of Milne Bay",
+        coords: { lat: -10.366667, lng: 150.5 },
+        startDate: "08/25/1942",
+        endDate: "09/07/1942",
+        allies: ["Australia", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Milne Bay, also known as Operation RE or the Battle of Rabi (ラビの戦い) by the Japanese, was a battle of the Pacific campaign of World War II. Japanese naval infantry troops, known as Kaigun Tokubetsu Rikusentai (Special Naval Landing Forces), with two small tanks attacked the Allied airfields at Milne Bay that had been established on the eastern tip of New Guinea."
+    },
+    {
+        battle: "Battle of Buna–Gona",
+        coords: { lat: -8.65, lng: 148.366667 },
+        startDate: "11/16/1942",
+        endDate: "01/22/1943",
+        allies: ["Australia", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Buna–Gona was part of the New Guinea campaign in the Pacific Theatre during World War II. It followed the conclusion of the Kokoda Track campaign and lasted from 16 November 1942 until 22 January 1943. The battle was fought by Australian and United States forces against the Japanese beachheads at Buna, Sanananda and Gona."
+    },
+    {
+        battle: "Battle of Wau",
+        coords: { lat: -7.338889, lng: 146.716667 },
+        startDate: "01/29/1943",
+        endDate: "02/04/1943",
+        allies: ["Australia", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Wau was a battle in the New Guinea campaign of World War II. Forces of the Empire of Japan sailed from Rabaul and crossed the Solomon Sea and, despite Allied air attacks, successfully reached Lae, where they disembarked. Japanese troops then advanced overland on Wau, an Australian base that potentially threatened the Japanese positions at Salamaua and Lae."
+    },
+    {
+        battle: "Battle of the Bismarck Sea",
+        coords: { lat: -7.25, lng: 148.25 },
+        startDate: "03/02/1943",
+        endDate: "03/04/1943",
+        allies: ["Australia", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of the Bismarck Sea (2–4 March 1943) took place in the South West Pacific Area (SWPA) during World War II when aircraft of the U.S. Fifth Air Force and the Royal Australian Air Force (RAAF) attacked a Japanese convoy carrying troops to Lae, New Guinea. Most of the Japanese task force was destroyed, and Japanese troop losses were heavy."
+    },
+    {
+        battle: "Salamaua–Lae campaign",
+        coords: { lat: -7.033333, lng: 147.066667 },
+        startDate: "04/22/1943",
+        endDate: "09/16/1943",
+        allies: ["Australia", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Salamaua–Lae campaign was a series of actions in the New Guinea campaign of World War II. Australian and United States forces sought to capture two major Japanese bases, one in the town of Lae, and another one at Salamaua. The campaign to take the Salamaua and Lae area began after the successful defence of Wau in late January."
+    },
+    {
+        battle: "Operation Cartwheel",
+        coords: { lat: -7.525011, lng: 152.831193 },
+        startDate: "06/30/1943",
+        endDate: "03/20/1944",
+        allies: ["Australia", "Netherlands", "New Zealand", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Ground", "Naval", "Aerial"],
+        description: "Operation Cartwheel was a major military operation for the Allies. Cartwheel was an operation aimed at neutralising the major Japanese base at Rabaul. The operation was directed by the Supreme Allied Commander in the South West Pacific Area, General Douglas MacArthur, whose forces had advanced along the northeast coast of New Guinea and occupied nearby islands."
+    },
+    {
+        battle: "Battle of Cape Esperance",
+        coords: { lat: -9.15, lng: 159.633333 },
+        startDate: "10/11/1942",
+        endDate: "10/12/1942",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Naval",
+        description: "The Battle of Cape Esperance took place in the Pacific campaign of World War II between the Imperial Japanese Navy and United States Navy. The naval battle was the second of four major surface engagements during the Guadalcanal campaign and took place at the entrance to the strait between Savo Island and Guadalcanal in the Solomon Islands."
+    },
+    {
+        battle: "Battle of the Santa Cruz Islands",
+        coords: { lat: -11, lng: 166 },
+        startDate: "10/25/1942",
+        endDate: "10/27/1942",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "e",
+        battleType: ["Naval", "Aerial"],
+        description: "The Battle of the Santa Cruz Islands, sometimes referred to as the Battle of Santa Cruz or Third Battle of Solomon Sea, was the fourth aircraft carrier battle of the Pacific campaign of World War II. It was also the fourth major naval engagement fought between the United States Navy and the Imperial Japanese Navy during the strategically important Guadalcanal campaign."
+    },
+    {
+        battle: "Operation Torch",
+        coords: { lat: 35.085, lng: -2.029 },
+        startDate: "11/08/1942",
+        endDate: "05/13/1943",
+        allies: ["United States", "United Kingdom", "British Raj", "Free France", "Canada", "Netherlands", "Australia"],
+        adversaries: ["Vichy France", "Germany", "Kingdom of Italy"],
+        victor: "a",
+        battleType: ["Ground", "Naval"],
+        description: "Operation Torchwas an Allied invasion of French North Africa. The French colonies in the area formally aligned with Germany but were of mixed loyalties. Reports indicated that they might support the Allies. American General Dwight D. Eisenhower planned a three-pronged attack on Casablanca (Western), Oran (Center) and Algiers (Eastern), then a rapid move on Tunis."
+    },
+    {
+        battle: "Naval Battle of Guadalcanal",
+        coords: { lat: -9.186111, lng: 159.895 },
+        startDate: "11/12/1942",
+        endDate: "11/15/1942",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Naval", "Aerial"],
+        description: "The Naval Battle of Guadalcanal took place from 12–15 November 1942, and was the decisive engagement in a series of naval battles between Allied (primarily American) and Imperial Japanese forces during the months-long Guadalcanal Campaign in the Solomon Islands during World War II. The action consisted of combined air and sea engagements over four days."
+    },
+    {
+        battle: "Battle of Tassafaronga",
+        coords: { lat: -9.389369, lng: 160.085886 },
+        startDate: "11/30/1942",
+        endDate: "11/30/1942",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Naval",
+        description: "The Battle of Tassafaronga, sometimes referred to as the Fourth Battle of Savo Island or, in Japanese sources, as the Battle of Lunga Point (ルンガ沖夜戦), was a nighttime naval battle that took place between United States Navy and Imperial Japanese Navy warships during the Guadalcanal Campaign. The battle took place in Ironbottom Sound near the Tassafaronga area on Guadalcanal."
+    },
+    {
+        battle: "Second Battle of Kharkov",
+        coords: { lat: 48.9, lng: 37.016667 },
+        startDate: "05/12/1942",
+        endDate: "05/28/1942",
+        allies: ["Soviet Union"],
+        adversaries: ["Germany", "Romania", "Hungary", "Kingdom of Italy", "Slovak Republic", "Croatia"],
+        victor: "e",
+        battleType: ["Ground", "Aerial"],
+        description: "The Second Battle of Kharkov was an Axis counter-offensive in the region around Kharkov against the Red Army Izium bridgehead offensive conducted on the Eastern Front. After a winter counter-offensive that drove German troops away from Moscow but depleted the Red Army's reserves, the Kharkov offensive was a new Soviet attempt to expand upon their strategic initiative."
+    },
+    {
+        battle: "Battle of Madagascar",
+        coords: { lat: -12.266667, lng: 49.283333 },
+        startDate: "05/05/1942",
+        endDate: "11/06/1942",
+        allies: ["United Kingdom", "British Raj", "South Africa", "Australia", "Netherlands", "Poland"],
+        adversaries: ["Vichy France", "Empire of Japan"],
+        victor: "a",
+        battleType: ["Ground", "Aerial", "Naval"],
+        description: "The Battle of Madagascar was the British campaign to capture the Vichy French-controlled island Madagascar during World War II. The seizure of the island by the British was to deny Madagascar's ports to the Imperial Japanese Navy and to prevent the loss or impairment of the Allied shipping routes to India, Australia and Southeast Asia."
+    },
+    {
+        battle: "Battle of Rennell Island",
+        coords: { lat: -11.416667, lng: 160.933333 },
+        startDate: "01/29/1943",
+        endDate: "01/30/1943",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "e",
+        battleType: ["Aerial", "Naval"],
+        description: "The Battle of Rennell Island (Japanese: レンネル島沖海戦, Hepburn: Renneru-shima oki kaisen) took place on 29–30 January 1943. It was the last major naval engagement between the United States Navy and the Imperial Japanese Navy during the Guadalcanal Campaign of World War II. It occurred in the South Pacific between Rennell Island and Guadalcanal in the southern Solomon Islands."
+    },
+    {
+        battle: "Third Battle of Kharkov",
+        coords: { lat: 49.96, lng: 36.31 },
+        startDate: "02/19/1943",
+        endDate: "03/15/1943",
+        allies: ["Soviet Union", "Czechoslovakia"],
+        adversaries: "Germany",
+        victor: "e",
+        battleType: "Ground",
+        description: "The Third Battle of Kharkov was a series of battles on the Eastern Front of World War II, undertaken by the German Army Group South against the Red Army, around the city of Kharkov. Known to the German side as the Donets Campaign, and in the Soviet Union as the Donbas and Kharkov operations, the German counterstrike led to the recapture of the cities of Kharkov and Belgorod."
+    },
+    {
+        battle: "Battle of Kasserine Pass",
+        coords: { lat: 35.2596, lng: 8.7424 },
+        startDate: "02/19/1943",
+        endDate: "02/24/1943",
+        allies: ["United States", "United Kingdom", "Free France"],
+        adversaries: ["Germany", "Kingdom of Italy"],
+        victor: "e",
+        battleType: "Ground",
+        description: "The Battle of Kasserine Pass was a series of battles of the Tunisia Campaign of World War II that took place in February 1943. Covering Kasserine Pass, a 2-mile-wide (3.2 km) gap in the Grand Dorsal chain of the Atlas Mountains in west central Tunisia."
+    },
+    {
+        battle: "Case White",
+        coords: { lat: 43.6542, lng: 17.7625 },
+        startDate: "01/20/1943",
+        endDate: "03/15/1943",
+        allies: "Yugoslav Partisans",
+        adversaries: ["Germany", "Kingdom of Italy", "Croatia", "Chetniks"],
+        victor: "a",
+        battleType: "Ground",
+        description: "Case White, also known as the Fourth Enemy Offensive, was a combined Axis strategic offensive launched against the Yugoslav Partisans throughout occupied Yugoslavia. It was one of the most significant confrontations of WWII in Yugoslavia. The Axis operation prompted the Partisan Supreme Command to enact its plans to drive toward eastern Herzegovina, Sandžak and Montenegro."
+    },
+    {
+        battle: "Battle of the Komandorski Islands",
+        coords: { lat: 53.098611, lng: 168.212778 },
+        startDate: "03/27/1943",
+        endDate: "03/27/1943",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Naval",
+        description: "The Battle of the Komandorski Islands was a naval battle between American and Imperial Japanese forces which took place in the North Pacific, south of the Soviet Komandorski Islands. The battle was a daylight surface engagement in which air support played no role and in which the inferior American force escaped greater damage after the Japanese chose to withdraw."
+    },
+    {
+        battle: "Battle of the Bismarck Sea",
+        coords: { lat: -7.25, lng: 148.25 },
+        startDate: "03/02/1943",
+        endDate: "03/04/1943",
+        allies: ["United States", "Australia"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Aerial", "Naval"],
+        description: "The Battle of the Bismarck Sea (2–4 March 1943) took place in the South West Pacific Area (SWPA) during World War II when aircraft of the U.S. Fifth Air Force and the Royal Australian Air Force (RAAF) attacked a Japanese convoy carrying troops to Lae, New Guinea. Most of the Japanese task force was destroyed, and Japanese troop losses were heavy."
+    },
+    {
+        battle: "Battle of the Barents Sea",
+        coords: { lat: 73.25, lng: 29 },
+        startDate: "12/31/1942",
+        endDate: "12/31/1942",
+        allies: "United Kingdom",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Naval",
+        description: "The Battle of the Barents Sea was between warships of the German Navy and British ships escorting a convoy. The action took place in the Barents Sea north of North Cape. The German raiders' failure to inflict significant losses on the convoy infuriated Hitler, who ordered that German naval strategy would henceforth concentrate on the U-boat fleet rather than surface ships."
+    },
+    {
+        battle: "Battle of Attu",
+        coords: { lat: 52.879075, lng: 173.156889 },
+        startDate: "05/11/1943",
+        endDate: "05/30/1943",
+        allies: ["United States", "Canada"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Attu (codenamed Operation Landcrab), which took place on 11–30 May 1943, was a battle fought between forces of the United States, aided by Canadian reconnaissance and fighter-bomber support, and Japan on Attu Island off the coast of the Territory of Alaska as part of the Aleutian Islands Campaign during the American Theater and the Pacific Theater."
+    },
+    {
+        battle: "Warsaw Ghetto Uprising",
+        coords: { lat: 52.246111, lng: 20.995833 },
+        startDate: "04/19/1943",
+        endDate: "05/16/1943",
+        allies: ["Jewish Resistance", "Polish Resistance"],
+        adversaries: "Germany",
+        victor: "e",
+        battleType: "Ground",
+        description: "The Warsaw Ghetto Uprising was the 1943 act of Jewish resistance in the Warsaw Ghetto in German-occupied Poland during World War II to oppose Nazi Germany's final effort to transport the remaining ghetto population to Majdanek and Treblinka death camps."
+    },
+    {
+        battle: "Case Black",
+        coords: { lat: 43.346111, lng: 18.687778 },
+        startDate: "05/15/1943",
+        endDate: "06/16/1943",
+        allies: "Yugoslav Partisans",
+        adversaries:  "MVAC",
+        victor: "inconclusive",
+        battleType: "Ground",
+        description: "Case Black  was a joint attack by the Axis taking place from 15 May to 16 June 1943, which aimed to destroy the main Yugoslav Partisan force, near the Sutjeska river in south-eastern Bosnia. The failure of the offensive marked a turning point for Yugoslavia during World War II. It was also the last major German-Italian joint operation against the partisans."
+    },
+    {
+        battle: "Siege of Turjak",
+        coords: { lat: 45.8767, lng: 14.6079 },
+        startDate: "09/14/1943",
+        endDate: "09/19/1943",
+        allies: "Slovene Partisans",
+        adversaries: "MVAC",
+        victor: "a",
+        battleType: "Siege",
+        description: "The Siege of Turjak or Battle of Turjak was fought on 19 September 1943 at the Turjak Castle between the Slovene Partisans on one side and the Slovene former units of the Anti-Communist Volunteer Militia (MVAC) and Slovene Chetniks on the other. The MVAC became defunct with the end of Italian rule. The battle followed the Partisan victory at Battle of Grčarice."
+    },
+    {
+        battle: "Battle of Kursk",
+        coords: { lat: 51.716667, lng: 36.183333 },
+        startDate: "06/05/1943",
+        endDate: "08/23/1943",
+        allies: "Soviet Union",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: ["Ground", "Aerial"],
+        description: "The Battle of Kursk was a Second World War engagement between German and Soviet forces on the Eastern Front near Kursk. The battle began with the launch of the German offensive Operation Citadel on 5 July, which had the objective of pinching off the Kursk salient with attacks on the base of the salient from north and south simultaneously."
+    },
+    {
+        battle: "Allied invasion of Sicily",
+        coords: { lat: 37.5, lng: 14 },
+        startDate: "07/09/1943",
+        endDate: "08/17/1943",
+        allies: ["United Kingdom", "British Raj", "United States", "Canada", "Free France", "Australia"],
+        adversaries: ["Germany", "Kingdom of Italy"],
+        victor: "a",
+        battleType: ["Ground", "Aerial"],
+        description: "The Allied invasion of Sicily, codenamed Operation Husky, was a major campaign of World War II, in which the Allies took the island of Sicily from the Axis powers (Fascist Italy and Nazi Germany). It began with a large amphibious and airborne operation, followed by a six-week land campaign, and initiated the Italian Campaign."
+    },
+    {
+        battle: "Allied invasion of Italy",
+        coords: { lat: 40.683333, lng: 14.766667 },
+        startDate: "09/03/1943",
+        endDate: "09/17/1943",
+        allies: ["United Kingdom", "United States", "Canada"],
+        adversaries: ["Germany", "Kingdom of Italy"],
+        victor: "a",
+        battleType: "Ground",
+        description: "The Allied invasion of Italy was the Allied amphibious landing on mainland Italy that took place on 3 September 1943 during the early stages of the Italian campaign of World War II. The operation was undertaken by General Sir Harold Alexander's 15th Army Group and followed the successful Allied Invasion of Sicily."
+    },
+    {
+        battle: "Dodecanese campaign",
+        coords: { lat: 38, lng: 25 },
+        startDate: "09/08/1943",
+        endDate: "11/22/1943",
+        allies: ["Kingdom of Italy", "United Kingdom"],
+        adversaries: "Germany",
+        victor: "e",
+        battleType: ["Ground", "Naval"],
+        description: "The Dodecanese campaign of World War II was an attempt by Allied forces to capture the Italian-held Dodecanese islands in the Aegean Sea following the surrender of Italy in September 1943, and use them as bases against the German-controlled Balkans."
+    },
+    {
+        battle: "Battle of Kos",
+        coords: { lat: 36.7909, lng: 27.0712 },
+        startDate: "10/03/1943",
+        endDate: "10/04/1943",
+        allies: ["Kingdom of Italy", "United Kingdom"],
+        adversaries: "Germany",
+        victor: "e",
+        battleType: "Ground",
+        description: "The Battle of Kos (Greek: Μάχη της Κω) was a brief battle in World War II between British/Italian and German forces for control of the Greek island of Kos, in the then Italian-held Dodecanese Islands of the Aegean Sea. The battle was precipitated by the Allied Armistice with Italy."
+    },
+    {
+        battle: "Battle of Leros",
+        coords: { lat: 37.131944, lng: 26.852778 },
+        startDate: "09/26/1943",
+        endDate: "11/16/1943",
+        allies: ["Kingdom of Italy", "United Kingdom", "South Africa", "Greece"],
+        adversaries: "Germany",
+        victor: "e",
+        battleType: ["Ground", "Naval", "Aerial"],
+        description: "The Battle of Leros was the central event of the Dodecanese campaign of the Second World War, and is widely used as an alternate name for the whole campaign. After the Armistice of Cassibile the Italian garrison on the Greek island Leros was strengthened by British forces on 15 September 1943."
+    },
+    {
+        battle: "Battle of Smolensk",
+        coords: { lat: 54.783333, lng: 32.05 },
+        startDate: "08/07/1943",
+        endDate: "10/02/1943",
+        allies: "Soviet Union",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The second Battle of Smolensk was a Soviet strategic offensive operation conducted by the Red Army as part of the Summer-Autumn Campaign of 1943. Staged almost simultaneously with the Lower Dnieper Offensive, the offensive lasted two months and was led by General Andrei Yeremenko, commanding the Kalinin Front, and Vasily Sokolovsky, commanding the Western Front."
+    },
+    {
+        battle: "Battle of Kiev",
+        coords: { lat: 50.45, lng: 30.523333 },
+        startDate: "11/03/1943",
+        endDate: "11/22/1943",
+        allies: ["Soviet Union", "Czechoslovakia"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Second Battle of Kiev was a part of a much wider Soviet offensive in Ukraine known as the Battle of the Dnieper involving three strategic operations by the Soviet Red Army and one operational counterattack by the Wehrmacht, which took place between 3 November and 22 December 1943."
+    },
+    {
+        battle: "Second Raid on Schweinfurt",
+        coords: { lat: 50.05, lng: 10.233333 },
+        startDate: "10/14/1943",
+        endDate: "10/14/1943",
+        allies: "United States",
+        adversaries: "Germany",
+        victor: "e",
+        battleType: "Aerial",
+        description: "The second Schweinfurt raid was a World War II air battle that took place on 14 October 1943, over Nazi Germany between forces of the United States 8th Air Force and German Luftwaffe fighter arm (Jagdwaffe). The American bombers conducted a strategic bombing raid on ball bearing factories to reduce production of these vital parts for all manner of war machines."
+    },
+    {
+        battle: "Schweinfurt–Regensburg mission",
+        coords: { lat: 50.05, lng: 10.233333 },
+        startDate: "08/17/1943",
+        endDate: "08/17/1943",
+        allies: ["United States", "United Kingdom"],
+        adversaries: "Germany",
+        victor: "e",
+        battleType: "Aerial",
+        description: "The Schweinfurt–Regensburg mission was a strategic bombing mission carried out by bombers of the U.S. Army Air Forces. The mission was an ambitious plan to cripple the German aircraft industry; it was also known as the 'double-strike mission' because it entailed two large forces of bombers attacking separate targets in order to disperse fighter reaction by the Luftwaffe."
+    },
+    {
         battle: "B",
         coords: { lat: 2, lng: 7 },
-        startDate: "07/24/1942",
-        endDate: "07/15/1942",
+        startDate: "11/24/1943",
+        endDate: "11/15/1943",
         allies: ["United Kingdom", "British Raj", "Australia", "New Zealand", "South Africa", "Palestine", "Ceylon", "Free France", "Greece", "United States"],
-        adversaries: "Empire of Japan",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "T"
+    },
+    {
+        battle: "B",
+        coords: { lat: 2, lng: 7 },
+        startDate: "11/24/1943",
+        endDate: "11/15/1943",
+        allies: ["United Kingdom", "British Raj", "Australia", "New Zealand", "South Africa", "Palestine", "Ceylon", "Free France", "Greece", "United States"],
+        adversaries: "Germany",
         victor: "a",
         battleType: "Ground",
         description: "T"
@@ -3623,7 +4008,7 @@ function initMap() {
 
         marker.addListener("click", () => {
             infowindow.open(map, marker);
-            map.setZoom(7);
+            map.setZoom(9);
             map.setCenter(marker.getPosition())
             battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType);
         });
