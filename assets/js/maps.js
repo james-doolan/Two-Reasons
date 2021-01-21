@@ -1,5 +1,8 @@
-document.write('<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button><button id="tmonth">Quarterly</button><button id="smonth">6 Months</button>' + 
-'<label id="year">1914-07-28</label><div id="contSlider"><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return false;"/></div><br>' +
+document.write('<button id="ww1">WW1</button><button id="ww2">WW2</button><br>'+
+'<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>'+
+'<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button>'+ 
+'<label id="year">1914-07-28</label><div id="contSlider">'+
+'<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return false;"/></div><br>'+
 ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div>');
 
 const dayStep = 86400000;
@@ -7,6 +10,12 @@ const weekStep = 604800000;
 const monthStep = 2654848607;
 const tmonthStep = 7964545823;
 const smonthStep = 15929091646;
+
+const ww1StartMsec = 1749252879000;
+const ww1LengthMsec = 135397279000;
+const ww2StartMsec = 957315600000;
+const ww2LengthMsec = 191203200000;
+let sliderStartMsec; 
 
 let map, overview;
 const OVERVIEW_DIFFERENCE = 5;
@@ -30,7 +39,7 @@ let wws = [
     },
     {
         battle: "Battle of Mulhouse",
-        coords: { lat: 47.749444, lng: 7.34 },
+        coords: { lat: 47.74, lng: 7.34 },
         startDate: "08/07/1914",
         endDate: "08/26/1914",
         allies: "France",
@@ -2322,7 +2331,7 @@ let wws = [
         description: "The Battle of Drøbak Sound took place in Drøbak Sound, the northernmost part of the outer Oslofjord in southern Norway, on 9 April 1940. It marked the end of the 'Phoney War' and the beginning of World War II in Western Europe."
     },
     {
-        battle: "Battle of Narvik",
+        battle: "Battles of Narvik",
         coords: { lat: 68.420556, lng: 17.56 },
         startDate: "04/09/1940",
         endDate: "06/08/1940",
@@ -2455,7 +2464,7 @@ let wws = [
     },
     {
         battle: "Japanese invasion of French Indochina",
-        coords: { lat: 21.0333, lng: 105.85 },
+        coords: { lat: 21.1, lng: 105.7 },
         startDate: "09/22/1940",
         endDate: "09/26/1940",
         allies: "France",
@@ -2759,7 +2768,7 @@ let wws = [
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: ["Naval", "Aerial"],
-        description: "The Attack on Pearl Harbor[nb 3][11] was a surprise military strike by the Imperial Japanese Navy Air Service upon the United States (a neutral country at the time) against the naval base at Pearl Harbor in Honolulu, Territory of Hawaii, just before 08:00, on Sunday morning, December 7, 1941. The attack led to the United States' formal entry into World War II the next day."
+        description: "The Attack on Pearl Harbor was a surprise military strike by the Imperial Japanese Navy Air Service upon the United States (a neutral country at the time) against the naval base at Pearl Harbor in Honolulu, Territory of Hawaii, just before 08:00, on Sunday morning, December 7, 1941. The attack led to the United States' formal entry into World War II the next day."
     },
     {
         battle: "Battle of Changsha",
@@ -3335,7 +3344,7 @@ let wws = [
     },
     {
         battle: "Battle of Wau",
-        coords: { lat: -7.338889, lng: 146.716667 },
+        coords: { lat: -7.33, lng: 146.71 },
         startDate: "01/29/1943",
         endDate: "02/04/1943",
         allies: ["Australia", "United States"],
@@ -3343,17 +3352,6 @@ let wws = [
         victor: "a",
         battleType: "Ground",
         description: "The Battle of Wau was a battle in the New Guinea campaign of World War II. Forces of the Empire of Japan sailed from Rabaul and crossed the Solomon Sea and, despite Allied air attacks, successfully reached Lae, where they disembarked. Japanese troops then advanced overland on Wau, an Australian base that potentially threatened the Japanese positions at Salamaua and Lae."
-    },
-    {
-        battle: "Battle of the Bismarck Sea",
-        coords: { lat: -7.25, lng: 148.25 },
-        startDate: "03/02/1943",
-        endDate: "03/04/1943",
-        allies: ["Australia", "United States"],
-        adversaries: "Empire of Japan",
-        victor: "a",
-        battleType: "Ground",
-        description: "The Battle of the Bismarck Sea (2–4 March 1943) took place in the South West Pacific Area (SWPA) during World War II when aircraft of the U.S. Fifth Air Force and the Royal Australian Air Force (RAAF) attacked a Japanese convoy carrying troops to Lae, New Guinea. Most of the Japanese task force was destroyed, and Japanese troop losses were heavy."
     },
     {
         battle: "Salamaua–Lae campaign",
@@ -3665,7 +3663,7 @@ let wws = [
     },
     {
         battle: "Second Raid on Schweinfurt",
-        coords: { lat: 50.05, lng: 10.233333 },
+        coords: { lat: 50., lng: 10.2 },
         startDate: "10/14/1943",
         endDate: "10/14/1943",
         allies: "United States",
@@ -3874,7 +3872,7 @@ let wws = [
     },
     {
         battle: "Operation Ichi-Go",
-        coords: { lat: 33.9, lng: 113.5 },
+        coords: { lat: 33.4, lng: 113 },
         startDate: "04/19/1944",
         endDate: "12/31/1944",
         allies: ["Republic of China", "United States"],
@@ -3982,29 +3980,500 @@ let wws = [
         battleType: "Ground",
         description: "The Warsaw Uprising was a major World War II operation, in the summer of 1944, by the Polish underground resistance, led by the Polish resistance Home Army (Polish: Armia Krajowa), to liberate Warsaw from German occupation. The uprising was timed to coincide with the retreat of the German forces from Poland ahead of the Soviet advance."
     },
+    {
+        battle: "Operation Dragoon",
+        coords: { lat: 43.233333, lng: 6.666667 },
+        startDate: "08/15/1944",
+        endDate: "09/14/1944",
+        allies: ["United States", "France", "United Kingdom", "Canada", "Australia", "South Africa", "Greece", "New Zealand"],
+        adversaries: ["Germany", "Vichy France"],
+        victor: "a",
+        battleType: "Ground",
+        description: "Operation Dragoon (initially Operation Anvil) was the code name for the landing operation of the Allied invasion of Provence (Southern France) on 15 August 1944. The operation was initially planned to be executed in conjunction with Operation Overlord, the Allied landing in Normandy, but the lack of available resources led to a cancellation of the second landing."
+    },
+    {
+        battle: "Battle of Debrecen",
+        coords: { lat: 47.072222, lng: 21.921111 },
+        startDate: "10/06/1944",
+        endDate: "10/29/1944",
+        allies: ["Soviet Union", "Romania"],
+        adversaries: ["Germany", "Hungary"],
+        victor: "inconclusive",
+        battleType: ["Ground", "Aerial"],
+        description: "The Battle of Debrecen, called by the Red Army the Debrecen Offensive Operation, was a battle taking place on the Eastern Front during World War II. The offensive was conducted by the 2nd Ukrainian Front under Marshal Rodion Malinovsky. It was opposed by General Maximilian Fretter-Pico's German Sixth Army and the allied Hungarian VII Army Corps of Army Group South Ukraine"
+    },
+    {
+        battle: "Battle of Arnhem",
+        coords: { lat: 51.980278, lng: 5.900278 },
+        startDate: "09/17/1944",
+        endDate: "09/26/1944",
+        allies: ["United Kingdom", "Poland"],
+        adversaries: "Germany",
+        victor: "e",
+        battleType: "Ground",
+        description: "The Battle of Arnhem was a battle of the Second World War at the vanguard of the Allied Operation Market Garden. It was fought in and around the Dutch towns of Arnhem, Oosterbeek, Wolfheze and Driel and the vicinity. The Allies were poised to enter the Netherlands after sweeping through France and Belgium in the summer of 1944, after the Battle of Normandy."
+    },
+    {
+        battle: "Battle of Peleliu",
+        coords: { lat: 7, lng: 134.25 },
+        startDate: "09/15/1944",
+        endDate: "11/27/1944",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Peleliu, codenamed Operation Stalemate II by the United States military, was fought between the U.S. and Japan during the Mariana and Palau Campaign, on the island of Peleliu. U.S. Marines of the 1st Marine Division, and later soldiers of the U.S. Army's 81st Infantry Division, fought to capture an airstrip on the small coral island of Peleliu."
+    },
+    {
+        battle: "Battle of Aachen",
+        coords: { lat: 50.766667, lng: 6.1 },
+        startDate: "10/02/1944",
+        endDate: "10/21/1944",
+        allies: "United States",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Aachen was a major combat action of World War II, fought by American and German forces in and around Aachen, Germany, between 2–21 October 1944. The city had been incorporated into the Siegfried Line, the main defensive network on Germany's western border; the Allies had hoped to capture it quickly and advance into the industrialized Ruhr Basin."
+    },
+    {
+        battle: "Battle of the Scheldt",
+        coords: { lat: 51.416667, lng: 4.166667 },
+        startDate: "10/02/1944",
+        endDate: "11/08/1944",
+        allies: ["Canada", "United Kingdom", "Poland", "United States", "Belgium", "Netherlands", "France", "Norway"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of the Scheldt was a series of military operations led by the First Canadian Army, with Canadian, Polish and British units attached, to open up the shipping route to Antwerp so that its port could be used to supply the Allies in north-west Europe. The battle took place in northern Belgium and southwestern Netherlands."
+    },
+    {
+        battle: "Battle of Crucifix Hill",
+        coords: { lat: 50.799342, lng: 6.139417 },
+        startDate: "10/08/1944",
+        endDate: "10/08/1944",
+        allies: "United States",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Crucifix Hill was a World War II battle that took place on Crucifix Hill (Haarberg, Hill 239), next to the village of Haaren in Germany and was a part of the U.S. 1st Division's campaign to seize Aachen, Germany. The Battle of Aachen was part of the Drive to the Siegfried Line. The hill was named after a large crucifix mounted on the top of the hill."
+    },
+    {
+        battle: "Battle of Angaur",
+        coords: { lat: 6.9, lng: 134.133 },
+        startDate: "09/17/1944",
+        endDate: "10/22/1944",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Ground", "Aerial", "Naval"],
+        description: "The Battle of Angaur was a battle of the Pacific campaign in World War II, fought on the island of Angaur in the Palau Islands from 17 September—22 October 1944. This battle was part of a larger offensive campaign known as Operation Forager which ran from June 1944 to November 1944 in the Pacific Theater of Operations, and Operation Stalemate II in particular."
+    },
+    {
+        battle: "Battle of Hürtgen Forest",
+        coords: { lat: 50.708611, lng: 6.362778 },
+        startDate: "09/19/1944",
+        endDate: "12/16/1944",
+        allies: "United States",
+        adversaries: "Germany",
+        victor: "e",
+        battleType: "Ground",
+        description: "The Battle of Hürtgen Forest was a series of fierce battles fought between American and German forces on the Western Front during World War II, in the Hürtgen Forest, a 140 km2 area about 5 km east of the Belgian–German border. It was the longest battle on German ground during World War II and is the longest single battle the U.S. Army has ever fought."
+    },
+    {
+        battle: "Battle of Leyte",
+        coords: { lat: 11.172222, lng: 125.012222 },
+        startDate: "10/17/1944",
+        endDate: "12/26/1944",
+        allies: ["United States", "Australia"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Ground", "Aerial", "Naval"],
+        description: "The Battle of Leyte in the Pacific campaign of World War II was the amphibious invasion of the island of Leyte in the Philippines by American forces and Filipino guerrillas under the overall command of General Douglas MacArthur, who fought against the Imperial Japanese Army in the Philippines led by General Tomoyuki Yamashita."
+    },
+    {
+        battle: "Battle of Leyte Gulf",
+        coords: { lat: 10.371, lng: 125.356 },
+        startDate: "10/23/1944",
+        endDate: "10/26/1944",
+        allies: ["United States", "Australia"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Naval", "Aerial"],
+        description: "The Battle of Leyte Gulf (Filipino: Labanan sa Look ng Leyte) is considered to have been the largest naval battle of World War II and, by some criteria, possibly the largest naval battle in history, with over 200,000 naval personnel involved. It was fought in waters near the Philippine islands of Leyte, Samar, and Luzon, from 23 to 26 October 1944,"
+    },
+    {
+        battle: "Operation Queen",
+        coords: { lat: 51.197778, lng: 5.981111 },
+        startDate: "11/16/1944",
+        endDate: "12/16/1944",
+        allies: ["United States", "United Kingdom"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: ["Ground", "Bombing"],
+        description: "Operation Queen was an Anglo-American operation during World War II on the Western Front at the German Siegfried Line. The operation was aimed against the Rur River, as a staging point for a subsequent thrust over the river to the Rhine into Germany. It was conducted by the First and Ninth U.S. Armies."
+    },
+    {
+        battle: "Battle of Mindoro",
+        coords: { lat: 12.930278, lng: 121.094444 },
+        startDate: "12/13/1944",
+        endDate: "12/16/1944",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Ground", "Aerial", "Naval"],
+        description: "The Battle of Mindoro was a battle between forces of the United States and Japan, in Mindoro Island in the central Philippines during the Philippines Campaign. Troops of the United States Army, supported by the United States Navy and U.S. Army Air Forces (USAAF), made an amphibious landing on Mindoro and defeated Imperial Japanese Army (IJA) forces there."
+    },
+    {
+        battle: "Battle of the Bulge",
+        coords: { lat: 50.25, lng: 5.666667 },
+        startDate: "12/16/1944",
+        endDate: "01/25/1945",
+        allies: ["United States", "United Kingdom", "Belgium", "Canada", "France", "Luxembourg"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of the Bulge, also known as the Ardennes Counteroffensive, was a major German offensive campaign on the Western Front during World War II, and took place from 16 December 1944 to 25 January 1945. It was launched through the densely forested Ardennes region in Belgium and Luxembourg towards the end of the war in Europe."
+    },
+    {
+        battle: "Battle for the Kapelsche Veer",
+        coords: { lat: 51.716667, lng: 4.983333 },
+        startDate: "01/26/1945",
+        endDate: "01/31/1945",
+        allies: "Canada",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "In the hard winter 1944/45, a battle between German Wehrmacht and allied troops happened at the 'Kapelsche Veer' at the Maas River in Noord-Brabant near the village of Capelle. The Wehrmacht occupied the Netherlands since May 1940; it had conquered the country during the Westfeldzug. Both sides together had casualties of over 1000 men (dead, missing, wounded, war captivity)."
+    },
+    {
+        battle: "Raid at Cabanatuan",
+        coords: { lat: 15.509444, lng: 121.044444 },
+        startDate: "01/30/1945",
+        endDate: "01/30/1945",
+        allies: ["United States", "Philippines"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Raid at Cabanatuan (Filipino: Pagsalakay sa Cabanatuan), also known as The Great Raid, was a rescue of Allied prisoners of war (POWs) and civilians from a Japanese camp near Cabanatuan City, Philippines. On January 30, 1945, during World War II, United States Army Rangers, Alamo Scouts and Filipino guerrillas liberated more than 500 from the POW camp."
+    },
+    {
+        battle: "Prague Offensive",
+        coords: { lat: 50.083333, lng: 14.416667 },
+        startDate: "05/06/1945",
+        endDate: "05/11/1945",
+        allies: ["Soviet Union", "Czechoslovakia", "Romania", "Poland"],
+        adversaries: ["Germany", "Hungary", "Slovak Republic"],
+        victor: "a",
+        battleType: "Ground",
+        description: "The Prague Offensive (Russian: Пражская стратегическая наступательная операция Prague Strategic Offensive) was the last major military operation of World War II in Europe. The offensive was fought on the Eastern Front from 6 May to 11 May 1945. Fought concurrently with the Prague uprising, the offensive significantly helped the liberation of Czechoslovakia in 1945."
+    },
+    {
+        battle: "Operation Spring Awakening",
+        coords: { lat: 46.983333, lng: 18.35 },
+        startDate: "03/06/1945",
+        endDate: "03/15/1945",
+        allies: ["Soviet Union", "Bulgaria", "Yugoslav Partisans"],
+        adversaries: ["Germany", "Hungary"],
+        victor: "a",
+        battleType: "Ground",
+        description: "Operation Spring Awakening (German: Unternehmen Frühlingserwachen) was the last major German offensive. The operation was referred to in Germany as the Plattensee Offensive and in the Soviet Union as the Balaton Defensive Operation. It took place in Western Hungary on the Eastern Front and lasted from March 6th until March 15, 1945. It was a failure for Nazi Germany."
+    },
+    {
+        battle: "Battle of Bataan",
+        coords: { lat: 14.685, lng: 120.4319 },
+        startDate: "01/31/1945",
+        endDate: "02/21/1945",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle for the Recapture of Bataan by US forces and Allied Filipino guerrillas from the Japanese, part of the campaign for the liberation of the Philippines, was waged to secure the western shore of Manila Bay to enable the use of its harbor and open new supply lines for American troops engaged in the crucial battle for the liberation of Manila."
+    },
+    {
+        battle: "Battle of Manila",
+        coords: { lat: 14.583333, lng: 120.966667 },
+        startDate: "02/03/1945",
+        endDate: "03/03/1945",
+        allies: ["United States", "Philippines"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Manila was a major battle of the Philippine campaign. It was fought by forces from both the United States and the Philippines against Japanese troops in Manila. The month-long battle, which resulted in the death of over 100,000 civilians and the complete devastation of the city, was the scene of the worst urban fighting in the Pacific theater."
+    },
+    {
+        battle: "Battle of Luzon",
+        coords: { lat: 16, lng: 121 },
+        startDate: "01/09/1945",
+        endDate: "08/15/1945",
+        allies: ["United States", "Philippines", "Australia", "Mexico"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Luzon (Filipino: Labanan sa Luzon; Japanese: ルソン島の戦い), was a land battle of the Pacific Theater of Operations of World War II by the Allied forces of the U.S., its colony the Philippines, and allies against forces of the Empire of Japan. The battle resulted in a U.S. and Filipino victory."
+    },
+    {
+        battle: "Battle of Corregidor",
+        coords: { lat: 14.385556, lng: 120.573056 },
+        startDate: "02/16/1945",
+        endDate: "02/26/1945",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle for the Recapture of Corregidor (Filipino: Labanan para sa Corregidor), which occurred on the 16th until the 26th of February, 1945, pitted American forces against the defending Japanese garrison on the island fortress. The Japanese had captured the bastion from the United States Army Forces in the Far East during their 1942 invasion."
+    },
+    {
+        battle: "Raid on Los Baños",
+        coords: { lat: 14.16161, lng: 121.24239 },
+        startDate: "02/23/1945",
+        endDate: "02/23/1945",
+        allies: ["United States", "Philippines"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Raid on Los Baños in the Philippines, early Friday morning on 23 February 1945, was executed by a combined U.S. Army Airborne and Filipino guerrilla task force, resulting in the liberation of 2,147 Allied civilian and military internees from an agricultural school campus turned Japanese internment camp. The 250 Japanese in the garrison were killed."
+    },
+    {
+        battle: "Battle of Mindanao",
+        coords: { lat: 8, lng: 125 },
+        startDate: "03/10/1945",
+        endDate: "08/15/1945",
+        allies: ["United States", "Philippines"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Mindanao was fought by the Americans and allied Filipino guerrillas against the Japanese forces on the island of Mindanao in the Philippines as part of Operation VICTOR V. It was part of the campaign to liberate the Philippines. The battle was waged to complete the recapture of the southernmost portions of the archipelago from the Imperial Japanese Army."
+    },
+    {
+        battle: "Operation Varsity",
+        coords: { lat: 51.658611, lng: 6.617778 },
+        startDate: "03/24/1945",
+        endDate: "03/24/1945",
+        allies: ["United Kingdom", "United States", "Canada"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: ["Ground", "Aerial"],
+        description: "Operation Varsity (24 March 1945) was a successful airborne forces operation launched by Allied troops that took place toward the end of World War II. Involving more than 16,000 paratroopers and several thousand aircraft, it was the largest airborne operation in history to be conducted on a single day and in one location."
+    },
+    {
+        battle: "Battle of the Visayas",
+        coords: { lat: 11, lng: 123.5 },
+        startDate: "03/18/1945",
+        endDate: "07/30/1945",
+        allies: ["United States", "Philippines"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of the Visayas was fought by U.S. forces and Filipino guerrillas against the Japanese in a series of actions officially designated as Operations Victor I and II, and part of the campaign to liberate of the Philippines. The battle was waged to complete the recapture of the central portions south of the archipelago and secure them from remaining Japanese forces."
+    },
+    {
+        battle: "Battle of Iwo Jima",
+        coords: { lat: 24.783333, lng: 141.316667 },
+        startDate: "02/19/1945",
+        endDate: "03/26/1945",
+        allies: "United States",
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Iwo Jima was a major battle in which the United States Marine Corps and Navy landed on and eventually captured the island of Iwo Jima. Lying roughly halfway between American Army Airforce bases in the Mariana Islands and the Japanese islands, the military base on Iwo Jima gave the Japanese an ability to send early air raid warnings to the Japanese mainland."
+    },
+    {
+        battle: "Battle of West Henan–North Hubei",
+        coords: { lat: 33.9, lng: 113.5 },
+        startDate: "03/21/1945",
+        endDate: "05/11/1945",
+        allies: "Republic of China",
+        adversaries: "Empire of Japan",
+        victor: "e",
+        battleType: ["Ground", "Aerial"],
+        description: "The Battle of West Henan–North Hubei was one of the 22 major engagements between the National Revolutionary Army and Imperial Japanese Army during the Second Sino-Japanese War. While it was a tactical stalemate, the battle was an operational victory for the Japanese forces, who seized control of local airbases, denying Chinese forces any localized air support."
+    },
+    {
+        battle: "Battle of Halbe",
+        coords: { lat: 52.106667, lng: 13.700833 },
+        startDate: "04/24/1945",
+        endDate: "05/01/1945",
+        allies: "Soviet Union",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Halbe (German: Kesselschlacht von Halbe, Russian: Хальбский котёл, Halbe pocket) from April 24 – May 1, 1945[2] was a battle in which the German Ninth Army, under the command of General Theodor Busse, was destroyed as a fighting force by the Red Army during the Battle of Berlin."
+    },
+    {
+        battle: "Battle of Berlin",
+        coords: { lat: 52.52, lng: 13.4 },
+        startDate: "04/16/1945",
+        endDate: "05/02/1945",
+        allies: ["Soviet Union", "Poland"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: ["Ground", "Aerial"],
+        description: "The Battle of Berlin, designated the Berlin Strategic Offensive Operation by the Soviet Union, and also known as the Fall of Berlin, was one of the last major offensives of the European theatre of World War II. Following the Vistula–Oder Offensive of January–February 1945, the Red Army had temporarily halted on a line 60 km east of Berlin."
+    },
+    {
+        battle: "Capture of Hamburg",
+        coords: { lat: 53.565278, lng: 10.001389 },
+        startDate: "04/18/1945",
+        endDate: "05/03/1945",
+        allies: "United Kingdom",
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Capture of Hamburg was one of the last battles of World War II, where the remaining troops of the German 1st Parachute Army fought the British XII Corps for the control of Hamburg, between 18 April and 3 May 1945. British troops were met with fierce resistance as Hamburg was the last remaining pocket of resistance in the north."
+    },
+    {
+        battle: "Battle for Castle Itter",
+        coords: { lat: 47.470506, lng: 12.139536 },
+        startDate: "05/05/1945",
+        endDate: "05/05/1945",
+        allies: ["United States", "French prisoners", "German soldiers", "Austrian resistance"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle for Castle Itter was fought in the Austrian North Tyrol village of Itter on 5 May 1945, in the last days of the European Theater of World War II."
+    },
+    {
+        battle: "Trieste operation",
+        coords: { lat: 45.650278, lng: 13.770278 },
+        startDate: "04/30/1945",
+        endDate: "05/02/1945",
+        allies: ["Yugoslav Partisans", "New Zealand"],
+        adversaries: ["Germany", "Italian Social Republic", "Chetniks"],
+        victor: "a",
+        battleType: "Ground",
+        description: "The Trieste operation, also called the Liberation of Trieste, was a battle during the Second World War that took place during early May 1945. It led to a joint allied victory for the Yugoslav Partisans and 2nd New Zealand Division and a joint occupation of Trieste, but relations soon deteriorated and led to a nine-year dispute over the territory of Trieste."
+    },
+    {
+        battle: "Battle of Tarakan",
+        coords: { lat: 3.35, lng: 117.566667 },
+        startDate: "05/01/1945",
+        endDate: "06/21/1945",
+        allies: ["Australia", "United States", "Netherlands"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Tarakan was the first stage in the Borneo campaign of 1945. It began with an amphibious landing by Allied forces, code-named Operation Oboe One; the Allied ground forces were drawn mainly from the Australian 26th Brigade, but included a small element of Netherlands East Indies personnel. The main objective of the landing was capture of the island's airfield."
+    },
+    {
+        battle: "Battle of Poljana",
+        coords: { lat: 4, lng: 6 },
+        startDate: "06/15/1945",
+        endDate: "06/14/1945",
+        allies: ["Yugoslav Partisans", "United Kingdom"],
+        adversaries: ["Germany", "Independent State of Croatia", "Slovene Home Guard", "Montenegrin Volunteer Corps"],
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Poljana (Monday May 14 – Tuesday May 15, 1945) was a battle of World War II in Yugoslavia. It started at Poljana, near the village of Prevalje in Yugoslavia (now Slovenia), and was the culmination of a series of engagements between the Yugoslav Army and a large retreating Axis column, numbering in excess of 30,000 men."
+    },
+    {
+        battle: "Battle of Odžak",
+        coords: { lat: 45, lng: 18.26 },
+        startDate: "04/19/1945",
+        endDate: "05/25/1945",
+        allies: "Yugoslav Partisans",
+        adversaries: "Independent State of Croatia",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Odžak was the last battle of WWII in Europe. The battle began on 19 April 1945 and lasted until 25 May 1945, 17 days after the end of the war in Europe. The combatants were Ustashe commanded by Petar Rajkovačić and the Yugoslav partisans commanded by Miloš Zekić. The battle took place in the Bosnian town of Odžak. The battle was a victory for the partisans."
+    },
+    {
+        battle: "Battle of West Hunan",
+        coords: { lat: 27.378032, lng: 109.721574 },
+        startDate: "04/06/1945",
+        endDate: "06/09/1945",
+        allies: ["Republic of China", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Ground", "Aerial"],
+        description: "The Battle of West Hunan, also known as the Battle of Xuefeng Mountains and the Zhijiang Campaign, was the Japanese invasion of west Hunan and the subsequent Allied counterattack that occurred during the last months of the Second Sino-Japanese War. Japanese strategic aims for this campaign were to seize Chinese airfields and secure railroads in West Hunan,"
+    },
+    {
+        battle: "Battle of Okinawa",
+        coords: { lat: 26.5, lng: 128 },
+        startDate: "03/26/1945",
+        endDate: "07/02/1945",
+        allies: ["United States", "United Kingdom", "Canada", "New Zealand", "Australia"],
+        adversaries: "Germany",
+        victor: "a",
+        battleType: ["Ground", "Aerial", "Naval"],
+        description: "The Battle of Okinawa (Japanese: 沖縄戦, Hepburn: Okinawa-sen), codenamed Operation Iceberg, was a major battle of the Pacific War fought on the island of Okinawa by United States Marine Corps (USMC) and Army forces against the Imperial Japanese Army. The initial invasion of Okinawa on April 1, 1945, was the largest amphibious assault in the Pacific Theater of World War II."
+    },
+    {
+        battle: "Battle of North Borneo",
+        coords: { lat: 0.803287, lng: 113.888538 },
+        startDate: "06/10/1945",
+        endDate: "08/15/1945",
+        allies: ["Australia", "United States"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of North Borneo took place during the Second World War between Allied and Japanese forces. Part of the wider Borneo campaign of the Pacific War, it was fought between 10 June and 15 August 1945. The battle involved a series of amphibious landings by Australian forces on various points on the mainland around Brunei Bay and upon islands situated around the bay."
+    },
+    {
+        battle: "Battle of Balikpapan",
+        coords: { lat: -1.276806, lng: 116.827722 },
+        startDate: "07/01/1945",
+        endDate: "07/21/1945",
+        allies: ["Australia", "United States", "Netherlands", "United Kingdom"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: "Ground",
+        description: "The Battle of Balikpapan was the concluding stage of Operation Oboe, the campaign to liberate Japanese-held British and Dutch Borneo. The Australian 7th Division, composed of the 18th, 21st and 25th Infantry Brigades, with a small number of Netherlands East Indies KNIL troops, made an amphibious landing, codenamed Operation Oboe Two, a few miles north of Balikpapan."
+    },
+    {
+        battle: "Soviet invasion of Manchuria",
+        coords: { lat: 43, lng: 125 },
+        startDate: "08/09/1945",
+        endDate: "08/20/1945",
+        allies: ["Soviet Union", "Mongolia"],
+        adversaries: "Empire of Japan",
+        victor: "a",
+        battleType: ["Ground", "Aerial"],
+        description: "The Soviet invasion of Manchuria, formally known as the Manchurian Strategic Offensive Operation or simply the Manchurian Operation. It was the largest campaign of the 1945 Soviet–Japanese War, which resumed hostilities between the Union of Soviet Socialist Republics and the Empire of Japan after almost six years of peace."
+    },
 ];
+
+$("#ww1").click(function () {
+    $("#slider").attr("max", ww1LengthMsec);
+    sliderStartMsec = ww1StartMsec;
+    sliderMapChange();
+});
+
+$("#ww2").click(function () {
+    $("#slider").attr("max", ww2LengthMsec);
+    sliderStartMsec = ww2StartMsec;
+    sliderMapChange();
+});
 
 $("#day").click(function () {
     $("#slider").attr("step", dayStep);
+    sliderMapChange();
 });
 
 $("#week").click(function () {
     $("#slider").attr("step", weekStep);
+    sliderMapChange();
 });
 
 $("#month").click(function () {
     $("#slider").attr("step", monthStep);
+    sliderMapChange();
 });
 
 $("#tmonth").click(function () {
     $("#slider").attr("step", tmonthStep);
+    sliderMapChange();
 });
 
 $("#smonth").click(function () {
     $("#slider").attr("step", smonthStep);
+    sliderMapChange();
 });
 
-$("#slider").click(function() {
+$("#slider").on('input', function() {
+    sliderMapChange();
+});
+$("#slider").on('mousedown', function() {
     sliderMapChange();
 });
 
@@ -4012,7 +4481,7 @@ $(document).ready(sliderMapChange());
 
 function sliderMapChange() {
     let sliderDif = parseInt(slider.value);
-    let dateShown = (1749252879000 - sliderDif) * (-1);
+    let dateShown = (sliderStartMsec - sliderDif) * (-1);
     console.log(dateShown);
     let longDate = new Date(dateShown);
     let longDateStr = JSON.stringify(longDate);
@@ -4243,20 +4712,20 @@ function initMap() {
     const image = {
         url:
             "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        // This marker is 20 pixels wide by 32 pixels high.
-        size: new google.maps.Size(20, 32),
-        // The origin for this image is (0, 0).
-        origin: new google.maps.Point(0, 0),
-        // The anchor for this image is the base of the flagpole at (0, 32).
-        anchor: new google.maps.Point(0, 32),
+        // // This marker is 20 pixels wide by 32 pixels high.
+        // size: new google.maps.Size(20, 32),
+        // // The origin for this image is (0, 0).
+        // origin: new google.maps.Point(0, 0),
+        // // The anchor for this image is the base of the flagpole at (0, 32).
+        // anchor: new google.maps.Point(0, 32),
     };
     // Shapes define the clickable region of the icon. The type defines an HTML
     // <area> element 'poly' which traces out a polygon as a series of X,Y points.
     // The final coordinate closes the poly by connecting to the first coordinate.
-    const shape = {
-        coords: [1, 1, 1, 20, 18, 20, 18, 1],
-        type: "poly",
-    };
+    // const shape = {
+    //     coords: [1, 1, 1, 20, 18, 20, 18, 1],
+    //     type: "poly",
+    // };
 
     let markers = locations.map(function (location, i) {
 
@@ -4277,7 +4746,7 @@ function initMap() {
             animation: google.maps.Animation.DROP,
             position: location,
             icon: image,
-            shape: shape,
+            // shape: shape,
             map,
         });
 
