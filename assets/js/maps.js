@@ -4709,23 +4709,25 @@ function initMap() {
 
     // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     // const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-    const image = {
-        url:
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        // // This marker is 20 pixels wide by 32 pixels high.
-        // size: new google.maps.Size(20, 32),
-        // // The origin for this image is (0, 0).
-        // origin: new google.maps.Point(0, 0),
-        // // The anchor for this image is the base of the flagpole at (0, 32).
-        // anchor: new google.maps.Point(0, 32),
+    const image = 
+    {
+        url: "/assets/cluster_images/m1.png",
+        // 
+        //     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        // This marker is 20 pixels wide by 32 pixels high.
+        size: new google.maps.Size(20, 32),
+        // The origin for this image is (0, 0).
+        origin: new google.maps.Point(0, 0),
+        // The anchor for this image is the base of the flagpole at (0, 32).
+        anchor: new google.maps.Point(0, 32),
     };
     // Shapes define the clickable region of the icon. The type defines an HTML
     // <area> element 'poly' which traces out a polygon as a series of X,Y points.
     // The final coordinate closes the poly by connecting to the first coordinate.
-    // const shape = {
-    //     coords: [1, 1, 1, 20, 18, 20, 18, 1],
-    //     type: "poly",
-    // };
+    const shape = {
+        coords: [1, 1, 1, 20, 18, 20, 18, 1],
+        type: "poly",
+    };
 
     let markers = locations.map(function (location, i) {
 
@@ -4746,7 +4748,7 @@ function initMap() {
             animation: google.maps.Animation.DROP,
             position: location,
             icon: image,
-            // shape: shape,
+            shape: shape,
             map,
         });
 
@@ -4763,9 +4765,11 @@ function initMap() {
     new MarkerClusterer(map, markers, {
         gridSize: 0.1,
         imagePath:
-            "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+            "/assets/cluster_images/m",
     });
 }
+
+// https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType) {
     $("#battleInfoBox").html(
