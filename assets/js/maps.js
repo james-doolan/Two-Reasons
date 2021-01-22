@@ -1,9 +1,9 @@
-document.write('<button id="ww1">WW1</button><button id="ww2">WW2</button><br>'+
-'<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>'+
-'<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button>'+ 
-'<label id="year">1914-07-28</label><div id="contSlider">'+
-'<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return false;"/></div><br>'+
-' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div>');
+document.write('<button id="ww1">WW1</button><button id="ww2">WW2</button><br>' +
+    '<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
+    '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button>' +
+    '<label id="year">1914-07-28</label><div id="contSlider">' +
+    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return false;"/></div><br>' +
+    ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -15,7 +15,8 @@ const ww1StartMsec = 1749252879000;
 const ww1LengthMsec = 135397279000;
 const ww2StartMsec = 957315600000;
 const ww2LengthMsec = 191203200000;
-let sliderStartMsec; 
+let sliderStartMsec;
+let wwLengthMsec;
 
 let map, overview;
 const OVERVIEW_DIFFERENCE = 5;
@@ -189,7 +190,7 @@ let wws = [
     },
     {
         battle: "Battle of Galicia",
-        coords: { lat: 49.83, lng: 24.014167 },
+        coords: { lat: 49.82, lng: 24.014 },
         startDate: "08/23/1914",
         endDate: "09/01/1914",
         allies: "Russian Empire",
@@ -239,7 +240,7 @@ let wws = [
     },
     {
         battle: "First Battle of Garua",
-        coords: { lat: 9.3, lng: 13.4 },
+        coords: { lat: 9.3, lng: 13.38 },
         startDate: "08/29/1914",
         endDate: "08/31/1914",
         allies: "British Empire",
@@ -269,7 +270,7 @@ let wws = [
     },
     {
         battle: "First Battle of the Masurian Lakes",
-        coords: { lat: 54, lng: 22 },
+        coords: { lat: 53.99, lng: 21.99 },
         startDate: "09/07/1914",
         endDate: "09/14/1914",
         allies: "Russian Empire",
@@ -379,7 +380,7 @@ let wws = [
     },
     {
         battle: "First Battle of Edea",
-        coords: { lat: 3.8, lng: 10.133333 },
+        coords: { lat: 3.79, lng: 10.12 },
         startDate: "09/20/1914",
         endDate: "09/26/1914",
         allies: ["British Empire", "France"],
@@ -459,7 +460,7 @@ let wws = [
     },
     {
         battle: "Battle of Limanowa",
-        coords: { lat: 49.83, lng: 24.0142 },
+        coords: { lat: 49.84, lng: 24.0142 },
         startDate: "12/01/1914",
         endDate: "12/13/1914",
         allies: "Russian Empire",
@@ -649,7 +650,7 @@ let wws = [
     },
     {
         battle: "Battle for Baby 700",
-        coords: { lat: 40.246121, lng: 26.277788 },
+        coords: { lat: 40.254, lng: 26.287 },
         startDate: "05/02/1915",
         endDate: "05/03/1915",
         allies: "British Empire",
@@ -899,7 +900,7 @@ let wws = [
     },
     {
         battle: "Battle of Dujaila",
-        coords: { lat: 32.5056, lng: 45.8247 },
+        coords: { lat: 32.513, lng: 45.8247 },
         startDate: "03/08/1916",
         endDate: "03/08/1916",
         allies: "British Empire",
@@ -1209,7 +1210,7 @@ let wws = [
     },
     {
         battle: "Second Battle of Kut",
-        coords: { lat: 32.505556, lng: 45.824722 },
+        coords: { lat: 32.52, lng: 45.814 },
         startDate: "02/23/1917",
         endDate: "02/23/1917",
         allies: "British Empire",
@@ -1408,16 +1409,6 @@ let wws = [
         description: "The Battle of Langemarck was the second Anglo-French general attack of the Third Battle of Ypres. The battle took place near Ypres in Belgian Flanders, on the Western Front against the Germans. The French had a big success on the northern flank from Bixschoote to Drie Grachten and the British gained a lot of ground northwards from Langemark to the boundary with the French."
     },
     {
-        battle: "Battle of Megiddo",
-        coords: { lat: 32.4, lng: 34.883 },
-        startDate: "09/19/1917",
-        endDate: "09/25/1917",
-        allies: ["British Empire", "Hejaz", "France"],
-        adversaries: ["Ottoman Empire", "German Empire"],
-        battleType: "Ground",
-        description: "The Battle of Megiddo (Turkish: Megiddo Muharebesi) also known in Turkish as the Nablus Hezimeti ('Rout of Nablus'), or the Nablus Yarması ('Breakthrough at Nablus') was fought between 19 and 25 September 1918, on the Plain of Sharon, in front of Tulkarm, Tabsor and Arara in the Judean Hills as well as on the Esdralon Plain at Nazareth, Afulah, Beisan, Jenin and Samakh."
-    },
-    {
         battle: "Battle of the Menin Road Ridge",
         coords: { lat: 50.900278, lng: 3.016667 },
         startDate: "09/20/1917",
@@ -1489,7 +1480,7 @@ let wws = [
     },
     {
         battle: "Third Battle of Gaza",
-        coords: { lat: 31.4893, lng: 34.4737 },
+        coords: { lat: 31.48, lng: 34.484 },
         startDate: "11/01/1917",
         endDate: "11/02/1917",
         allies: ["British Empire", "France", "Kingdom of Italy"],
@@ -1969,7 +1960,7 @@ let wws = [
     },
     {
         battle: "Second Battle of Amman",
-        coords: { lat: 31.933333, lng: 35.933333 },
+        coords: { lat: 31.92, lng: 35.92 },
         startDate: "10/01/1918",
         endDate: "10/01/1918",
         allies: ["British Empire", "Hejaz"],
@@ -2243,8 +2234,8 @@ let wws = [
         description: "B"
     },
     {
-        battle: "Battle of Changsha",
-        coords: { lat: 28.2, lng: 112.967 },
+        battle: "First Battle of Changsha",
+        coords: { lat: 28.35, lng: 112.967 },
         startDate: "09/17/1939",
         endDate: "10/13/1939",
         allies: "Republic of China",
@@ -2277,7 +2268,7 @@ let wws = [
     },
     {
         battle: "Battle of the Atlantic",
-        coords: { lat: 0, lng: -25 },
+        coords: { lat: 33, lng: -40 },
         startDate: "09/03/1939",
         endDate: "05/08/1945",
         allies: ["United Kingdom", "Canada", "United States", "Brazil", "Norway"],
@@ -2442,7 +2433,7 @@ let wws = [
     },
     {
         battle: "Battle of Britain",
-        coords: { lat: 55, lng: -3 },
+        coords: { lat: 52.77, lng: -2 },
         startDate: "07/10/1940",
         endDate: "10/31/1940",
         allies: ["United Kingdom", "Canada"],
@@ -2771,7 +2762,7 @@ let wws = [
         description: "The Attack on Pearl Harbor was a surprise military strike by the Imperial Japanese Navy Air Service upon the United States (a neutral country at the time) against the naval base at Pearl Harbor in Honolulu, Territory of Hawaii, just before 08:00, on Sunday morning, December 7, 1941. The attack led to the United States' formal entry into World War II the next day."
     },
     {
-        battle: "Battle of Changsha",
+        battle: "Second Battle of Changsha",
         coords: { lat: 28.2, lng: 112.967 },
         startDate: "09/06/1941",
         endDate: "10/08/1941",
@@ -2783,7 +2774,7 @@ let wws = [
     },
     {
         battle: "Battle of Shanggao",
-        coords: { lat: 51, lng: 23 },
+        coords: { lat: 28.239, lng: 114.948 },
         startDate: "03/14/1941",
         endDate: "04/09/1941",
         allies: "Republic of China",
@@ -2849,7 +2840,7 @@ let wws = [
     },
     {
         battle: "Japanese invasion of Malaya",
-        coords: { lat: 4, lng: 4 },
+        coords: { lat: 7, lng: 100 },
         startDate: "12/08/1941",
         endDate: "12/08/1941",
         allies: ["United Kingdom", "British Raj", "Austrslia", "New Zealand"],
@@ -2959,7 +2950,7 @@ let wws = [
     },
     {
         battle: "Battle of Bataan",
-        coords: { lat: 14.685, lng: 120.4319 },
+        coords: { lat: 14.695, lng: 120.442 },
         startDate: "01/07/1942",
         endDate: "04/09/1942",
         allies: "United States",
@@ -2992,7 +2983,7 @@ let wws = [
     },
     {
         battle: "Battle of Singapore",
-        coords: { lat: 4, lng: 6 },
+        coords: { lat: 1.366667, lng: 103.816667 },
         startDate: "01/26/1942",
         endDate: "01/27/1942",
         allies: ["United Kingdom", "Austrslia"],
@@ -3223,7 +3214,7 @@ let wws = [
     },
     {
         battle: "Second Battle of El Alamein",
-        coords: { lat: 4, lng: 6 },
+        coords: { lat: 30.82, lng: 28.94 },
         startDate: "06/26/1942",
         endDate: "06/27/1942",
         allies: ["United Kingdom", "British Raj", "Australia", "New Zealand", "South Africa", "Palestine", "Ceylon", "Free France", "Greece", "United States"],
@@ -3317,7 +3308,7 @@ let wws = [
         allies: "United States",
         adversaries: "Empire of Japan",
         victor: "a",
-        battleType: ["Naval","Aerial"],
+        battleType: ["Naval", "Aerial"],
         description: "The naval Battle of the Eastern Solomons (also known as the Battle of the Stewart Islands and, in Japanese sources, as the Second Battle of the Solomon Sea) was the third carrier battle of the Pacific campaign of World War II and the second major engagement fought between the United States Navy and the Imperial Japanese Navy during the Guadalcanal campaign."
     },
     {
@@ -3557,7 +3548,7 @@ let wws = [
         startDate: "05/15/1943",
         endDate: "06/16/1943",
         allies: "Yugoslav Partisans",
-        adversaries:  "MVAC",
+        adversaries: "MVAC",
         victor: "inconclusive",
         battleType: "Ground",
         description: "Case Black  was a joint attack by the Axis taking place from 15 May to 16 June 1943, which aimed to destroy the main Yugoslav Partisan force, near the Sutjeska river in south-eastern Bosnia. The failure of the offensive marked a turning point for Yugoslavia during World War II. It was also the last major German-Italian joint operation against the partisans."
@@ -3971,7 +3962,7 @@ let wws = [
     },
     {
         battle: "Warsaw Uprising",
-        coords: { lat: 52.23, lng: 21.010833 },
+        coords: { lat: 52.24, lng: 21.02 },
         startDate: "08/01/1944",
         endDate: "10/02/1944",
         allies: "Polish Underground State",
@@ -4356,7 +4347,7 @@ let wws = [
     },
     {
         battle: "Battle of Poljana",
-        coords: { lat: 4, lng: 6 },
+        coords: { lat: 46.544444, lng: 14.873664 },
         startDate: "06/15/1945",
         endDate: "06/14/1945",
         allies: ["Yugoslav Partisans", "United Kingdom"],
@@ -4436,12 +4427,14 @@ let wws = [
 $("#ww1").click(function () {
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
+    wwLengthMsec = ww1LengthMsec;
     sliderMapChange();
 });
 
 $("#ww2").click(function () {
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
+    wwLengthMsec = ww2LengthMsec;
     sliderMapChange();
 });
 
@@ -4470,14 +4463,19 @@ $("#smonth").click(function () {
     sliderMapChange();
 });
 
-$("#slider").on('input', function() {
-    sliderMapChange();
-});
-$("#slider").on('mousedown', function() {
+$("#wholeWar").click(function () {
+    $("#slider").attr("step", 0);
     sliderMapChange();
 });
 
-$(document).ready(sliderMapChange());
+$("#slider").on('input', function () {
+    sliderMapChange();
+});
+// $("#slider").on('mousedown', function() {
+//     sliderMapChange();
+// });
+
+// $(document).ready(sliderMapChange());
 
 function sliderMapChange() {
     let sliderDif = parseInt(slider.value);
@@ -4528,12 +4526,24 @@ function sliderMapChange() {
                 locations.push(wws[i].coords);
             }
         }
-    } else {
+    } else if ($("#slider").attr("step") == smonthStep) {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 7964545823;
             let endMsec = Date.parse(wws[i].endDate) + 7964545823;
             console.log("6monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
+                console.log(wws[i].battle);
+                locations.push(wws[i].coords);
+            }
+        }
+    } else {
+        for (i = 0; i < wws.length; i++) {
+            let startMsec = Date.parse(wws[i].startDate);
+            let endMsec = Date.parse(wws[i].endDate);
+            console.log("Whole War")
+            let wwStartMsec = (sliderStartMsec)*(-1);
+            let wwEndMsec = wwStartMsec + wwLengthMsec;
+            if (wwStartMsec <= startMsec && wwEndMsec >= endMsec) {
                 console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
@@ -4709,11 +4719,12 @@ function initMap() {
 
     // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     // const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-    const image = 
+    const image =
     {
-        url: "/assets/cluster_images/m1.png",
+        url:
+        //  "/assets/cluster_images/m1.png",
         // 
-        //     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
         // This marker is 20 pixels wide by 32 pixels high.
         size: new google.maps.Size(20, 32),
         // The origin for this image is (0, 0).
@@ -4765,20 +4776,20 @@ function initMap() {
     new MarkerClusterer(map, markers, {
         gridSize: 0.1,
         imagePath:
-            "/assets/cluster_images/m",
+            "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
     });
 }
+// /assets/cluster_images/m
 
-// https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType) {
     $("#battleInfoBox").html(
-        "<h1>"+battleTitle+"</h1>" +
+        "<h1>" + battleTitle + "</h1>" +
         "<hr>" +
-        "<p>This battle started in "+startDate+".</p>" +
-        "<p>This battle ended in "+endDate+".</p>" +
-        "<p>"+description+"</p>" +
-        "<p>It was fought between "+allies+" and "+adversaries+".</p>" +
-        "<p>It was "+battleType+" warfare.</p>"
-        );
+        "<p>This battle started in " + startDate + ".</p>" +
+        "<p>This battle ended in " + endDate + ".</p>" +
+        "<p>" + description + "</p>" +
+        "<p>It was fought between " + allies + " and " + adversaries + ".</p>" +
+        "<p>It was " + battleType + " warfare.</p>"
+    );
 }
