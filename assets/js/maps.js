@@ -2,7 +2,7 @@ document.write('<button id="ww1">WW1</button><button id="ww2">WW2</button><br>' 
     '<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
     '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button>' +
     '<label id="year">1914-07-28</label><div id="contSlider">' +
-    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return false;"/></div><br>' +
+    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/></div><br>' +
     ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div>');
 
 const dayStep = 86400000;
@@ -4477,7 +4477,6 @@ $("#slider").on('input', function () {
 function sliderMapChange() {
     let sliderDif = parseInt(slider.value);
     let dateShown = (sliderStartMsec - sliderDif) * (-1);
-    // console.log(dateShown);
     let longDate = new Date(dateShown);
     let longDateStr = JSON.stringify(longDate);
     let shortDate = longDateStr.slice(1, 11);
@@ -4487,9 +4486,7 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate);
             let endMsec = Date.parse(wws[i].endDate);
-            // console.log("daily")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4497,9 +4494,7 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 302400000;
             let endMsec = Date.parse(wws[i].endDate) + 302400000;
-            // console.log("weekly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4507,9 +4502,7 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 1314000000;
             let endMsec = Date.parse(wws[i].endDate) + 1314000000;
-            // console.log("monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4517,9 +4510,7 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 3942000000;
             let endMsec = Date.parse(wws[i].endDate) + 3942000000;
-            // console.log("3monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4527,9 +4518,7 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 7964545823;
             let endMsec = Date.parse(wws[i].endDate) + 7964545823;
-            // console.log("6monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4537,11 +4526,9 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate);
             let endMsec = Date.parse(wws[i].endDate);
-            // console.log("Whole War")
             let wwStartMsec = (sliderStartMsec) * (-1);
             let wwEndMsec = wwStartMsec + wwLengthMsec;
             if (wwStartMsec <= startMsec && wwEndMsec >= endMsec) {
-                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4707,54 +4694,28 @@ function initMap() {
     map.setMapTypeId("styled_map");
     overview.mapTypes.set("styled_map", styledMapType);
     overview.setMapTypeId("styled_map");
-
-    // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    // const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-
-    // "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    // This marker is 20 pixels wide by 32 pixels high.
-    // size: new google.maps.Size(70, 70),
-    // // The origin for this image is (0, 0).
-    // origin: new google.maps.Point(0, 0),
-    // // The anchor for this image is the base of the flagpole at (0, 32).
-    // anchor: new google.maps.Point(0, 32),
-
-    // Shapes define the clickable region of the icon. The type defines an HTML
-    // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-    // The final coordinate closes the poly by connecting to the first coordinate.
-    // const shape = {
-    //     coords: [1, 1, 1, 20, 18, 20, 18, 1],
-    //     type: "poly",
-    // };
 }
 
 
 function removeMarkers() {
-    console.log(markedLocations);
 
     function setMapOnAll(map) {
         for (let i = 0; i < markedLocations.length; i++) {
             markedLocations[i].setMap(map);
-            console.log("tried to delete markers");
         }
     }
 
-    function clearMarkers() {
-        console.log("tried to delete markers");
-        setMapOnAll(null);
-    }
+    setMapOnAll(null);
 
-    clearMarkers();
     markedLocations = [];
 }
 
 function setMarkers() {
 
-    console.log("trying to set markers")
-
-    markers = locations.map(function (location, i) {
+    let markers = locations.map(function (location, i) {
 
         const startDate = wws.find(x => x.coords === location).startDate;
+        const startDateMsec = Date.parse(startDate) * (-1);
         const endDate = wws.find(x => x.coords === location).endDate;
         const description = wws.find(x => x.coords === location).description;
         const allies = wws.find(x => x.coords === location).allies;
@@ -4763,14 +4724,28 @@ function setMarkers() {
         const battleTitle = wws.find(x => x.coords === location).battle;
         const infoContent = battleTitle.toUpperCase();
         let battleImageType;
-        if (typeof battleType == 'string') {
-            battleImageType = battleType;
-            console.log("String is " + battleImageType);
+        let battleImageSort;
+        if (startDateMsec > ww2StartMsec) {
+            if (typeof battleType == 'string') {
+                battleImageType = battleType;
+                console.log("String is " + battleImageType);
+            } else {
+                battleType = battleType.sort();
+                battleTypeStr = battleType.toString();
+                battleImageType = battleTypeStr.replace(/,/g, '-');
+                console.log(battleImageType);
+            }
         } else {
-            battleType = battleType.sort();
-            battleTypeStr = battleType.toString();
-            battleImageType = battleTypeStr.replace(/,/g, '-');
-            console.log(battleImageType);
+            if (typeof battleType == 'string') {
+                battleImageType = "ww2" + battleType;
+                console.log("String is " + battleImageType);
+            } else {
+                battleType = battleType.sort();
+                battleTypeStr = battleType.toString();
+                battleImageSort = battleTypeStr.replace(/,/g, '-');
+                battleImageType = "ww2" + battleImageSort;
+                console.log(battleImageType);
+            }
         }
 
         const infowindow = new google.maps.InfoWindow({
@@ -4784,7 +4759,6 @@ function setMarkers() {
         };
 
         const marker = new google.maps.Marker({
-            // animation: google.maps.Animation.DROP,
             position: location,
             icon: image,
             // shape: shape,
@@ -4811,7 +4785,6 @@ function setMarkers() {
     // });
     // /assets/cluster_images/m
 }
-
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType) {
     $("#battleInfoBox").html(
