@@ -18,7 +18,9 @@ const ww2LengthMsec = 191203200000;
 let sliderStartMsec;
 let wwLengthMsec;
 
-let map, overview;
+let overview;
+let map;
+let markedLocations = [];
 const OVERVIEW_DIFFERENCE = 5;
 const OVERVIEW_MIN_ZOOM = 2;
 const OVERVIEW_MAX_ZOOM = 5;
@@ -1535,7 +1537,7 @@ let wws = [
         endDate: "11/17/1917",
         allies: "British Empire",
         adversaries: "German Empire",
-        battleType: "Ground",
+        battleType: "Naval",
         description: "The Second Battle of Heligoland Bight, also the Action in the Helgoland Bight and the Zweiten Seeschlacht bei Helgoland, was an inconclusive naval engagement fought between British and German squadrons on 17 November 1917 during the First World War."
     },
     {
@@ -4475,7 +4477,7 @@ $("#slider").on('input', function () {
 function sliderMapChange() {
     let sliderDif = parseInt(slider.value);
     let dateShown = (sliderStartMsec - sliderDif) * (-1);
-    console.log(dateShown);
+    // console.log(dateShown);
     let longDate = new Date(dateShown);
     let longDateStr = JSON.stringify(longDate);
     let shortDate = longDateStr.slice(1, 11);
@@ -4485,9 +4487,9 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate);
             let endMsec = Date.parse(wws[i].endDate);
-            console.log("daily")
+            // console.log("daily")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                console.log(wws[i].battle);
+                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4495,9 +4497,9 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 302400000;
             let endMsec = Date.parse(wws[i].endDate) + 302400000;
-            console.log("weekly")
+            // console.log("weekly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                console.log(wws[i].battle);
+                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4505,9 +4507,9 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 1314000000;
             let endMsec = Date.parse(wws[i].endDate) + 1314000000;
-            console.log("monthly")
+            // console.log("monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                console.log(wws[i].battle);
+                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4515,9 +4517,9 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 3942000000;
             let endMsec = Date.parse(wws[i].endDate) + 3942000000;
-            console.log("3monthly")
+            // console.log("3monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                console.log(wws[i].battle);
+                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4525,9 +4527,9 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate) - 7964545823;
             let endMsec = Date.parse(wws[i].endDate) + 7964545823;
-            console.log("6monthly")
+            // console.log("6monthly")
             if (dateShown >= startMsec && dateShown <= endMsec) {
-                console.log(wws[i].battle);
+                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
@@ -4535,28 +4537,22 @@ function sliderMapChange() {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate);
             let endMsec = Date.parse(wws[i].endDate);
-            console.log("Whole War")
+            // console.log("Whole War")
             let wwStartMsec = (sliderStartMsec) * (-1);
             let wwEndMsec = wwStartMsec + wwLengthMsec;
             if (wwStartMsec <= startMsec && wwEndMsec >= endMsec) {
-                console.log(wws[i].battle);
+                // console.log(wws[i].battle);
                 locations.push(wws[i].coords);
             }
         }
     }
 
-    initMap();
+    // initMap();
+    removeMarkers();
+    setMarkers();
 
     locations = [];
 };
-
-function setMarkers() {
-    let latv = parseFloat(document.getElementById("latitude").value, 10);
-    let lngv = parseFloat(document.getElementById("longitude").value, 10);
-    console.log(latv, lngv);
-    locations.push({ lat: latv, lng: lngv });
-    console.log(locations);
-}
 
 function initMap() {
     const styledMapType = new google.maps.StyledMapType(
@@ -4673,7 +4669,7 @@ function initMap() {
         { name: "War Style" }
     );
 
-    let map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("map"), {
         zoom: 2.3,
         center: {
             lat: 20.047867,
@@ -4730,17 +4726,52 @@ function initMap() {
     //     coords: [1, 1, 1, 20, 18, 20, 18, 1],
     //     type: "poly",
     // };
+}
 
-    let markers = locations.map(function (location, i) {
+
+function removeMarkers() {
+    console.log(markedLocations);
+
+    function setMapOnAll(map) {
+        for (let i = 0; i < markedLocations.length; i++) {
+            markedLocations[i].setMap(map);
+            console.log("tried to delete markers");
+        }
+    }
+
+    function clearMarkers() {
+        console.log("tried to delete markers");
+        setMapOnAll(null);
+    }
+
+    clearMarkers();
+    markedLocations = [];
+}
+
+function setMarkers() {
+
+    console.log("trying to set markers")
+
+    markers = locations.map(function (location, i) {
 
         const startDate = wws.find(x => x.coords === location).startDate;
         const endDate = wws.find(x => x.coords === location).endDate;
         const description = wws.find(x => x.coords === location).description;
         const allies = wws.find(x => x.coords === location).allies;
         const adversaries = wws.find(x => x.coords === location).adversaries;
-        const battleType = wws.find(x => x.coords === location).battleType;
+        let battleType = wws.find(x => x.coords === location).battleType;
         const battleTitle = wws.find(x => x.coords === location).battle;
         const infoContent = battleTitle.toUpperCase();
+        let battleImageType;
+        if (typeof battleType == 'string') {
+            battleImageType = battleType;
+            console.log("String is " + battleImageType);
+        } else {
+            battleType = battleType.sort();
+            battleTypeStr = battleType.toString();
+            battleImageType = battleTypeStr.replace(/,/g, '-');
+            console.log(battleImageType);
+        }
 
         const infowindow = new google.maps.InfoWindow({
             content: infoContent,
@@ -4748,38 +4779,41 @@ function initMap() {
 
         const image =
         {
-            url: "/assets/cluster_images/m"+battleType+".png",
-            scaledSize: new google.maps.Size(32, 32),
+            url: "/assets/cluster_images/m" + battleImageType + ".png",
+            scaledSize: new google.maps.Size(40, 40),
         };
 
         const marker = new google.maps.Marker({
-            animation: google.maps.Animation.DROP,
+            // animation: google.maps.Animation.DROP,
             position: location,
             icon: image,
             // shape: shape,
             map,
         });
+        markedLocations.push(marker);
 
         marker.addListener("click", () => {
             infowindow.open(map, marker);
             map.setZoom(9);
             map.setCenter(marker.getPosition())
-            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType);
+            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType);
         });
 
         return marker;
     });
 
-    new MarkerClusterer(map, markers, {
-        gridSize: 0.1,
-        imagePath:
-            "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
-    });
+    // markers = [];
+    // locations = [];
+    // new MarkerClusterer(map, markers, {
+    //     gridSize: 0.1,
+    //     imagePath:
+    //         "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+    // });
+    // /assets/cluster_images/m
 }
-// /assets/cluster_images/m
 
 
-function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType) {
+function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType) {
     $("#battleInfoBox").html(
         "<h1>" + battleTitle + "</h1>" +
         "<hr>" +
@@ -4787,6 +4821,6 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
         "<p>This battle ended in " + endDate + ".</p>" +
         "<p>" + description + "</p>" +
         "<p>It was fought between " + allies + " and " + adversaries + ".</p>" +
-        "<p>It was " + battleType + " warfare.</p>"
+        "<p>It was " + battleImageType + " warfare.</p>"
     );
 }
