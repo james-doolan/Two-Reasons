@@ -1,9 +1,9 @@
-document.write('<button id="ww1">WW1</button><button id="ww2">WW2</button><br>' +
-    '<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
-    '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button>' +
+document.write('<div class="page-container"><div class="ww-button-container"><button id="ww1">WW1</button><button id="ww2">WW2</button></div>' +
+    '<div class="timeline-button-container"><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
+    '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button></div>' +
     '<label id="year">1914-07-28</label><div id="contSlider">' +
     '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/></div><br>' +
-    ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div>');
+    ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -12,7 +12,7 @@ const tmonthStep = 7964545823;
 const smonthStep = 15929091646;
 
 const ww1StartMsec = 1749252879000;
-const ww1LengthMsec = 135397279000;
+const ww1LengthMsec = 143361824814;
 const ww2StartMsec = 957315600000;
 const ww2LengthMsec = 191203200000;
 let sliderStartMsec;
