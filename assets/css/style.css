@@ -3,30 +3,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-content: center;
+    align-items: center;
 }
 
 .ww-button-container {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-content: center;
+    justify-content: space-evenly;
 }
 
-.timeline-button-container {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
+.map-button-container {
+    width: 100%;
+    visibility: hidden;
 }
 
 /* slider */
 
-/* #slider {
-    width: 100%;
-    border-radius: 3px;
-    appearance: none;
-    border: 1px solid brown;
-    outline: none;
-} */
 #slider {
       appearance: none;
       width: 100%;
@@ -57,15 +49,17 @@
     left: 10%;
     height: 630px;
     width: 80%;
+    position: relative;
 }
 
 #overview {
-  position: absolute;
   left: 70px;
   height: 175px;
   width: 175px;
   bottom: 80px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: absolute;
+
 }
 
 #battleInfoBox {

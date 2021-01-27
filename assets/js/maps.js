@@ -1,9 +1,9 @@
 document.write('<div class="page-container"><div class="ww-button-container"><button id="ww1">WW1</button><button id="ww2">WW2</button></div>' +
-    '<div class="timeline-button-container"><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
-    '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button></div>' +
-    '<label id="year">1914-07-28</label><div id="contSlider">' +
-    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/></div><br>' +
-    ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div></div>');
+    '<div class="map-button-container"><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
+    '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button><br>' +
+    '<label id="year">1914-07-28</label><br>' +
+    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/><br>' +
+    ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div></div></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -25,6 +25,7 @@ const OVERVIEW_DIFFERENCE = 5;
 const OVERVIEW_MIN_ZOOM = 2;
 const OVERVIEW_MAX_ZOOM = 5;
 
+let mapCenter = { lat: 20.047867, lng: 12.898272 };
 let locations = [];
 let slider = document.getElementById("slider");
 let year = document.getElementById("year");
@@ -1092,7 +1093,7 @@ let wws = [
     },
     {
         battle: "Battle of Herkulesfürdő",
-        coords: { lat: 45.7, lng: 120.9 },
+        coords: { lat: 45.7, lng: 20.9 },
         startDate: "09/06/1916",
         endDate: "09/10/1916",
         allies: "Romania",
@@ -4427,6 +4428,7 @@ let wws = [
 ];
 
 $("#ww1").click(function () {
+    $(".map-button-container").css("visibility", "visible");
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
@@ -4434,6 +4436,7 @@ $("#ww1").click(function () {
 });
 
 $("#ww2").click(function () {
+    $(".map-button-container").css("visibility", "visible");
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
@@ -4466,7 +4469,7 @@ $("#smonth").click(function () {
 });
 
 $("#wholeWar").click(function () {
-    $("#slider").attr("step", 0);
+    $("#slider").attr("step", 100000000000);
     sliderMapChange();
 });
 
@@ -4540,6 +4543,35 @@ function sliderMapChange() {
 
     locations = [];
 };
+
+function CenterControl(controlDiv, map) {
+    // Set CSS for the control border.
+    const controlUI = document.createElement("div");
+    controlUI.style.backgroundColor = "#fff";
+    controlUI.style.border = "2px solid #fff";
+    controlUI.style.borderRadius = "3px";
+    controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+    controlUI.style.cursor = "pointer";
+    controlUI.style.marginBottom = "22px";
+    controlUI.style.textAlign = "center";
+    controlUI.title = "Click to recenter the map";
+    controlDiv.appendChild(controlUI);
+    // Set CSS for the control interior.
+    const controlText = document.createElement("div");
+    controlText.style.color = "rgb(25,25,25)";
+    controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+    controlText.style.fontSize = "16px";
+    controlText.style.lineHeight = "38px";
+    controlText.style.paddingLeft = "5px";
+    controlText.style.paddingRight = "5px";
+    controlText.innerHTML = "Center Map";
+    controlUI.appendChild(controlText);
+    // Setup the click event listeners: simply set the map to Chicago.
+    controlUI.addEventListener("click", () => {
+        map.setCenter(mapCenter);
+        map.setZoom(2.3);
+    });
+}
 
 function initMap() {
     const styledMapType = new google.maps.StyledMapType(
@@ -4653,20 +4685,25 @@ function initMap() {
                 stylers: [{ color: "#92998d" }],
             },
         ],
-        { name: "War Style" }
+        { name: "2Reasons" }
     );
 
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 2.3,
-        center: {
-            lat: 20.047867,
-            lng: 12.898272
-        },
+        center: mapCenter,
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
             style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
         },
+        streetViewControl: false,
+        scaleControl: false,
+        fullscreenControl: false,
     });
+    // Create the DIV to hold the control and call the CenterControl()
+    // constructor passing in this DIV.
+    const centerControlDiv = document.createElement("div");
+    CenterControl(centerControlDiv, map);
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
     // instantiate the overview map without controls
     overview = new google.maps.Map(document.getElementById("overview"), {
         center: { lat: 20.047867, lng: 12.898272 },
@@ -4722,34 +4759,31 @@ function setMarkers() {
         const adversaries = wws.find(x => x.coords === location).adversaries;
         let battleType = wws.find(x => x.coords === location).battleType;
         const battleTitle = wws.find(x => x.coords === location).battle;
-        const infoContent = battleTitle.toUpperCase();
+        const titleLink = battleTitle.replace(/ /g, '_');
+        const wikiLink = "https://en.wikipedia.org/wiki/" + titleLink;
         let battleImageType;
         let battleImageSort;
         if (startDateMsec > ww2StartMsec) {
             if (typeof battleType == 'string') {
                 battleImageType = battleType;
-                console.log("String is " + battleImageType);
             } else {
                 battleType = battleType.sort();
                 battleTypeStr = battleType.toString();
                 battleImageType = battleTypeStr.replace(/,/g, '-');
-                console.log(battleImageType);
             }
         } else {
             if (typeof battleType == 'string') {
                 battleImageType = "ww2" + battleType;
-                console.log("String is " + battleImageType);
             } else {
                 battleType = battleType.sort();
                 battleTypeStr = battleType.toString();
                 battleImageSort = battleTypeStr.replace(/,/g, '-');
                 battleImageType = "ww2" + battleImageSort;
-                console.log(battleImageType);
             }
         }
 
         const infowindow = new google.maps.InfoWindow({
-            content: infoContent,
+            content: battleTitle,
         });
 
         const image =
@@ -4770,7 +4804,7 @@ function setMarkers() {
             infowindow.open(map, marker);
             map.setZoom(9);
             map.setCenter(marker.getPosition())
-            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType);
+            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink);
         });
 
         return marker;
@@ -4786,9 +4820,9 @@ function setMarkers() {
     // /assets/cluster_images/m
 }
 
-function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType) {
+function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink) {
     $("#battleInfoBox").html(
-        "<h1>" + battleTitle + "</h1>" +
+        "<a href='"+wikiLink+"' target='_blank'><h1>" + battleTitle + "</h1></a>" +
         "<hr>" +
         "<p>This battle started in " + startDate + ".</p>" +
         "<p>This battle ended in " + endDate + ".</p>" +
