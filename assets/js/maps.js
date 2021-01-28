@@ -1,5 +1,5 @@
-document.write('<div class="page-container"><div class="ww-button-container"><button id="ww1">WW1</button><button id="ww2">WW2</button></div>' +
-    '<div class="map-button-container"><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
+document.write('<div class="page-container"><div id="wwButtons" class="init-ww-button-container"><button id="ww1">WW1</button><button id="ww2">WW2</button></div>' +
+    '<div id="buttonsNMap" class="init-map-button-container"><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
     '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button><br>' +
     '<label id="year">1914-07-28</label><br>' +
     '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/><br>' +
@@ -4427,8 +4427,28 @@ let wws = [
     },
 ];
 
+function initMapWithMarkers() {
+    initMap();
+    sliderMapChange();
+}
+
+let initContent = (function () {
+    let executed = false;
+    return function () {
+        if (!executed) {
+            executed = true;
+            $(".map-button-container").css("visibility", "visible");
+            $("#wwButtons").addClass("ww-button-container");
+            $("#wwButtons").removeClass("init-ww-button-container");
+            $("#buttonsNMap").addClass("map-button-container");
+            $("#buttonsNMap").removeClass("init-map-button-container");
+            setTimeout(initMapWithMarkers, 1000);
+        }
+    };
+})();
+
 $("#ww1").click(function () {
-    $(".map-button-container").css("visibility", "visible");
+    initContent();
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
@@ -4436,7 +4456,7 @@ $("#ww1").click(function () {
 });
 
 $("#ww2").click(function () {
-    $(".map-button-container").css("visibility", "visible");
+    initContent();
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
@@ -4822,7 +4842,7 @@ function setMarkers() {
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink) {
     $("#battleInfoBox").html(
-        "<a href='"+wikiLink+"' target='_blank'><h1>" + battleTitle + "</h1></a>" +
+        "<a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a>" +
         "<hr>" +
         "<p>This battle started in " + startDate + ".</p>" +
         "<p>This battle ended in " + endDate + ".</p>" +
