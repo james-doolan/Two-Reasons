@@ -4,8 +4,10 @@
     margin: 0;
 }
 
+/* Page Background */
+
 .page-container {
-    background-color: rgb(140, 206, 206);
+    background-color: rgb(186 211 193);
     background-size: cover;
     width: 100vw;
     height: 130vh;
@@ -116,4 +118,15 @@
   #overview {
     visibility: hidden;
   }
+}
+
+/* Feedback Page */
+
+.feedback-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(186 211 193);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
