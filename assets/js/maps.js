@@ -1,5 +1,6 @@
-document.write('<div class="page-container"><div id="wwButtons" class="init-ww-button-container"><button id="ww1">WW1</button><button id="ww2">WW2</button></div>' +
-    '<div id="buttonsNMap" class="init-map-button-container"><button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
+document.write('<div class="page-container"><div id="wwButtons" class="init-ww-button-container"><div id="ww1">WW1</div><div id="ww2">WW2</div></div>' +
+    '<div id="buttonsNMap" class="init-map-button-container"><a href="contact.html" target="_blank"><h3>Contact</h3></a><br>' +
+    '<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
     '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button><br>' +
     '<label id="year">1914-07-28</label><br>' +
     '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/><br>' +
