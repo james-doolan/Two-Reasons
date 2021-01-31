@@ -4,7 +4,7 @@ document.write('<div class="page-container"><div id="wwButtons" class="init-ww-b
     '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button><br>' +
     '<label id="year">1914-07-28</label><br>' +
     '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/><br>' +
-    ' <div id="map"></div><div id="overview"></div><div id="battleInfoBox"></div></div></div>');
+    '<div class="maps"><div id="map"></div><div id="overview"></div></div><div id="battleInfoBox"></div></div></div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -26,7 +26,7 @@ const OVERVIEW_DIFFERENCE = 5;
 const OVERVIEW_MIN_ZOOM = 2;
 const OVERVIEW_MAX_ZOOM = 5;
 
-let mapCenter = { lat: 20.047867, lng: 12.898272 };
+let mapCenter = { lat: 25.047867, lng: 12.898272 };
 let locations = [];
 let slider = document.getElementById("slider");
 let year = document.getElementById("year");
@@ -4444,24 +4444,27 @@ let initContent = (function () {
             $("#buttonsNMap").addClass("map-button-container");
             $("#buttonsNMap").removeClass("init-map-button-container");
             setTimeout(initMapWithMarkers, 1000);
+            $("html, body").animate({ scrollTop: $("#map").scrollTop() }, 4000);
         }
     };
 })();
 
 $("#ww1").click(function () {
-    initContent();
+    $(".page-container").css("height", "130vh");
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
     sliderMapChange();
+    initContent();
 });
 
 $("#ww2").click(function () {
-    initContent();
+    $(".page-container").css("height", "130vh");
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
     sliderMapChange();
+    initContent();
 });
 
 $("#day").click(function () {
@@ -4698,7 +4701,7 @@ function initMap() {
             {
                 featureType: "water",
                 elementType: "geometry.fill",
-                stylers: [{ color: "#b9d3c2" }],
+                stylers: [{ color: "#afa27e" }],
             },
             {
                 featureType: "water",
@@ -4757,13 +4760,12 @@ function initMap() {
 
 function removeMarkers() {
 
-    function setMapOnAll(map) {
+    var markerRemoval;
+    (markerRemoval = function () {
         for (let i = 0; i < markedLocations.length; i++) {
-            markedLocations[i].setMap(map);
+            markedLocations[i].setMap(null);
         }
-    }
-
-    setMapOnAll(null);
+    })();
 
     markedLocations = [];
 }
@@ -4851,4 +4853,5 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
         "<p>It was fought between " + allies + " and " + adversaries + ".</p>" +
         "<p>It was " + battleImageType + " warfare.</p>"
     );
+    window.scrollTo(0, document.body.scrollHeight);
 }
