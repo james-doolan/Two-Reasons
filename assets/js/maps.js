@@ -1,10 +1,27 @@
-document.write('<div class="page-container"><div id="wwButtons" class="init-ww-button-container"><div id="ww1">WW1</div><div id="ww2">WW2</div></div>' +
-    '<div id="buttonsNMap" class="init-map-button-container"><a href="contact.html" target="_blank"><h3>Contact</h3></a><br>' +
-    '<button id="day">Daily</button><button id="week">Weekly</button><button id="month">Monthly</button>' +
-    '<button id="tmonth">Quarterly</button><button id="smonth">6 Months</button><button id="wholeWar">Whole War</button><br>' +
-    '<label id="year">1914-07-28</label><br>' +
-    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/><br>' +
-    '<div class="maps"><div id="map"></div><div id="overview"></div></div><div id="battleInfoBox"></div></div></div>');
+document.write('<div class="page-container">' +
+                    '<h1>Two Reasons</h1>' +
+                    '<div id="wwButtons" class="init-ww-button-container">' +
+                        '<div id="ww1">WW1</div><div id="ww2">WW2</div>' +
+                    '</div>' +
+                    '<a href="contact.html" target="_blank"><h3>Contact</h3></a><br>' +
+                    '<div id="buttonsNMap" class="init-map-button-container">' +
+                        '<div class="period-buttons">' +
+                            '<div class="period-button" id="day">Daily</div>' +
+                            '<div class="period-button" id="week">Weekly</div>' +
+                            '<div class="period-button" id="month">Monthly</div>' +
+                            '<div class="period-button" id="tmonth">Quarterly</div>' +
+                            '<div class="period-button" id="smonth">6 Months</div>' +
+                            '<div class="period-button" id="wholeWar">Whole War</div>' +
+                        '</div>' +
+                        '<label id="year">1914-07-28</label><br>' +
+                        '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
+                        '<div class="maps">' +
+                            '<div id="map"></div>' +
+                            '<div id="overview"></div>' +
+                        '</div>' +
+                        '<div id="battleInfoBox"></div>' +
+                    '</div>' +
+                '</div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -23,8 +40,8 @@ let overview;
 let map;
 let markedLocations = [];
 const OVERVIEW_DIFFERENCE = 5;
-const OVERVIEW_MIN_ZOOM = 2;
-const OVERVIEW_MAX_ZOOM = 5;
+const OVERVIEW_MIN_ZOOM = 1;
+const OVERVIEW_MAX_ZOOM = 3;
 
 let mapCenter = { lat: 25.047867, lng: 12.898272 };
 let locations = [];
@@ -4444,7 +4461,7 @@ let initContent = (function () {
             $("#buttonsNMap").addClass("map-button-container");
             $("#buttonsNMap").removeClass("init-map-button-container");
             setTimeout(initMapWithMarkers, 1000);
-            $("html, body").animate({ scrollTop: $("#map").scrollTop() }, 4000);
+            window.scrollTo(0,document.body.scrollHeight);
         }
     };
 })();
@@ -4825,7 +4842,7 @@ function setMarkers() {
 
         marker.addListener("click", () => {
             infowindow.open(map, marker);
-            map.setZoom(9);
+            map.setZoom(11);
             map.setCenter(marker.getPosition())
             battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink);
         });
