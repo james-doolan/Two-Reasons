@@ -13,6 +13,10 @@ h1 {
     font-size: 50px;
 }
 
+p {
+    font-family: 'Josefin Slab', sans-serif;
+}
+
 .page-container {
     background-color: #cec5ae;
     background-size: cover;
@@ -156,9 +160,11 @@ h1 {
 
 }
 
-#battleInfoBox {
-    text-align: Center;
+.infoBoxTable {
+    width: 80%;
 }
+
+
 
 @media only screen and (max-width: 800px) {
   #overview {

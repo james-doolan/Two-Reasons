@@ -1,27 +1,27 @@
 document.write('<div class="page-container">' +
-                    '<h1>Two Reasons</h1>' +
-                    '<div id="wwButtons" class="init-ww-button-container">' +
-                        '<div id="ww1">WW1</div><div id="ww2">WW2</div>' +
-                    '</div>' +
-                    '<a href="contact.html" target="_blank"><h3>Contact</h3></a><br>' +
-                    '<div id="buttonsNMap" class="init-map-button-container">' +
-                        '<div class="period-buttons">' +
-                            '<div class="period-button" id="day">Daily</div>' +
-                            '<div class="period-button" id="week">Weekly</div>' +
-                            '<div class="period-button" id="month">Monthly</div>' +
-                            '<div class="period-button" id="tmonth">Quarterly</div>' +
-                            '<div class="period-button" id="smonth">6 Months</div>' +
-                            '<div class="period-button" id="wholeWar">Whole War</div>' +
-                        '</div>' +
-                        '<label id="year">1914-07-28</label><br>' +
-                        '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
-                        '<div class="maps">' +
-                            '<div id="map"></div>' +
-                            '<div id="overview"></div>' +
-                        '</div>' +
-                        '<div id="battleInfoBox"></div>' +
-                    '</div>' +
-                '</div>');
+    '<h1>Two Reasons</h1>' +
+    '<div id="wwButtons" class="init-ww-button-container">' +
+    '<div id="ww1">WW1</div><div id="ww2">WW2</div>' +
+    '</div>' +
+    '<a href="contact.html" target="_blank"><h3>Contact</h3></a><br>' +
+    '<div id="buttonsNMap" class="init-map-button-container">' +
+    '<div class="period-buttons">' +
+    '<div class="period-button" id="day">Daily</div>' +
+    '<div class="period-button" id="week">Weekly</div>' +
+    '<div class="period-button" id="month">Monthly</div>' +
+    '<div class="period-button" id="tmonth">Quarterly</div>' +
+    '<div class="period-button" id="smonth">6 Months</div>' +
+    '<div class="period-button" id="wholeWar">Whole War</div>' +
+    '</div>' +
+    '<label id="year">1914-07-28</label><br>' +
+    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
+    '<div class="maps">' +
+    '<div id="map"></div>' +
+    '<div id="overview"></div>' +
+    '</div>' +
+    '<div id="battleInfoBox"></div>' +
+    '</div>' +
+    '</div>');
 
 const dayStep = 86400000;
 const weekStep = 604800000;
@@ -4461,7 +4461,11 @@ let initContent = (function () {
             $("#buttonsNMap").addClass("map-button-container");
             $("#buttonsNMap").removeClass("init-map-button-container");
             setTimeout(initMapWithMarkers, 1000);
-            window.scrollTo(0,document.body.scrollHeight);
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                left: 0,
+                behavior: "smooth"
+            });
         }
     };
 })();
@@ -4510,7 +4514,7 @@ $("#smonth").click(function () {
 });
 
 $("#wholeWar").click(function () {
-    $("#slider").attr("step", 100000000000);
+    $("#slider").attr("step", 1000000000000);
     sliderMapChange();
 });
 
@@ -4581,6 +4585,8 @@ function sliderMapChange() {
     // initMap();
     removeMarkers();
     setMarkers();
+    map.setCenter(mapCenter);
+    map.setZoom(2.3);
 
     locations = [];
 };
@@ -4787,6 +4793,10 @@ function removeMarkers() {
     markedLocations = [];
 }
 
+function closeInfoWindow() {
+
+}
+
 function setMarkers() {
 
     let markers = locations.map(function (location, i) {
@@ -4845,30 +4855,47 @@ function setMarkers() {
             map.setZoom(11);
             map.setCenter(marker.getPosition())
             battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink);
+            setTimeout(function () { infowindow.close(); }, 4000);
         });
 
         return marker;
     });
-
-    // markers = [];
-    // locations = [];
-    // new MarkerClusterer(map, markers, {
-    //     gridSize: 0.1,
-    //     imagePath:
-    //         "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
-    // });
-    // /assets/cluster_images/m
 }
 
-function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink) {
+function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
+    $(".page-container").css("height", "160vh");
     $("#battleInfoBox").html(
-        "<a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a>" +
-        "<hr>" +
-        "<p>This battle started in " + startDate + ".</p>" +
-        "<p>This battle ended in " + endDate + ".</p>" +
-        "<p>" + description + "</p>" +
-        "<p>It was fought between " + allies + " and " + adversaries + ".</p>" +
-        "<p>It was " + battleImageType + " warfare.</p>"
+        // "<a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a>" +
+        // "<hr>" +
+        // "<p>This battle started in " + startDate + ".</p>" +
+        // "<p>This battle ended in " + endDate + ".</p>" +
+        // "<p>" + description + "</p>" +
+        // "<p>It was fought between " + allies + " and " + adversaries + ".</p>" +
+        // "<p>It was " + battleImageType + " warfare.</p>" +
+        "<table class='infoBoxTable'>" +
+        "<tr>" +
+        "<th colspan='3'><a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a></th>" +
+        "</tr>" +
+        "<tr>" +
+        "<td>" + startDate + "</td>" +
+        "<td></td>" +
+        "<td>" + endDate + "</td>" +
+        "</tr>" +
+        "<tr>" +
+        "<td>" + allies + "</td>" +
+        "<td>" + description + "</td>" +
+        "<td>" + adversaries + "</td>" +
+        "</tr>" +
+        "<tr>" +
+        "<td>" + battleType + "</td>" +
+        "</tr>" +
+        "</table>"
     );
-    window.scrollTo(0, document.body.scrollHeight);
+    setTimeout(function () {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            left: 0,
+            behavior: "smooth"
+        });
+    }, 100);
 }
