@@ -3,20 +3,17 @@ document.write('<div class="page-container">' +
     '<div id="wwButtons" class="init-ww-button-container">' +
     '<div id="ww1">WW1</div><div id="ww2">WW2</div>' +
     '</div>' +
-    '<a href="contact.html" target="_blank"><h3>Contact</h3></a><br>' +
+    '<a href="contact.html"><h3>Contact</h3></a><br>' +
     '<div id="buttonsNMap" class="init-map-button-container">' +
-    // '<div class="period-buttons">' +
     '<div class="period-button pb1" id="day">Daily</div>' +
     '<div class="period-button pb2" id="week">Weekly</div>' +
     '<div class="period-button pb3" id="month">Monthly</div>' +
     '<div class="period-button pb4" id="tmonth">Quarterly</div>' +
     '<div class="period-button pb5" id="smonth">6 Months</div>' +
-    // '</div>' +
     '<div class="period-button pb6" id="wholeWar">Whole War</div>' +
-    '<div class="period-button pb7" id="bothWars">Both Wars</div>' +
-    '<label id="year">1914-07-28</label><br>' +
     '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
     '<div class="maps">' +
+    '<label id="year">1914-07-28</label><br>' +
     '<div id="map"></div>' +
     '<div id="overview"></div>' +
     '</div>' +
@@ -138,11 +135,6 @@ $("#wholeWar").click(function () {
     sliderMapChange();
 });
 
-$("#bothWars").click(function () {
-    $("#slider").attr("step", 2000000000000);
-    sliderMapChange();
-});
-
 $("#slider").on('input', function () {
     sliderMapChange();
 });
@@ -195,11 +187,7 @@ function sliderMapChange() {
                 locations.push(wws[i].coords);
             }
         }
-    } else if ($("#slider").attr("step") == 2000000000000) {
-        for (i = 0; i < wws.length; i++) {
-            locations.push(wws[i].coords);
-        }
-    } else {
+    }else {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate);
             let endMsec = Date.parse(wws[i].endDate);

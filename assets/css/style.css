@@ -15,6 +15,7 @@ h1 {
 
 p {
     font-family: 'Josefin Slab', sans-serif;
+    text-align: center;
 }
 
 .page-container {
@@ -81,12 +82,6 @@ p {
     z-index: 1;
 }
 
-#year { 
-    font-family: 'Special Elite', cursive;
-    font-size: 35px;
-    color: rgb(8, 8, 8);
-}
-
 .period-buttons {
     width: 100%;
     display: flex;
@@ -117,7 +112,7 @@ p {
 }
 
 .pb3 {
-    width: 22%;
+    width: 24%;
 }
 
 .pb4 {
@@ -130,10 +125,6 @@ p {
 
 .pb6 {
     width: 65%;
-}
-
-.pb7 {
-    width: 80%;
 }
 
 
@@ -173,15 +164,27 @@ p {
     z-index: 1;
 }
 
+#year { 
+    font-family: 'Special Elite', cursive;
+    font-size: 35px;
+    color: rgb(8, 8, 8);
+    bottom: -20px;
+    position: absolute;
+    z-index: 2;
+    margin: 0px 43% 2%;
+    width: 15%;
+}
+
 #map {
-    left: 10%;
+    top: -0%;
+    left: 5%;
     height: 630px;
-    width: 80%;
+    width: 90%;
     position: absolute;
 }
 
 #overview {
-  left: 70px;
+  left: 10%;
   height: 175px;
   width: 175px;
   bottom: 80px;
@@ -200,6 +203,9 @@ p {
     width: 80%;
 }
 
+th, td {
+    margin: 0px 10px 20px;
+}
 
 
 @media only screen and (max-width: 800px) {
