@@ -11,8 +11,8 @@ document.write('<div class="page-container">' +
     '<div class="period-button" id="month">Monthly</div>' +
     '<div class="period-button" id="tmonth">Quarterly</div>' +
     '<div class="period-button" id="smonth">6 Months</div>' +
-    '<div class="period-button" id="wholeWar">Whole War</div>' +
     '</div>' +
+    '<div class="period-button" id="wholeWar">Whole War</div>' +
     '<label id="year">1914-07-28</label><br>' +
     '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
     '<div class="maps">' +
@@ -2853,7 +2853,7 @@ let wws = [
         coords: { lat: 4, lng: 102.5 },
         startDate: "12/08/1941",
         endDate: "02/15/1942",
-        allies: ["United Kingdom", "British Raj", "British Malaya", "Austrslia", "New Zealand", "Netherlands"],
+        allies: ["United Kingdom", "British Raj", "British Malaya", "Australia", "New Zealand", "Netherlands"],
         adversaries: ["Empire of Japan", "Thailand"],
         victor: "e",
         battleType: ["Ground", "Aerial"],
@@ -2864,7 +2864,7 @@ let wws = [
         coords: { lat: 7, lng: 100 },
         startDate: "12/08/1941",
         endDate: "12/08/1941",
-        allies: ["United Kingdom", "British Raj", "Austrslia", "New Zealand"],
+        allies: ["United Kingdom", "British Raj", "Australia", "New Zealand"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: ["Ground", "Aerial"],
@@ -2930,7 +2930,7 @@ let wws = [
         coords: { lat: 2.15, lng: 102.666667 },
         startDate: "01/14/1942",
         endDate: "01/22/1942",
-        allies: ["Austrslia", "United Kingdom", "British Raj"],
+        allies: ["Australia", "United Kingdom", "British Raj"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: ["Ground", "Aerial"],
@@ -2941,7 +2941,7 @@ let wws = [
         coords: { lat: 2.583333, lng: 102.583333 },
         startDate: "01/14/1942",
         endDate: "01/14/1942",
-        allies: "Austrslia",
+        allies: "Australia",
         adversaries: "Empire of Japan",
         victor: "a",
         battleType: "Ground",
@@ -2952,7 +2952,7 @@ let wws = [
         coords: { lat: 2.698964, lng: 103.664246 },
         startDate: "01/26/1942",
         endDate: "01/27/1942",
-        allies: ["United Kingdom", "Austrslia"],
+        allies: ["United Kingdom", "Australia"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: ["Naval", "Aerial"],
@@ -3007,7 +3007,7 @@ let wws = [
         coords: { lat: 1.366667, lng: 103.816667 },
         startDate: "01/26/1942",
         endDate: "01/27/1942",
-        allies: ["United Kingdom", "Austrslia"],
+        allies: ["United Kingdom", "Australia"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: "Ground",
@@ -3018,7 +3018,7 @@ let wws = [
         coords: { lat: 1.387, lng: 103.692 },
         startDate: "02/08/1942",
         endDate: "02/09/1942",
-        allies: "Austrslia",
+        allies: "Australia",
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: "Ground",
@@ -3029,7 +3029,7 @@ let wws = [
         coords: { lat: 1.439255, lng: 103.737601 },
         startDate: "02/09/1942",
         endDate: "02/10/1942",
-        allies: "Austrslia",
+        allies: "Australia",
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: "Ground",
@@ -3040,7 +3040,7 @@ let wws = [
         coords: { lat: 1.34869, lng: 103.777022 },
         startDate: "02/10/1942",
         endDate: "02/12/1942",
-        allies: ["United Kingdom", "British Raj", "Austrslia"],
+        allies: ["United Kingdom", "British Raj", "Australia"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: "Ground",
@@ -3062,7 +3062,7 @@ let wws = [
         coords: { lat: -5, lng: 111 },
         startDate: "02/27/1942",
         endDate: "02/27/1942",
-        allies: ["United Kingdom", "British Raj", "British Malaya", "Austrslia"],
+        allies: ["United Kingdom", "British Raj", "British Malaya", "Australia"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: "Naval",
@@ -3095,7 +3095,7 @@ let wws = [
         coords: { lat: -20, lng: 80 },
         startDate: "03/31/1942",
         endDate: "04/10/1942",
-        allies: ["United Kingdom", "Austrslia", "Netherlands", "United States", "Canada"],
+        allies: ["United Kingdom", "Australia", "Netherlands", "United States", "Canada"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: ["Naval", "Aerial"],
@@ -3106,7 +3106,7 @@ let wws = [
         coords: { lat: -10.483333, lng: 105.633333 },
         startDate: "03/31/1942",
         endDate: "04/01/1942",
-        allies: ["United Kingdom", "Austrslia", "British Raj", "United States"],
+        allies: ["United Kingdom", "Australia", "British Raj", "United States"],
         adversaries: "Empire of Japan",
         victor: "e",
         battleType: ["Ground", "Naval"],
@@ -3161,7 +3161,7 @@ let wws = [
         coords: { lat: -18, lng: 158 },
         startDate: "05/04/1942",
         endDate: "05/08/1942",
-        allies: ["United States", "Austrslia"],
+        allies: ["United States", "Australia"],
         adversaries: "Empire of Japan",
         victor: "inconclusive",
         battleType: ["Aerial", "Naval"],
@@ -3216,7 +3216,7 @@ let wws = [
         coords: { lat: -33.858333, lng: 151.233333 },
         startDate: "05/31/1942",
         endDate: "06/08/1942",
-        allies: ["Austrslia", "United States", "United Kingdom", "Netherlands", "British Raj"],
+        allies: ["Australia", "United States", "United Kingdom", "Netherlands", "British Raj"],
         adversaries: "Empire of Japan",
         victor: "a",
         battleType: "Naval",
@@ -4445,6 +4445,22 @@ let wws = [
     },
 ];
 
+// let filteredWws = [];
+
+// function wwsFilter() {
+//     for (i = 0; i < wws.length; i++) {
+//         let currentUn = wws[i].adversaries;
+//         let currentIn;
+//         let currentAn;
+//         if (typeof currentUn == 'object') {
+//             filteredWws.concat(currentUn);
+//         } else {
+//             filteredWws.push(currentUn)
+//         }
+//     }
+//     console.log([... new Set(filteredWws)]);
+// }
+
 function initMapWithMarkers() {
     initMap();
     sliderMapChange();
@@ -4471,7 +4487,7 @@ let initContent = (function () {
 })();
 
 $("#ww1").click(function () {
-    $(".page-container").css("height", "130vh");
+    $(".page-container").css("height", "150vh");
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
@@ -4480,7 +4496,7 @@ $("#ww1").click(function () {
 });
 
 $("#ww2").click(function () {
-    $(".page-container").css("height", "130vh");
+    $(".page-container").css("height", "150vh");
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
@@ -4616,7 +4632,7 @@ function CenterControl(controlDiv, map) {
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener("click", () => {
         map.setCenter(mapCenter);
-        map.setZoom(2.3);
+        map.setZoom(2);
     });
 }
 
@@ -4736,7 +4752,7 @@ function initMap() {
     );
 
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 2.3,
+        zoom: 2,
         center: mapCenter,
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
@@ -4863,15 +4879,8 @@ function setMarkers() {
 }
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
-    $(".page-container").css("height", "160vh");
+    $(".page-container").css("height", "180vh");
     $("#battleInfoBox").html(
-        // "<a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a>" +
-        // "<hr>" +
-        // "<p>This battle started in " + startDate + ".</p>" +
-        // "<p>This battle ended in " + endDate + ".</p>" +
-        // "<p>" + description + "</p>" +
-        // "<p>It was fought between " + allies + " and " + adversaries + ".</p>" +
-        // "<p>It was " + battleImageType + " warfare.</p>" +
         "<table class='infoBoxTable'>" +
         "<tr>" +
         "<th colspan='3'><a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a></th>" +
@@ -4883,7 +4892,7 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
         "</tr>" +
         "<tr>" +
         "<td>" + allies + "</td>" +
-        "<td>" + description + "</td>" +
+        "<td><p>" + description + "</p></td>" +
         "<td>" + adversaries + "</td>" +
         "</tr>" +
         "<tr>" +

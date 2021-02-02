@@ -1,7 +1,7 @@
 console.log("Hello visitors");
 
 document.write('<div class="feedback-container">' +
-        '<h1>Feedback</h1>' +
+        '<h1>Feedback</h1><p><a href="index.html">Back to Main</a></p>' +
         '<form onsubmit="return sendMail(this);">' +
             '<input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />' +
             '<input type="email" name="emailaddress" id="emailaddress" class="form-control" placeholder="Email" required />' +
