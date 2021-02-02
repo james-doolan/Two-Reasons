@@ -99,14 +99,43 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 22px;
     width: 85px;
     border-radius: 5px;
     color: white;
     background-color: #552c2a;
-    margin-bottom: 20px;
+    margin-bottom: 4px;
     cursor: pointer;
 }
+
+.pb1 {
+    width: 10%;
+}
+
+.pb2 {
+    width: 15%;
+}
+
+.pb3 {
+    width: 22%;
+}
+
+.pb4 {
+    width: 36%;
+}
+
+.pb5 {
+    width: 49%;
+}
+
+.pb6 {
+    width: 65%;
+}
+
+.pb7 {
+    width: 80%;
+}
+
 
 /* slider */
 
