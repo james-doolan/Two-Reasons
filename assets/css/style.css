@@ -194,10 +194,22 @@ p {
     align-items: center;
 }
 
-.flagsNpole {
+.fFlagsNpole {
     height: 100%;
-    width: 17px;
+    width: 200px;
     margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.eFlagsNpole {
+    height: 100%;
+    width: 200px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .flagpole {
@@ -207,9 +219,18 @@ p {
 }
 
 .flags {
-    width: 200px;
-    height: 100px;
-    background-color: black;
+    width: 100px;
+    height: 50%;
+}
+
+#friendly-flags img {
+    width: 100px;
+    height: 50px;
+}
+
+#enemy-flags img {
+    width: 100px;
+    height: 50px;
 }
 
 .infoBoxTable {

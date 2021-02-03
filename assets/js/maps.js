@@ -187,7 +187,7 @@ function sliderMapChange() {
                 locations.push(wws[i].coords);
             }
         }
-    }else {
+    } else {
         for (i = 0; i < wws.length; i++) {
             let startMsec = Date.parse(wws[i].startDate);
             let endMsec = Date.parse(wws[i].endDate);
@@ -482,7 +482,7 @@ function setMarkers() {
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
     $(".page-container").css("height", "180vh");
     $("#battleInfoBox").html(
-        "<div class='flagsNpole'><div class='flagpole'></div><div class='friendly-flags'></div></div>" +
+        "<div class='fFlagsNpole'><div class='flagpole friendly-flagpole'></div><div class='flags' id='friendly-flags'></div></div>" +
         "<table class='infoBoxTable'>" +
         "<tr>" +
         "<th colspan='3'><a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a></th>" +
@@ -498,9 +498,8 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
         "<td>Antagonists: " + adversaries + "</td>" +
         "</tr>" +
         "</table>" +
-        "<div class='flagsNpole'><div class='enemy-flags'></div><div class='flagpole'></div></div>"
+        "<div class='eFlagsNpole'><div class='flags' id='enemy-flags'></div><div class='flagpole enemy-flagpole'></div></div>"
     );
-    $(".flags");
     setTimeout(function () {
         window.scrollTo({
             top: document.body.scrollHeight,
@@ -508,4 +507,29 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
             behavior: "smooth"
         });
     }, 5);
+    let enemyFlags = document.getElementById("enemy-flags");
+    var friendlyFlags = document.getElementById("friendly-flags");
+    if (typeof allies == 'object') {
+        for (i = 0; i < allies.length; i++) {
+            let lilAllies = allies[i].toLowerCase();
+            let aArranged = lilAllies.replace(/ /g, '_');
+            friendlyFlags.innerHTML += "<img src='/assets/flag_images/" + aArranged + ".png'></img>";
+        }
+    } else {
+        let lilAlly = allies.toLowerCase();
+        let aArranged = lilAlly.replace(/ /g, '_');
+        $(".friendly-flags").html("<img src='/assets/flag_images/" + aArranged + ".png'></img>");
+    }
+    if (typeof adversaries == 'object') {
+        for (i = 0; i < adversaries.length; i++) {
+            let lilEnemies = adversaries[i].toLowerCase();
+            let eArranged = lilEnemies.replace(/ /g, '_');
+            enemyFlags.innerHTML += "<img src='/assets/flag_images/" + eArranged + ".png'></img>";
+            console.log(eArranged);
+        }
+    } else {
+        let lilEnemy = adversaries.toLowerCase();
+        let eArranged = lilEnemy.replace(/ /g, '_');
+        $(".enemy-flags").html("<img src='/assets/flag_images/" + eArranged + ".png'></img>");
+    }
 }
