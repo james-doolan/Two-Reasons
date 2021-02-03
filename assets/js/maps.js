@@ -472,7 +472,7 @@ function setMarkers() {
             map.setZoom(11);
             map.setCenter(marker.getPosition())
             battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink);
-            setTimeout(function () { infowindow.close(); }, 4000);
+            setTimeout(function () { infowindow.close(); }, 3000);
         });
 
         return marker;
@@ -482,30 +482,30 @@ function setMarkers() {
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
     $(".page-container").css("height", "180vh");
     $("#battleInfoBox").html(
+        "<div class='flagsNpole'><div class='flagpole'></div><div class='friendly-flags'></div></div>" +
         "<table class='infoBoxTable'>" +
         "<tr>" +
         "<th colspan='3'><a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a></th>" +
         "</tr>" +
         "<tr>" +
-        "<td>" + startDate + "</td>" +
+        "<td>Start Date: " + startDate + "</td>" +
         "<td></td>" +
-        "<td>" + endDate + "</td>" +
+        "<td>End Date: " + endDate + "</td>" +
         "</tr>" +
         "<tr>" +
-        "<td>" + allies + "</td>" +
-        "<td><p>" + description + "</p></td>" +
-        "<td>" + adversaries + "</td>" +
+        "<td>Allies: " + allies + "</td>" +
+        "<td><p class='battle-description'>" + description + "</p></td>" +
+        "<td>Antagonists: " + adversaries + "</td>" +
         "</tr>" +
-        "<tr>" +
-        "<td>" + battleType + "</td>" +
-        "</tr>" +
-        "</table>"
+        "</table>" +
+        "<div class='flagsNpole'><div class='enemy-flags'></div><div class='flagpole'></div></div>"
     );
+    $(".flags");
     setTimeout(function () {
         window.scrollTo({
             top: document.body.scrollHeight,
             left: 0,
             behavior: "smooth"
         });
-    }, 100);
+    }, 5);
 }

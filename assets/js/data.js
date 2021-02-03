@@ -2048,7 +2048,7 @@ let wws = [
         adversaries: ["Germany", "Soviet Union"],
         victor: "e",
         battleType: "Ground",
-        description: "B"
+        description: "The invasion of Poland was an attack on the Second Polish Republic by Nazi Germany and the Soviet Union which marked the beginning of World War II. The German invasion began on 1st September 1939, one week after the signing of the Molotov–Ribbentrop Pact between Germany and the Soviet Union, and one day after the Supreme Soviet of the Soviet Union had approved the pact."
     },
     {
         battle: "Battle of the Bzura",
