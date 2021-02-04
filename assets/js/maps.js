@@ -1,9 +1,9 @@
 document.write('<div class="page-container">' +
     '<h1>Two Reasons</h1>' +
     '<div id="wwButtons" class="init-ww-button-container">' +
-    '<div id="ww1">WW1</div><div id="ww2">WW2</div>' +
+    '<div id="ww1"><h2>WW1</h2></div><div id="ww2"><h2>WW2</h2></div>' +
     '</div>' +
-    '<a href="contact.html"><h3>Contact</h3></a><br>' +
+    '<a class="contact-link" href="contact.html"><h3>Contact</h3></a><br>' +
     '<div id="buttonsNMap" class="init-map-button-container">' +
     '<div class="period-button pb1" id="day">Daily</div>' +
     '<div class="period-button pb2" id="week">Weekly</div>' +
@@ -17,8 +17,8 @@ document.write('<div class="page-container">' +
     '<div id="map"></div>' +
     '<div id="overview"></div>' +
     '</div>' +
-    '<div id="battleInfoBox"></div>' +
     '</div>' +
+    '<div id="battleInfoBox"></div>' +
     '</div>');
 
 const dayStep = 86400000;
@@ -46,21 +46,21 @@ let locations = [];
 let slider = document.getElementById("slider");
 let year = document.getElementById("year");
 
-// let filteredWws = [];
+let filteredWws = [];
 
-// function wwsFilter() {
-//     for (i = 0; i < wws.length; i++) {
-//         let currentUn = wws[i].adversaries;
-//         let currentIn;
-//         let currentAn;
-//         if (typeof currentUn == 'object') {
-//             filteredWws.concat(currentUn);
-//         } else {
-//             filteredWws.push(currentUn)
-//         }
-//     }
-//     console.log([... new Set(filteredWws)]);
-// }
+function wwsFilter() {
+    for (i = 0; i < wws.length; i++) {
+        let currentUn = wws[i].adversaries;
+        let currentIn;
+        let currentAn;
+        if (typeof currentUn == 'object') {
+            filteredWws.concat(currentUn);
+        } else {
+            filteredWws.push(currentUn)
+        }
+    }
+    console.log([... new Set(filteredWws)]);
+}
 
 function initMapWithMarkers() {
     initMap();
@@ -480,25 +480,26 @@ function setMarkers() {
 }
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
-    $(".page-container").css("height", "180vh");
+    $(".page-container").css("height", "210vh");
     $("#battleInfoBox").html(
-        "<div class='fFlagsNpole'><div class='flagpole friendly-flagpole'></div><div class='flags' id='friendly-flags'></div></div>" +
+        "<div class='fFlagsNpole'><div class='flagpole friendly-flagpole'></div><div class='flags fFlags' id='friendly-flags'></div></div>" +
         "<table class='infoBoxTable'>" +
         "<tr>" +
-        "<th colspan='3'><a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a></th>" +
+        "<th colspan='2'><a href='" + wikiLink + "' target='_blank'><h1>" + battleTitle + "</h1></a></th>" +
         "</tr>" +
         "<tr>" +
         "<td>Start Date: " + startDate + "</td>" +
-        "<td></td>" +
         "<td>End Date: " + endDate + "</td>" +
         "</tr>" +
         "<tr>" +
         "<td>Allies: " + allies + "</td>" +
-        "<td><p class='battle-description'>" + description + "</p></td>" +
         "<td>Antagonists: " + adversaries + "</td>" +
         "</tr>" +
+        "<tr>" +
+        "<th colspan='2'><p class='battle-description'>" + description + "</p></th>" +
+        "</tr>" +
         "</table>" +
-        "<div class='eFlagsNpole'><div class='flags' id='enemy-flags'></div><div class='flagpole enemy-flagpole'></div></div>"
+        "<div class='eFlagsNpole'><div class='flags eFlags' id='enemy-flags'></div><div class='flagpole enemy-flagpole'></div></div>"
     );
     setTimeout(function () {
         window.scrollTo({
@@ -508,28 +509,31 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
         });
     }, 5);
     let enemyFlags = document.getElementById("enemy-flags");
-    var friendlyFlags = document.getElementById("friendly-flags");
+    let friendlyFlags = document.getElementById("friendly-flags");
     if (typeof allies == 'object') {
         for (i = 0; i < allies.length; i++) {
             let lilAllies = allies[i].toLowerCase();
             let aArranged = lilAllies.replace(/ /g, '_');
+            console.log("Allies: " + aArranged);
             friendlyFlags.innerHTML += "<img src='/assets/flag_images/" + aArranged + ".png'></img>";
         }
     } else {
         let lilAlly = allies.toLowerCase();
         let aArranged = lilAlly.replace(/ /g, '_');
-        $(".friendly-flags").html("<img src='/assets/flag_images/" + aArranged + ".png'></img>");
+        console.log("Allies: " + aArranged);
+        $("#friendly-flags").html("<img src='/assets/flag_images/" + aArranged + ".png'></img>");
     }
     if (typeof adversaries == 'object') {
         for (i = 0; i < adversaries.length; i++) {
             let lilEnemies = adversaries[i].toLowerCase();
             let eArranged = lilEnemies.replace(/ /g, '_');
             enemyFlags.innerHTML += "<img src='/assets/flag_images/" + eArranged + ".png'></img>";
-            console.log(eArranged);
+            console.log("Enemies: " + eArranged);
         }
     } else {
         let lilEnemy = adversaries.toLowerCase();
         let eArranged = lilEnemy.replace(/ /g, '_');
-        $(".enemy-flags").html("<img src='/assets/flag_images/" + eArranged + ".png'></img>");
+            console.log("Enemies: " + eArranged);
+        $("#enemy-flags").html("<img src='/assets/flag_images/" + eArranged + ".png'></img>");
     }
 }

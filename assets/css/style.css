@@ -9,8 +9,13 @@
 /* Page Background */
 
 h1 {
-    font-family: 'Special Elite', cursive;
-    font-size: 50px;
+    font-family: 'Special Elite', sans-serif;
+    font-size: 70px;
+}
+
+h2 {
+    font-family: 'Josefin Slab', sans-serif;
+    font-size: 60px;
 }
 
 p {
@@ -19,7 +24,8 @@ p {
 }
 
 .page-container {
-    background-color: #cec5ae;
+    background: url("/assets/flag_images/cemetery.png"), #cec5ae;
+    background-blend-mode: multiply;
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -29,32 +35,43 @@ p {
     align-items: center;
 }
 
+.contact-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'Josefin Slab', sans-serif;
+}
+
 #ww1, #ww2 {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
-    height: 50px;
-    border-radius: 15px;
-    background-color: #8f1c18;
+    height: 150px;
+    border-radius: 50%;
+    background: url("/assets/flag_images/globe.png"), rgba(189, 137, 60, 0.568);
+    background-blend-mode: multiply;
+    background-size: cover;
     color: white;
     cursor: pointer;
+    font-family: 'Josephin Slab', sans-serif;
+    font-weight: bold;
 }
 
 .init-ww-button-container {
-    width: 50%;
+    width: 30%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: -100%;
     z-index: 2;
 }
 
 .ww-button-container {
-    width: 50%;
+    width: 80%;
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 0%;
-    transition: margin-bottom 1s ease-in;
+    justify-content: space-between;
+    margin-bottom: -14%;
+    transition: margin-bottom 1s cubic-bezier(0.07, 0.86, 1, 1), width 1s cubic-bezier(0.07, 0.86, 1, 1);
     z-index: 2;
 }
 
@@ -78,6 +95,7 @@ p {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    transform-origin: top;
     transition: transform 1s ease-in;
     z-index: 1;
 }
@@ -90,9 +108,12 @@ p {
     width: 85px;
     border-radius: 50px 50px 50px 50px;
     color: white;
-    background-color: #552c2a;
+    background-color: #6b2e2a;
     margin-bottom: 4px;
     cursor: pointer;
+    opacity: 85%;
+    filter: brightness(180%);
+    font-family: 'Roboto', 'Arial', 'sans-serif';
 }
 
 .pb1 {
@@ -129,12 +150,14 @@ p {
       background: #865718;
       outline: none;
       opacity: 0.9;
-      transition: opacity 0.2s;
+      filter: brightness(100%);
+      transition: opacity 0.2s, filter 0.2s;
       border-radius: 20px;
       z-index: 2;
 }
 #slider:hover {
       opacity: 1;
+      filter: brightness(150%);
    }
 #slider::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -169,10 +192,11 @@ p {
 
 #map {
     top: 1%;
-    left: 5%;
-    height: 630px;
-    width: 90%;
+    left: 2.5%;
+    height: 740px;
+    width: 95%;
     position: absolute;
+    border-radius: 3px;
 }
 
 #overview {
@@ -186,7 +210,10 @@ p {
 
 }
 
+/* Info Box */
+
 #battleInfoBox {
+    position: relative;
     margin-top: 2%;
     width: 100%;
     display: flex;
@@ -220,7 +247,15 @@ p {
 
 .flags {
     width: 100px;
-    height: 50%;
+    height: auto;
+}
+
+.fFlags {
+    margin: 22px 10px 0px 0px;
+}
+
+.eFlags {
+    margin: 22px 0px 0px 10px;
 }
 
 #friendly-flags img {
@@ -234,16 +269,30 @@ p {
 }
 
 .infoBoxTable {
-    width: 60%;
+    width: 80%;
 }
 
 th, td {
-    margin: 10px 10px 20px;
+    font-family: 'Josefin Slab', sans-serif;
+    color: white;
+    margin-bottom: 15px;
+    border-bottom: 1px brown;
+}
+
+th a {
+    text-decoration: none;
+    color: rgb(216, 180, 156);
+}
+
+td {
+    width: 50%;
+    text-align: center;
+    margin: 20px;
 }
 
 .battle-description {
     width: 80%;
-    margin: 0 12%;
+    margin: 5% 10% 0 10%;
     font-size: 25px;
 }
 
