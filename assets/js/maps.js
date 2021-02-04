@@ -139,6 +139,11 @@ $("#slider").on('input', function () {
     sliderMapChange();
 });
 
+$("#slider").on('mousedown', function () {
+    
+});
+
+
 function sliderMapChange() {
     let sliderDif = parseInt(slider.value);
     let dateShown = (sliderStartMsec - sliderDif) * (-1);
@@ -203,7 +208,7 @@ function sliderMapChange() {
     removeMarkers();
     setMarkers();
     map.setCenter(mapCenter);
-    map.setZoom(2.15);
+    map.setZoom(2.5);
 
     locations = [];
 };
@@ -233,7 +238,7 @@ function CenterControl(controlDiv, map) {
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener("click", () => {
         map.setCenter(mapCenter);
-        map.setZoom(2.15);
+        map.setZoom(2.5);
     });
 }
 
@@ -353,7 +358,7 @@ function initMap() {
     );
 
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 2.15,
+        zoom: 2.5,
         center: mapCenter,
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
