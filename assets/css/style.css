@@ -145,16 +145,17 @@ p {
 
 #slider {
       appearance: none;
-      width: 80%;
-      height: 15px;
-      background: #865718;
-      border-radius: 3px;
+      width: 96%;
+      height: 3px;
+      background: #888581;
+      border-radius: 1px;
       outline: none;
       opacity: 0.9;
       filter: brightness(100%);
       transition: opacity 0.2s, filter 0.2s;
       overflow: visible;
       z-index: 2;
+      cursor: grab;
 }
 #slider:hover {
       opacity: 1;
@@ -165,29 +166,35 @@ p {
       -webkit-appearance: none;
       appearance: none;
       width: 130px;
-      height: 82px;
-      background: url("/assets/cluster_images/mww2Aerial.png") no-repeat right bottom;
+      height: 70px;
+      background: url("/assets/cluster_images/mww2Aerial.png") no-repeat 0 -10px;
       background-size: cover;
       cursor: pointer;
       opacity: 1;
       transform: rotate(0deg);
+      transition: transform 0.5s ease-in-out;
+      top: -5px;
+      cursor: grab;
    }
 
-#post-slider::-webkit-slider-thumb {
+#slider:hover::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
       width: 130px;
-      height: 82px;
-      background: url("/assets/cluster_images/mww2Aerial.png") no-repeat right bottom;
+      height: 70px;
+      background: url("/assets/cluster_images/mww2Aerial.png") no-repeat 0 -10px;
       background-size: cover;
       cursor: pointer;
       opacity: 1;
-      transform: rotate(-25deg);
-      transition: transform 0.5s ease-in;
+      transform: rotate(-15deg);
+      transition: transform 0.5s ease-in-out;
+      margin-bottom: 70px;
+      cursor: grab;
    }
 
 #slider::-webkit-slider-runnable-track {
-    width: 110%;
+    height: 0px;
+    margin-bottom: 70px;
 }
 
 /*--------------------------------------------Map*/
@@ -203,7 +210,7 @@ p {
     font-family: 'Special Elite', cursive;
     font-size: 35px;
     color: rgb(8, 8, 8);
-    bottom: -20px;
+    bottom: -20%;
     position: absolute;
     z-index: 2;
     margin: 0px 43% 2%;
@@ -220,11 +227,11 @@ p {
 }
 
 #overview {
-  left: 6%;
+  left: 3%;
   height: 175px;
   border-radius: 50%;
   width: 175px;
-  bottom: 2%;
+  bottom: -15%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   position: absolute;
 

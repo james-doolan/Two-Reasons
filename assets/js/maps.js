@@ -11,7 +11,7 @@ document.write('<div class="page-container">' +
     '<div class="period-button pb4" id="tmonth">Quarterly</div>' +
     '<div class="period-button pb5" id="smonth">6 Months</div>' +
     '<div class="period-button pb6" id="wholeWar">Whole War</div>' +
-    '<input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
+    '<h3 id="startHeading"></h3><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/><h3 id="endHeading"></h3>' +
     '<div class="maps">' +
     '<label id="year">1914-07-28</label><br>' +
     '<div id="map"></div>' +
@@ -47,20 +47,29 @@ let slider = document.getElementById("slider");
 let year = document.getElementById("year");
 
 let filteredWws = [];
+let wwsLength = wws.length;
+let scount = 0;
+let count = [];
 
 function wwsFilter() {
-    for (i = 0; i < wws.length; i++) {
-        let currentUn = wws[i].adversaries;
-        let currentIn;
-        let currentAn;
+    for (i = 0; i < wwsLength; i++) {
+        let currentUn = wws[i].allies;
+        scount += 1;
         if (typeof currentUn == 'object') {
-            filteredWws.concat(currentUn);
+            for (j = 0; j < currentUn.length; j++) {
+                if (count.indexOf(currentUn[j]) === -1) {
+                    count.push(currentUn[j]);
+                }
+            }
         } else {
-            filteredWws.push(currentUn)
+            count.push(currentUn);
         }
     }
-    console.log([... new Set(filteredWws)]);
+    console.log(scount);
+    console.log(count);
+    console.log([... new Set(count)]);
 }
+
 
 function initMapWithMarkers() {
     initMap();
@@ -78,11 +87,11 @@ let initContent = (function () {
             $("#buttonsNMap").addClass("map-button-container");
             $("#buttonsNMap").removeClass("init-map-button-container");
             setTimeout(initMapWithMarkers, 1000);
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                left: 0,
-                behavior: "smooth"
-            });
+            // window.scrollTo({
+            //     top: document.body.scrollHeight,
+            //     left: 0,
+            //     behavior: "smooth"
+            // });
         }
     };
 })();
@@ -140,7 +149,11 @@ $("#slider").on('input', function () {
 });
 
 $("#slider").on('mousedown', function () {
-    
+    $("#slider").css('cursor', '-webkit-grabbing !important');
+});
+
+$("#slider").on('mouseup', function () {
+    $("#slider").css('cursor', 'grab');
 });
 
 
@@ -538,7 +551,7 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
     } else {
         let lilEnemy = adversaries.toLowerCase();
         let eArranged = lilEnemy.replace(/ /g, '_');
-            console.log("Enemies: " + eArranged);
+        console.log("Enemies: " + eArranged);
         $("#enemy-flags").html("<img src='/assets/flag_images/" + eArranged + ".png'></img>");
     }
 }
