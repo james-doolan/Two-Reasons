@@ -24,7 +24,8 @@ p {
 }
 
 .page-container {
-    background: url("/assets/flag_images/cemetery.png"), #cec5ae;
+    background: url("/assets/flag_images/cemetery.png"),
+     linear-gradient(0deg, rgb(36, 0, 0) 7%, rgba(121,9,9,0) 100%);;
     background-blend-mode: multiply;
     background-size: cover;
     width: 100vw;
@@ -70,7 +71,7 @@ p {
     width: 80%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: -14%;
+    margin-bottom: -10%;
     transition: margin-bottom 1s cubic-bezier(0.07, 0.86, 1, 1), width 1s cubic-bezier(0.07, 0.86, 1, 1);
     z-index: 2;
 }
@@ -147,7 +148,8 @@ p {
       appearance: none;
       width: 96%;
       height: 3px;
-      background: #888581;
+      background: rgb(2,0,36);
+      background: radial-gradient(circle, rgba(2,0,36,1) 24%, rgb(121, 9, 9) 84%, rgba(0, 213, 255, 0.082) 100%);;
       border-radius: 1px;
       outline: none;
       opacity: 0.9;
@@ -210,17 +212,17 @@ p {
     font-family: 'Special Elite', cursive;
     font-size: 35px;
     color: rgb(8, 8, 8);
-    bottom: -20%;
+    bottom: -10%;
     position: absolute;
     z-index: 2;
     margin: 0px 43% 2%;
-    width: 15%;
+    width: 30%;
 }
 
 #map {
     top: 1%;
     left: 1.5%;
-    height: 740px;
+    height: 700px;
     width: 97%;
     position: absolute;
     border-radius: 3px;
@@ -231,7 +233,7 @@ p {
   height: 175px;
   border-radius: 50%;
   width: 175px;
-  bottom: -15%;
+  bottom: -5%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   position: absolute;
 
@@ -242,7 +244,7 @@ p {
 #battleInfoBox {
     position: relative;
     margin-top: 2%;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -296,7 +298,7 @@ p {
 }
 
 .infoBoxTable {
-    width: 80%;
+    width: 90%;
 }
 
 th, td {
@@ -340,4 +342,8 @@ td {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.feedback-form {
+    opacity: 100%;
 }

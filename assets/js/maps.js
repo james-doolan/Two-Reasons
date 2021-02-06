@@ -97,7 +97,7 @@ let initContent = (function () {
 })();
 
 $("#ww1").click(function () {
-    $(".page-container").css("height", "150vh");
+    $(".page-container").css("height", "200vh");
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
@@ -106,7 +106,7 @@ $("#ww1").click(function () {
 });
 
 $("#ww2").click(function () {
-    $(".page-container").css("height", "150vh");
+    $(".page-container").css("height", "200vh");
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
@@ -418,7 +418,6 @@ function initMap() {
 
 function removeMarkers() {
 
-    var markerRemoval;
     (markerRemoval = function () {
         for (let i = 0; i < markedLocations.length; i++) {
             markedLocations[i].setMap(null);
@@ -498,7 +497,7 @@ function setMarkers() {
 }
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
-    $(".page-container").css("height", "210vh");
+    $(".page-container").css("height", "250vh");
     $("#battleInfoBox").html(
         "<div class='fFlagsNpole'><div class='flagpole friendly-flagpole'></div><div class='flags fFlags' id='friendly-flags'></div></div>" +
         "<table class='infoBoxTable'>" +
@@ -529,29 +528,27 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
     let enemyFlags = document.getElementById("enemy-flags");
     let friendlyFlags = document.getElementById("friendly-flags");
     if (typeof allies == 'object') {
-        for (i = 0; i < allies.length; i++) {
+        let aLen = allies.length;
+        for (i = 0; i < aLen; i++) {
             let lilAllies = allies[i].toLowerCase();
             let aArranged = lilAllies.replace(/ /g, '_');
-            console.log("Allies: " + aArranged);
             friendlyFlags.innerHTML += "<img src='/assets/flag_images/" + aArranged + ".png'></img>";
         }
     } else {
         let lilAlly = allies.toLowerCase();
         let aArranged = lilAlly.replace(/ /g, '_');
-        console.log("Allies: " + aArranged);
         $("#friendly-flags").html("<img src='/assets/flag_images/" + aArranged + ".png'></img>");
     }
     if (typeof adversaries == 'object') {
-        for (i = 0; i < adversaries.length; i++) {
+        let eLen = adversaries.length;
+        for (i = 0; i < eLen; i++) {
             let lilEnemies = adversaries[i].toLowerCase();
             let eArranged = lilEnemies.replace(/ /g, '_');
             enemyFlags.innerHTML += "<img src='/assets/flag_images/" + eArranged + ".png'></img>";
-            console.log("Enemies: " + eArranged);
         }
     } else {
         let lilEnemy = adversaries.toLowerCase();
         let eArranged = lilEnemy.replace(/ /g, '_');
-        console.log("Enemies: " + eArranged);
         $("#enemy-flags").html("<img src='/assets/flag_images/" + eArranged + ".png'></img>");
     }
 }

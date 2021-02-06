@@ -2587,7 +2587,7 @@ let wws = [
         adversaries: "Germany",
         victor: "indecisive",
         battleType: "Naval",
-        description: "The Battle of the Denmark Strait was a naval engagement on 24 May 194, between ships of the Royal Navy and the Kriegsmarine. The British battleship HMS Prince of Wales and the battlecruiser HMS Hood fought the German battleship Bismarck and the heavy cruiser Prinz Eugen, which were attempting to break out into the North Atlantic to attack Allied merchant shipping."
+        description: "The Battle of the Denmark Strait was a naval engagement on 24 May 1941, between ships of the Royal Navy and the Kriegsmarine. The British battleship HMS Prince of Wales and the battlecruiser HMS Hood fought the German battleship Bismarck and the heavy cruiser Prinz Eugen, which were attempting to break out into the North Atlantic to attack Allied merchant shipping."
     },
     {
         battle: "Last battle of the battleship Bismarck",
