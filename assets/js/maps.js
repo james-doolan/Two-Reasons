@@ -1,4 +1,4 @@
-document.write('<div class="page-container">' +
+document.write('<div class="init-page-container">' +
     '<h1>Two Reasons</h1>' +
     '<div id="wwButtons" class="init-ww-button-container">' +
     '<div id="ww1"><h2>WW1</h2></div><div id="ww2"><h2>WW2</h2></div>' +
@@ -41,7 +41,7 @@ const OVERVIEW_DIFFERENCE = 5;
 const OVERVIEW_MIN_ZOOM = 1;
 const OVERVIEW_MAX_ZOOM = 3.5;
 
-let mapCenter = { lat: 25.047867, lng: 12.898272 };
+let mapCenter = { lat: 28, lng: 12 };
 let locations = [];
 let slider = document.getElementById("slider");
 let year = document.getElementById("year");
@@ -97,7 +97,7 @@ let initContent = (function () {
 })();
 
 $("#ww1").click(function () {
-    $(".page-container").css("height", "200vh");
+    $(".init-page-container").removeClass("init-page-container").addClass("page-container");
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
@@ -106,7 +106,7 @@ $("#ww1").click(function () {
 });
 
 $("#ww2").click(function () {
-    $(".page-container").css("height", "200vh");
+    $(".init-page-container").removeClass("init-page-container").addClass("page-container");
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
@@ -221,7 +221,7 @@ function sliderMapChange() {
     removeMarkers();
     setMarkers();
     map.setCenter(mapCenter);
-    map.setZoom(2.5);
+    map.setZoom(2.47);
 
     locations = [];
 };
@@ -251,7 +251,7 @@ function CenterControl(controlDiv, map) {
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener("click", () => {
         map.setCenter(mapCenter);
-        map.setZoom(2.5);
+        map.setZoom(2.47);
     });
 }
 
@@ -371,7 +371,7 @@ function initMap() {
     );
 
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 2.5,
+        zoom: 2.47,
         center: mapCenter,
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"],
@@ -518,13 +518,6 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
         "</table>" +
         "<div class='eFlagsNpole'><div class='flags eFlags' id='enemy-flags'></div><div class='flagpole enemy-flagpole'></div></div>"
     );
-    setTimeout(function () {
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            left: 0,
-            behavior: "smooth"
-        });
-    }, 5);
     let enemyFlags = document.getElementById("enemy-flags");
     let friendlyFlags = document.getElementById("friendly-flags");
     if (typeof allies == 'object') {
@@ -551,4 +544,11 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
         let eArranged = lilEnemy.replace(/ /g, '_');
         $("#enemy-flags").html("<img src='/assets/flag_images/" + eArranged + ".png'></img>");
     }
+    setTimeout(function () {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            left: 0,
+            behavior: "smooth"
+        });
+    }, 1000);
 }

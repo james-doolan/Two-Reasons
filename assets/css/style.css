@@ -23,13 +23,40 @@ p {
     text-align: center;
 }
 
+.init-page-container {
+    background: url("/assets/flag_images/cemetery.png") no-repeat center center,
+     linear-gradient(0deg, rgb(36, 0, 0) 7%, rgba(121,9,9,0) 100%);
+    background-blend-mode: multiply;
+    background-size: auto;
+    overflow: visible;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    animation-name: hero-zoom;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hero-zoom {
+    from{
+        transform: scale(0.9);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
 .page-container {
-    background: url("/assets/flag_images/cemetery.png"),
-     linear-gradient(0deg, rgb(36, 0, 0) 7%, rgba(121,9,9,0) 100%);;
+    background: url("/assets/flag_images/cemetery.png") no-repeat center center,
+     linear-gradient(0deg, rgb(36, 0, 0) 7%, rgba(121,9,9,0) 100%);
     background-blend-mode: multiply;
     background-size: cover;
     width: 100vw;
-    height: 100vh;
+    height: 200vh;
+    transition: height 1s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -151,6 +178,7 @@ p {
       background: rgb(2,0,36);
       background: radial-gradient(circle, rgba(2,0,36,1) 24%, rgb(121, 9, 9) 84%, rgba(0, 213, 255, 0.082) 100%);;
       border-radius: 1px;
+      margin: 10px 0;
       outline: none;
       opacity: 0.9;
       filter: brightness(100%);

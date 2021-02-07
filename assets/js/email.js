@@ -1,4 +1,4 @@
-document.write('<div class="feedback-container">' +
+document.write('<div class="feedback-container" id="feedbackContainer">' +
     '<h1>Feedback</h1><p><a href="index.html">Back to Main</a></p>' +
     '<form id="feedbackForm" class="feedback-form" onsubmit="return sendMail(this);">' +
     '<input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />' +
@@ -20,12 +20,17 @@ function sendMail(contactForm) {
     })
         .then(
             function (response) {
+                successMessage();
                 console.log("SUCCESS", response);
-                inputFields.reset();
-                projectFeedback.html("Thanks for your feedback!!");
             },
             function (error) {
+                inputFields.reset();
                 console.log("FAILED", error);
             });
     return false;
 };
+
+function successMessage () {
+    console.log("it's doing something");
+    $("#feedbackContainer").html("<h1>Thanks For the feedback!!</h1><h3><a href='index.html'>Back to Main</a></h3>");
+}
