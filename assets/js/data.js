@@ -2519,7 +2519,7 @@ let wws = [
         endDate: "01/28/1941",
         allies: "Thailand",
         adversaries: "Vichy France",
-        victor: "indecisive",
+        victor: "inconclusive",
         battleType: ["Ground", "Naval", "Aerial"],
         description: "The Franco-Thai War (Thai: กรณีพิพาทอินโดจีน; French: Guerre franco-thaïlandaise) was fought between Thailand and Vichy France over certain areas of French Indochina. Negotiations with France shortly before World War II had shown that the French government was willing to make appropriate changes in the boundaries between Thailand and French Indochina, but only slightly."
     },
@@ -2585,7 +2585,7 @@ let wws = [
         endDate: "05/24/1941",
         allies: "United Kingdom",
         adversaries: "Germany",
-        victor: "indecisive",
+        victor: "inconclusive",
         battleType: "Naval",
         description: "The Battle of the Denmark Strait was a naval engagement on 24 May 1941, between ships of the Royal Navy and the Kriegsmarine. The British battleship HMS Prince of Wales and the battlecruiser HMS Hood fought the German battleship Bismarck and the heavy cruiser Prinz Eugen, which were attempting to break out into the North Atlantic to attack Allied merchant shipping."
     },
@@ -4392,5 +4392,93 @@ let wws = [
         victor: "a",
         battleType: ["Ground", "Aerial"],
         description: "The Soviet invasion of Manchuria, formally known as the Manchurian Strategic Offensive Operation or simply the Manchurian Operation. It was the largest campaign of the 1945 Soviet–Japanese War, which resumed hostilities between the Union of Soviet Socialist Republics and the Empire of Japan after almost six years of peace."
+    },
+    {
+        battle: "Assassination of Archduke Franz Ferdinand",
+        coords: { lat: 43.857917, lng: 18.42875 },
+        startDate: "06/28/1914",
+        endDate: "08/02/1914",
+        allies: "Serbia",
+        adversaries: "Austro-Hungarian Empire",
+        victor: "inconclusive",
+        battleType: "Political",
+        description: "The assassination of Archduke Franz Ferdinand of Austria, heir presumptive to the Austro-Hungarian throne, and his wife, Sophie, Duchess of Hohenberg, occurred on 28 June 1914 in Sarajevo when they were mortally wounded by Gavrilo Princip, along with six assassins coordinated by Danilo Ilić, a Bosnian Serb and a member of the Black Hand secret society."
+    },
+    {
+        battle: "Austria-Hungary declare war on Serbia",
+        coords: { lat: 43.8, lng: 18.37 },
+        startDate: "07/28/1914",
+        endDate: "08/02/1914",
+        allies: "Serbia",
+        adversaries: ["Austro-Hungarian Empire", "German Empire"],
+        victor: "inconclusive",
+        battleType: "Political",
+        description: "On July 28 after a decision reached conclusively the day before in response to pressure from Germany for quick action—apart from Kaiser Wilhelm II, who by some accounts still saw the possibility of a peaceful diplomatic resolution to the conflict, but was outmaneuvered by the more hawkish military and governmental leadership of Germany—Austria-Hungary declared war on Serbia."
+    },
+    {
+        battle: "The United States Declares War on Germany",
+        coords: { lat: 38.889722, lng: -77.008889 },
+        startDate: "04/02/1917",
+        endDate: "04/04/1917",
+        allies: "United States",
+        adversaries: "German Empire",
+        victor: "inconclusive",
+        battleType: "Political",
+        description: "On April 2, 1917, President Woodrow Wilson went before a joint session of Congress to request a declaration of war against Germany. Wilson cited Germany’s violation of its pledge to suspend submarine warfare in the North Atlantic and the Mediterranean, as well as its attempts to entice Mexico into an alliance against the United States, as his reasons for declaring war."
+    },
+    {
+        battle: "Armistice between Russia and the Central Powers",
+        coords: { lat: 52.134722, lng: 23.656944 },
+        startDate: "12/15/1917",
+        endDate: "03/03/1918",
+        allies: "Russian Empire",
+        adversaries: ["German Empire", "Austro-Hungarian Empire", "Ottoman Empire"],
+        victor: "inconclusive",
+        battleType: "Political",
+        description: "On 15 December 1917, an armistice was signed between the Russian Soviet Federative Socialist Republic on the one side and the Austro-Hungarian Empire, the Kingdom of Bulgaria, the German Empire and the Ottoman Empire. By this agreement Russia de facto exited World War I, although fighting would briefly resume before the Treaty of Brest-Litovsk was signed on 3 March 1918."
+    },
+    {
+        battle: "Armistice of 11 November 1918",
+        coords: { lat: 49.4275, lng: 2.906389 },
+        startDate: "11/11/1918",
+        endDate: "11/11/1918",
+        allies: ["United States", "United Kingdom"],
+        adversaries: "German Empire",
+        victor: "a",
+        battleType: "Political",
+        description: "The Armistice of 11 November 1918 was the armistice signed at Le Francport near Compiègne that ended fighting on land, sea and air in World War I between the Allies and their last remaining opponent, Germany. Also known as the Armistice of Compiègne from the place where it was signed at 5:45 a.m. by the Allied Supreme Commander, French Marshal Ferdinand Foch."
+    },
+    {
+        battle: "Occupation of the Rhineland",
+        coords: { lat: 50.357417, lng: 7.601944 },
+        startDate: "12/01/1918",
+        endDate: "06/30/1930",
+        allies: ["United States", "United Kingdom"],
+        adversaries: "German Empire",
+        victor: "a",
+        battleType: "Political",
+        description: "The Occupation of the Rhineland from 1 December 1918 until 30 June 1930 was a consequence of the collapse of the Imperial German Army in 1918. Despite Germany's proving victorious on the eastern front following the Russian Revolution, the military high command had failed to prevent the continuing erosion of morale, both domestically and in the army."
+    },
+    {
+        battle: "Paris Peace Conference (1919–1920)",
+        coords: { lat: 48.804833, lng: 2.120333 },
+        startDate: "12/01/1918",
+        endDate: "01/21/1920",
+        allies: ["United States", "British Empire", "France", "Kingdom of Italy"],
+        adversaries: "German Empire",
+        victor: "a",
+        battleType: "Political",
+        description: "The Paris Peace Conference was the formal meeting in 1919 and 1920 of the victorious Allies after the end of World War I to set the peace terms for the defeated Central Powers. Dominated by the leaders of Britain, France, the United States and Italy, it resulted in five controversial treaties that rearranged the map of the world and imposed financial penalties."
+    },
+    {
+        battle: "Plan Z",
+        coords: { lat: 52.52, lng: 13.405 },
+        startDate: "01/27/1918",
+        endDate: "09/02/1920",
+        allies: ["British Empire", "France", "Poland"],
+        adversaries: "German Empire",
+        victor: "inconclusive",
+        battleType: "Political",
+        description: "Plan Z was the name given to the planned re-equipment and expansion of the German navy ordered by Adolf Hitler in early 1939. The fleet was meant to challenge the naval power of the UK, and was to be completed by 1948. Development of the plan reflected the evolution of the strategic thinking of the German Naval High Command over the two decades following World War I."
     },
 ];

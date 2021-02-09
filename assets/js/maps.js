@@ -29,7 +29,7 @@ const smonthStep = 15929091646;
 
 const ww1StartMsec = 1749252879000;
 const ww1LengthMsec = 143361824814;
-const ww2StartMsec = 957315600000;
+const ww2StartMsec = 973244691646;
 const ww2LengthMsec = 191203200000;
 let sliderStartMsec;
 let wwLengthMsec;
@@ -367,7 +367,7 @@ function initMap() {
                 stylers: [{ color: "#92998d" }],
             },
         ],
-        { name: "2Reasons" }
+        { name: "Old War Style" }
     );
 
     map = new google.maps.Map(document.getElementById("map"), {
@@ -498,6 +498,7 @@ function setMarkers() {
 
 function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
     $(".page-container").css("height", "250vh");
+    $(".page-container").css("transition", "none");
     $("#battleInfoBox").html(
         "<div class='fFlagsNpole'><div class='flagpole friendly-flagpole'></div><div class='flags fFlags' id='friendly-flags'></div></div>" +
         "<table class='infoBoxTable'>" +
@@ -522,6 +523,7 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
     let friendlyFlags = document.getElementById("friendly-flags");
     if (typeof allies == 'object') {
         let aLen = allies.length;
+        aLen > 11 ? aLen = 11 : aLen;
         for (i = 0; i < aLen; i++) {
             let lilAllies = allies[i].toLowerCase();
             let aArranged = lilAllies.replace(/ /g, '_');
@@ -550,5 +552,5 @@ function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adv
             left: 0,
             behavior: "smooth"
         });
-    }, 1000);
+    }, 1);
 }
