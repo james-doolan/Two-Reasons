@@ -30,7 +30,7 @@ const smonthStep = 15929091646;
 const ww1StartMsec = 1749252879000;
 const ww1LengthMsec = 143361824814;
 const ww2StartMsec = 973244691646;
-const ww2LengthMsec = 191203200000;
+const ww2LengthMsec = 207132291646;
 let sliderStartMsec;
 let wwLengthMsec;
 
