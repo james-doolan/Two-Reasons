@@ -2,15 +2,18 @@ document.write('<div class="init-page-container">' +
     '<h1>Two Reasons</h1>' +
     '<div id="introduction" class="intro">' +
     '<h2>Introduction</h2>' +
-    '<p>40 million people died in WW1 and 60 millon in WW2. Around two thirds of whom were civilians in the case of the latter</p>' +
+    '<p>40 million people died in WW1 and 60 millon in WW2. Around two thirds of whom were civilians in the case of the latter.</p>' +
     '<p>The two reaons another world war should never take place could simply be the two atomic bombs which were detonated over Japan, however, events of recent years have shown an appetite amongst demagogues for conflict and the potential for global unrest seems to be nausiatingly high. Despite the consequences of such bombs being detonated, some leaders of nations which possess them brandish ' +
     'them boisterously.</p>' +
-    '<p>6 million Jewish people were killed because they were Jewish </p>' +
-    '<p>Few people study history today compared to fifty years ago compared to in the last century. This could be playing a role in peoples current ideological devotions. During the creation of this website I became much more sickened than I had before of the site of a ' +
-    'swastika. Incredibly, it is still graffitied on walls. I even questioned using Nazi Germanys flag, which includes the swastika, but felt it necessary for it to be presented in context of the evil which it represents. Studying that period of history brought those events of much closer to home and I hope to achieve this in the prople that use this website to study the wars.</p>' +
+    '<div id="ww1"><h2>WW1</h2></div><div id="ww2"><h2>WW2</h2></div>' +
+    '<p>6 million Jewish people were killed because they were Jewish.</p>' +
+    '<hr>' +
+    '<p>University students studying today are less than a thrid as likely to study history compared to the middle of the last century. This regression in appreciation of historical events could be playing a role in peoples current ideological devotions. During the creation of this website I became much more sickened than I had before of the site of a ' +
+    'swastika. Incredibly, it is still graffitied on walls. I even questioned using Nazi Germanys flag, which includes the swastika, but felt it necessary for it to be presented in context of the evil which it represents. Studying that period of history brought those events much closer to home and I hope to achieve this in the people that use this website to study the wars.</p>' +
     '</div>' +
     '<div id="key" class="key">' +
-    '<h2>Key</h2>' +
+    '<div id="ww1"><h2>WW1</h2></div>' +
+    '<div class="key-table"><h2>Key</h2>' +
     '<ul>' +
     '<li><img src="/assets/cluster_images/mGround.png"><img src="/assets/cluster_images/mww2Ground.png"> - Ground Warfare</li>' +
     '<li><img src="/assets/cluster_images/mAerial.png"><img src="/assets/cluster_images/mww2Aerial.png"> - Aerial Warfare</li>' +
@@ -18,10 +21,10 @@ document.write('<div class="init-page-container">' +
     '<li><img src="/assets/cluster_images/mBombing.png"><img src="/assets/cluster_images/mww2Bombing.png"> - Bombing</li>' +
     '<li><img src="/assets/cluster_images/mAerial-Ground-Naval.png"><img src="/assets/cluster_images/mww2Aerial-Bombing-Ground.png"> - A combination of the above</li>' +
     '<li><img src="/assets/cluster_images/mPolitical.png"> - Political/Non-Military Event</li>' +
-    '</ul>' +
+    '</ul></div>' +
+    '<div id="ww2"><h2>WW2</h2></div>' +
     '</div>' +
     '<div id="wwButtons" class="init-ww-button-container">' +
-    '<div id="ww1"><h2>WW1</h2></div><div id="ww2"><h2>WW2</h2></div>' +
     '</div>' +
     '<a class="contact-link" href="contact.html"><h3>Contact</h3></a><br>' +
     '<div id="buttonsNMap" class="init-map-button-container">' +
@@ -31,7 +34,7 @@ document.write('<div class="init-page-container">' +
     '<div class="period-button pb4" id="tmonth">Quarterly</div>' +
     '<div class="period-button pb5" id="smonth">6 Months</div>' +
     '<div class="period-button pb6" id="wholeWar">Whole War</div>' +
-    '<h3 id="startHeading"></h3><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/><h3 id="endHeading"></h3>' +
+    '<div class="start-end-date"><h3 id="startHeading">1914</h3><h3 id="endHeading">1918</h3></div><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
     '<div class="maps">' +
     '<label id="year">1914-07-28</label><br>' +
     '<div id="map"></div>' +
@@ -101,17 +104,14 @@ let initContent = (function () {
     return function () {
         if (!executed) {
             executed = true;
+            $(".intro").css("height", "0px");
+            $(".intro").css("transform", "scale(0)");
+            $(".key").css("height", "400px");
+            $(".key").css("transform", "scale(1)");
             $(".map-button-container").css("visibility", "visible");
-            $("#wwButtons").addClass("ww-button-container");
-            $("#wwButtons").removeClass("init-ww-button-container");
-            $("#buttonsNMap").addClass("map-button-container");
-            $("#buttonsNMap").removeClass("init-map-button-container");
+            $("#wwButtons").addClass("ww-button-container").removeClass("init-ww-button-container");
+            $("#buttonsNMap").addClass("map-button-container").removeClass("init-map-button-container");
             setTimeout(initMapWithMarkers, 1000);
-            // window.scrollTo({
-            //     top: document.body.scrollHeight,
-            //     left: 0,
-            //     behavior: "smooth"
-            // });
         }
     };
 })();

@@ -21,9 +21,13 @@ h2 {
     color: wheat;
 }
 
-p {
+.intro p {
     font-family: 'Josefin Slab', sans-serif;
     text-align: center;
+    color: whitesmoke;
+    font-size: 26px;
+    line-height: 28px;
+    margin: 5px 0px;
 }
 
 .init-page-container {
@@ -58,7 +62,7 @@ p {
     background-blend-mode: multiply;
     background-size: cover;
     width: 100vw;
-    height: 200vh;
+    height: 180vh;
     transition: height 1s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -67,29 +71,35 @@ p {
 }
 
 .intro {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    visibility: visible;
+    width: 85%;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 1s ease-in-out;
 }
 
 .key {
-    margin: 30px 0px;
+    height: 0px;
+    margin-top: -100px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
+    transform: scale(0);
+    transition: transform 1s ease-in-out;
+}
+
+.key-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 ul {
-    margin: 20px;
+    margin: 20px 200px;
 }
 
 li {
-    color: white;
+    color: whitesmoke;
     font-size: 20px;
     font-family: 'Roboto', 'Arial', 'sans-serif';
     list-style: none;
@@ -112,6 +122,14 @@ li img {
     font-family: 'Josefin Slab', sans-serif;
 }
 
+#ww1 {
+    float: left;
+}
+
+#ww2 {
+    float: right;
+}
+
 #ww1, #ww2 {
     display: flex;
     justify-content: center;
@@ -119,10 +137,11 @@ li img {
     width: 150px;
     height: 149px;
     border-radius: 50%;
+    margin: 30px;
     background: url("/assets/flag_images/globe.png"), rgba(189, 137, 60, 0.568);
     background-blend-mode: multiply;
     background-size: cover;
-    color: white;
+    color: whitesmoke;
     cursor: pointer;
     font-family: 'Josephin Slab', sans-serif;
     font-weight: bold;
@@ -168,6 +187,7 @@ li img {
     transform-origin: top;
     transition: transform 1s ease-in;
     z-index: 1;
+    margin-top: -160px;
 }
 
 .period-button {
@@ -177,9 +197,9 @@ li img {
     height: 22px;
     width: 85px;
     border-radius: 50px 50px 50px 50px;
-    color: white;
+    color: whitesmoke;
     background-color: #6b2e2a;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     cursor: pointer;
     opacity: 85%;
     filter: brightness(180%);
@@ -213,12 +233,20 @@ li img {
 
 /* slider */
 
+.start-end-date {
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: whitesmoke;
+    margin-top: -22px;
+}
+
 #slider {
       appearance: none;
       width: 96%;
-      height: 3px;
-      background: rgb(2,0,36);
-      background: radial-gradient(circle, rgba(2,0,36,1) 24%, rgb(121, 9, 9) 84%, rgba(0, 213, 255, 0.082) 100%);
+      height: 4px;
+      background: radial-gradient(circle, rgba(18 58 87) 24%, rgb(121, 9, 9) 84%, rgba(0, 213, 255, 0.082) 100%);
       border-radius: 1px;
       margin: 10px 0;
       outline: none;
@@ -228,7 +256,9 @@ li img {
       overflow: visible;
       z-index: 2;
       cursor: grab;
+      margin-bottom: 15px;
 }
+
 #slider:hover {
       opacity: 1;
       filter: brightness(150%);
@@ -273,7 +303,7 @@ li img {
 
 .maps {
     width: 100%;
-    height: 630px;
+    height: 650px;
     position: relative;
     z-index: 1;
 }
@@ -319,6 +349,8 @@ li img {
     justify-content: space-between;
     align-items: center;
 }
+
+
 
 .fFlagsNpole {
     height: 100%;
@@ -369,6 +401,10 @@ li img {
 
 .infoBoxTable {
     width: 90%;
+}
+
+th h1 {
+    color: whitesmoke;
 }
 
 th, td {
