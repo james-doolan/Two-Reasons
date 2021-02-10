@@ -1,5 +1,25 @@
 document.write('<div class="init-page-container">' +
     '<h1>Two Reasons</h1>' +
+    '<div id="introduction" class="intro">' +
+    '<h2>Introduction</h2>' +
+    '<p>40 million people died in WW1 and 60 millon in WW2. Around two thirds of whom were civilians in the case of the latter</p>' +
+    '<p>The two reaons another world war should never take place could simply be the two atomic bombs which were detonated over Japan, however, events of recent years have shown an appetite amongst demagogues for conflict and the potential for global unrest seems to be nausiatingly high. Despite the consequences of such bombs being detonated, some leaders of nations which possess them brandish ' +
+    'them boisterously.</p>' +
+    '<p>6 million Jewish people were killed because they were Jewish </p>' +
+    '<p>Few people study history today compared to fifty years ago compared to in the last century. This could be playing a role in peoples current ideological devotions. During the creation of this website I became much more sickened than I had before of the site of a ' +
+    'swastika. Incredibly, it is still graffitied on walls. I even questioned using Nazi Germanys flag, which includes the swastika, but felt it necessary for it to be presented in context of the evil which it represents. Studying that period of history brought those events of much closer to home and I hope to achieve this in the prople that use this website to study the wars.</p>' +
+    '</div>' +
+    '<div id="key" class="key">' +
+    '<h2>Key</h2>' +
+    '<ul>' +
+    '<li><img src="/assets/cluster_images/mGround.png"><img src="/assets/cluster_images/mww2Ground.png"> - Ground Warfare</li>' +
+    '<li><img src="/assets/cluster_images/mAerial.png"><img src="/assets/cluster_images/mww2Aerial.png"> - Aerial Warfare</li>' +
+    '<li><img src="/assets/cluster_images/mNaval.png"><img src="/assets/cluster_images/mww2Naval.png"> - Naval Warfare</li>' +
+    '<li><img src="/assets/cluster_images/mBombing.png"><img src="/assets/cluster_images/mww2Bombing.png"> - Bombing</li>' +
+    '<li><img src="/assets/cluster_images/mAerial-Ground-Naval.png"><img src="/assets/cluster_images/mww2Aerial-Bombing-Ground.png"> - A combination of the above</li>' +
+    '<li><img src="/assets/cluster_images/mPolitical.png"> - Political/Non-Military Event</li>' +
+    '</ul>' +
+    '</div>' +
     '<div id="wwButtons" class="init-ww-button-container">' +
     '<div id="ww1"><h2>WW1</h2></div><div id="ww2"><h2>WW2</h2></div>' +
     '</div>' +

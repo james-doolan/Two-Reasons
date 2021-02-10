@@ -11,11 +11,14 @@
 h1 {
     font-family: 'Special Elite', sans-serif;
     font-size: 70px;
+    color: rgb(58, 32, 27);
+    margin: 20px 0px;
 }
 
 h2 {
     font-family: 'Josefin Slab', sans-serif;
     font-size: 60px;
+    color: wheat;
 }
 
 p {
@@ -25,15 +28,15 @@ p {
 
 .init-page-container {
     background: url("/assets/flag_images/cemetery.png") no-repeat center center,
-     linear-gradient(0deg, rgb(68, 44, 12) 7%, rgba(87, 45, 6, 0) 100%);
+     linear-gradient(0deg, rgb(68, 44, 12) 7%, rgba(87, 45, 6, 0.301) 100%);
     background-blend-mode: multiply;
-    background-size: auto;
+    background-size: cover;
     overflow: visible;
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     /* animation-name: hero-zoom;
     animation-duration: 5s;
@@ -51,7 +54,7 @@ p {
 
 .page-container {
     background: url("/assets/flag_images/cemetery.png") no-repeat center center,
-     linear-gradient(0deg, rgb(68, 44, 12) 7%, rgba(87, 45, 6, 0) 100%);
+     linear-gradient(0deg, rgba(68, 44, 12) 7%, rgba(87, 45, 6, 0.301) 100%);
     background-blend-mode: multiply;
     background-size: cover;
     width: 100vw;
@@ -59,8 +62,47 @@ p {
     transition: height 1s ease-in-out;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.intro {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    visibility: visible;
+}
+
+.key {
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+ul {
+    margin: 20px;
+}
+
+li {
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', 'Arial', 'sans-serif';
+    list-style: none;
+    line-height: 40px;
+}
+
+li img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    background:radial-gradient(circle, rgba(194, 187, 171, 0.76) 24%, rgba(196, 172, 172, 0.37) 54%, rgba(189, 137, 60, 0) 70%);
+    border-radius: 2px;
+    vertical-align: middle;
 }
 
 .contact-link {
@@ -75,7 +117,7 @@ p {
     justify-content: center;
     align-items: center;
     width: 150px;
-    height: 150px;
+    height: 149px;
     border-radius: 50%;
     background: url("/assets/flag_images/globe.png"), rgba(189, 137, 60, 0.568);
     background-blend-mode: multiply;
@@ -87,10 +129,10 @@ p {
 }
 
 .init-ww-button-container {
-    width: 30%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: -100%;
+    margin-bottom: 0%;
     z-index: 2;
 }
 
@@ -98,7 +140,7 @@ p {
     width: 80%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: -10%;
+    margin-bottom: 0%;
     transition: margin-bottom 1s cubic-bezier(0.07, 0.86, 1, 1), width 1s cubic-bezier(0.07, 0.86, 1, 1);
     z-index: 2;
 }
@@ -176,7 +218,7 @@ p {
       width: 96%;
       height: 3px;
       background: rgb(2,0,36);
-      background: radial-gradient(circle, rgba(2,0,36,1) 24%, rgb(121, 9, 9) 84%, rgba(0, 213, 255, 0.082) 100%);;
+      background: radial-gradient(circle, rgba(2,0,36,1) 24%, rgb(121, 9, 9) 84%, rgba(0, 213, 255, 0.082) 100%);
       border-radius: 1px;
       margin: 10px 0;
       outline: none;
