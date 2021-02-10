@@ -4606,7 +4606,7 @@ let wws = [
         battle: "Surrender of Japan",
         coords: { lat: 35.522577, lng: 139.90957 },
         startDate: "09/02/1945",
-        endDate: "09/02/1945",
+        endDate: "09/21/1945",
         allies: "United States",
         adversaries: "Empire of Japan",
         victor: "a",

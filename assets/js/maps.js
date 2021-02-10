@@ -5,14 +5,14 @@ document.write('<div class="init-page-container">' +
     '<p>40 million people died in WW1 and 60 millon in WW2. Around two thirds of whom were civilians in the case of the latter.</p>' +
     '<p>The two reaons another world war should never take place could simply be the two atomic bombs which were detonated over Japan, however, events of recent years have shown an appetite amongst demagogues for conflict and the potential for global unrest seems to be nausiatingly high. Despite the consequences of such bombs being detonated, some leaders of nations which possess them brandish ' +
     'them boisterously.</p>' +
-    '<div id="ww1"><h2>WW1</h2></div><div id="ww2"><h2>WW2</h2></div>' +
+    '<div class="ww1"><h2>WW1</h2></div><div class="ww2"><h2>WW2</h2></div>' +
     '<p>6 million Jewish people were killed because they were Jewish.</p>' +
     '<hr>' +
     '<p>University students studying today are less than a thrid as likely to study history compared to the middle of the last century. This regression in appreciation of historical events could be playing a role in peoples current ideological devotions. During the creation of this website I became much more sickened than I had before of the site of a ' +
     'swastika. Incredibly, it is still graffitied on walls. I even questioned using Nazi Germanys flag, which includes the swastika, but felt it necessary for it to be presented in context of the evil which it represents. Studying that period of history brought those events much closer to home and I hope to achieve this in the people that use this website to study the wars.</p>' +
     '</div>' +
     '<div id="key" class="key">' +
-    '<div id="ww1"><h2>WW1</h2></div>' +
+    '<div class="ww1"><h2>WW1</h2></div>' +
     '<div class="key-table"><h2>Key</h2>' +
     '<ul>' +
     '<li><img src="/assets/cluster_images/mGround.png"><img src="/assets/cluster_images/mww2Ground.png"> - Ground Warfare</li>' +
@@ -21,16 +21,16 @@ document.write('<div class="init-page-container">' +
     '<li><img src="/assets/cluster_images/mBombing.png"><img src="/assets/cluster_images/mww2Bombing.png"> - Bombing</li>' +
     '<li><img src="/assets/cluster_images/mAerial-Ground-Naval.png"><img src="/assets/cluster_images/mww2Aerial-Bombing-Ground.png"> - A combination of the above</li>' +
     '<li><img src="/assets/cluster_images/mPolitical.png"> - Political/Non-Military Event</li>' +
-    '</ul></div>' +
-    '<div id="ww2"><h2>WW2</h2></div>' +
+    '</ul>' +
+    "<p>Select the the time period/step size you'd like to use then drag the Airplane above the map to travel through time! </p>" +
     '</div>' +
-    '<div id="wwButtons" class="init-ww-button-container">' +
+    '<div class="ww2"><h2>WW2</h2></div>' +
     '</div>' +
     '<a class="contact-link" href="contact.html"><h3>Contact</h3></a><br>' +
     '<div id="buttonsNMap" class="init-map-button-container">' +
     '<div class="period-button pb1" id="day">Daily</div>' +
     '<div class="period-button pb2" id="week">Weekly</div>' +
-    '<div class="period-button pb3" id="month">Monthly</div>' +
+    '<div class="period-button pb3 highlighted" id="month">Monthly</div>' +
     '<div class="period-button pb4" id="tmonth">Quarterly</div>' +
     '<div class="period-button pb5" id="smonth">6 Months</div>' +
     '<div class="period-button pb6" id="wholeWar">Whole War</div>' +
@@ -104,35 +104,50 @@ let initContent = (function () {
     return function () {
         if (!executed) {
             executed = true;
-            $(".intro").css("height", "0px");
-            $(".intro").css("transform", "scale(0)");
-            $(".key").css("height", "400px");
-            $(".key").css("transform", "scale(1)");
+            $(".init-page-container").removeClass("init-page-container").addClass("page-container");
+            $(".intro").css({ "height": "0px", "transform": "scale(0)", "opacity": "0%" });
+            $(".key").css({ "height": "400px", "transform": "scale(1)" });
             $(".map-button-container").css("visibility", "visible");
-            $("#wwButtons").addClass("ww-button-container").removeClass("init-ww-button-container");
             $("#buttonsNMap").addClass("map-button-container").removeClass("init-map-button-container");
             setTimeout(initMapWithMarkers, 1000);
         }
     };
 })();
 
-$("#ww1").click(function () {
-    $(".init-page-container").removeClass("init-page-container").addClass("page-container");
+$(".ww1").click(function () {
+    $("#startHeading").html("1914");
+    $("#endHeading").html("1918");
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
+    if ($(".ww1").hasClass('world-highlighted')) {
+        return;
+    } else {
+        $(".ww2").removeClass('world-highlighted')
+        $(".ww1").addClass('world-highlighted');
+    }
     sliderMapChange();
     initContent();
 });
 
-$("#ww2").click(function () {
-    $(".init-page-container").removeClass("init-page-container").addClass("page-container");
+$(".ww2").click(function () {
+    $("#startHeading").html("1939");
+    $("#endHeading").html("1945");
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
+    if ($(".ww2").hasClass('world-highlighted')) {
+        return;
+    } else {
+        $(".ww1").removeClass('world-highlighted')
+        $(".ww2").addClass('world-highlighted');
+    }
     sliderMapChange();
     initContent();
 });
+
+
+
 
 $("#day").click(function () {
     $("#slider").attr("step", dayStep);
@@ -164,12 +179,23 @@ $("#wholeWar").click(function () {
     sliderMapChange();
 });
 
+$(".period-button").click(function () {
+    let clicked = $(this);
+
+    if (clicked.hasClass('highlighted')) {
+        return;
+    } else {
+        $('.highlighted').removeClass('highlighted')
+        $(this).addClass('highlighted');
+    }
+});
+
 $("#slider").on('input', function () {
     sliderMapChange();
 });
 
 $("#slider").on('mousedown', function () {
-    $("#slider").css('cursor', '-webkit-grabbing !important');
+    $("#slider").css('cursor', 'grabbing !important');
 });
 
 $("#slider").on('mouseup', function () {
@@ -457,14 +483,8 @@ function setMarkers() {
 
         const startDate = wws.find(x => x.coords === location).startDate;
         const startDateMsec = Date.parse(startDate) * (-1);
-        const endDate = wws.find(x => x.coords === location).endDate;
-        const description = wws.find(x => x.coords === location).description;
-        const allies = wws.find(x => x.coords === location).allies;
-        const adversaries = wws.find(x => x.coords === location).adversaries;
         let battleType = wws.find(x => x.coords === location).battleType;
         const battleTitle = wws.find(x => x.coords === location).battle;
-        const titleLink = battleTitle.replace(/ /g, '_');
-        const wikiLink = "https://en.wikipedia.org/wiki/" + titleLink;
         let battleImageType;
         let battleImageSort;
         if (startDateMsec > ww2StartMsec) {
@@ -499,7 +519,6 @@ function setMarkers() {
         const marker = new google.maps.Marker({
             position: location,
             icon: image,
-            // shape: shape,
             map,
         });
         markedLocations.push(marker);
@@ -508,15 +527,20 @@ function setMarkers() {
             infowindow.open(map, marker);
             map.setZoom(11);
             map.setCenter(marker.getPosition())
-            battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleImageType, wikiLink);
+            battleInfoDiv(battleTitle, startDate);
             setTimeout(function () { infowindow.close(); }, 3000);
         });
-
         return marker;
     });
 }
 
-function battleInfoDiv(battleTitle, startDate, endDate, description, allies, adversaries, battleType, wikiLink) {
+function battleInfoDiv(battleTitle, startDate) {
+    const endDate = wws.find(x => x.battle === battleTitle).endDate;
+    const description = wws.find(x => x.battle === battleTitle).description;
+    const allies = wws.find(x => x.battle === battleTitle).allies;
+    const adversaries = wws.find(x => x.battle === battleTitle).adversaries;
+    const titleLink = battleTitle.replace(/ /g, '_');
+    const wikiLink = "https://en.wikipedia.org/wiki/" + titleLink;
     $(".page-container").css("height", "250vh");
     $(".page-container").css("transition", "none");
     $("#battleInfoBox").html(
