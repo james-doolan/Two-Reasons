@@ -1,49 +1,3 @@
-document.write('<div class="init-page-container">' +
-    '<h1>Two Reasons</h1>' +
-    '<div id="introduction" class="intro">' +
-    '<h2>Introduction</h2>' +
-    '<p>40 million people died in WW1 and 60 millon in WW2. Around two thirds of whom were civilians in the case of the latter.</p>' +
-    '<p>The two reaons another world war should never take place could simply be the two atomic bombs which were detonated over Japan, however, events of recent years have shown an appetite amongst demagogues for conflict and the potential for global unrest seems to be nausiatingly high. Despite the consequences of such bombs being detonated, some leaders of nations which possess them brandish ' +
-    'them boisterously.</p>' +
-    '<div class="ww1"><h2>WW1</h2></div><div class="ww2"><h2>WW2</h2></div>' +
-    '<p>6 million Jewish people were killed because they were Jewish.</p>' +
-    '<hr>' +
-    '<p>University students studying today are less than a thrid as likely to study history compared to the middle of the last century. This regression in appreciation of historical events could be playing a role in peoples current ideological devotions. During the creation of this website I became much more sickened than I had before of the site of a ' +
-    'swastika. Incredibly, it is still graffitied on walls. I even questioned using Nazi Germanys flag, which includes the swastika, but felt it necessary for it to be presented in context of the evil which it represents. Studying that period of history brought those events much closer to home and I hope to achieve this in the people that use this website to study the wars.</p>' +
-    '</div>' +
-    '<div id="key" class="key">' +
-    '<div class="ww1"><h2>WW1</h2></div>' +
-    '<div class="key-table"><h2>Key</h2>' +
-    '<ul>' +
-    '<li><img src="/assets/cluster_images/mGround.png"><img src="/assets/cluster_images/mww2Ground.png"> - Ground Warfare</li>' +
-    '<li><img src="/assets/cluster_images/mAerial.png"><img src="/assets/cluster_images/mww2Aerial.png"> - Aerial Warfare</li>' +
-    '<li><img src="/assets/cluster_images/mNaval.png"><img src="/assets/cluster_images/mww2Naval.png"> - Naval Warfare</li>' +
-    '<li><img src="/assets/cluster_images/mBombing.png"><img src="/assets/cluster_images/mww2Bombing.png"> - Bombing</li>' +
-    '<li><img src="/assets/cluster_images/mAerial-Ground-Naval.png"><img src="/assets/cluster_images/mww2Aerial-Bombing-Ground.png"> - A combination of the above</li>' +
-    '<li><img src="/assets/cluster_images/mPolitical.png"> - Political/Non-Military Event</li>' +
-    '</ul>' +
-    "<p>Select the the time period/step size you'd like to use then drag the Airplane above the map to travel through time! </p>" +
-    '</div>' +
-    '<div class="ww2"><h2>WW2</h2></div>' +
-    '</div>' +
-    '<a class="contact-link" href="contact.html"><h3>Contact</h3></a><br>' +
-    '<div id="buttonsNMap" class="init-map-button-container">' +
-    '<div class="period-button pb1" id="day">Daily</div>' +
-    '<div class="period-button pb2" id="week">Weekly</div>' +
-    '<div class="period-button pb3 highlighted" id="month">Monthly</div>' +
-    '<div class="period-button pb4" id="tmonth">Quarterly</div>' +
-    '<div class="period-button pb5" id="smonth">6 Months</div>' +
-    '<div class="period-button pb6" id="wholeWar">Whole War</div>' +
-    '<div class="start-end-date"><h3 id="startHeading">1914</h3><h3 id="endHeading">1918</h3></div><input id="slider" type="range" min="0" max="135397279000" step="2654848607" value="0" onkeydown="return true;"/>' +
-    '<div class="maps">' +
-    '<label id="year">1914-07-28</label><br>' +
-    '<div id="map"></div>' +
-    '<div id="overview"></div>' +
-    '</div>' +
-    '</div>' +
-    '<div id="battleInfoBox"></div>' +
-    '</div>');
-
 const dayStep = 86400000;
 const weekStep = 604800000;
 const monthStep = 2654848607;
@@ -109,14 +63,15 @@ let initContent = (function () {
             $(".key").css({ "height": "400px", "transform": "scale(1)" });
             $(".map-button-container").css("visibility", "visible");
             $("#buttonsNMap").addClass("map-button-container").removeClass("init-map-button-container");
+            $(".contact-link").css('opacity', '100%')
             setTimeout(initMapWithMarkers, 1000);
         }
     };
 })();
 
 $(".ww1").click(function () {
-    $("#startHeading").html("1914");
-    $("#endHeading").html("1918");
+    $("#startHeading").html("<h3>1914</h3>");
+    $("#endHeading").html("<h3>1918</h3>");
     $("#slider").attr("max", ww1LengthMsec);
     sliderStartMsec = ww1StartMsec;
     wwLengthMsec = ww1LengthMsec;
@@ -131,8 +86,8 @@ $(".ww1").click(function () {
 });
 
 $(".ww2").click(function () {
-    $("#startHeading").html("1939");
-    $("#endHeading").html("1945");
+    $("#startHeading").html("<h3>1939</h3>");
+    $("#endHeading").html("<h3>1945</h3>");
     $("#slider").attr("max", ww2LengthMsec);
     sliderStartMsec = ww2StartMsec;
     wwLengthMsec = ww2LengthMsec;
@@ -177,6 +132,13 @@ $("#smonth").click(function () {
 $("#wholeWar").click(function () {
     $("#slider").attr("step", 1000000000000);
     sliderMapChange();
+    if ($(this).hasClass('highlighted')) {
+        return;
+    } else {
+        $('.highlighted').removeClass('highlighted')
+        $("#slider").css('filter', 'brightness(20%)');
+        $(this).addClass('highlighted');
+    }
 });
 
 $(".period-button").click(function () {
@@ -187,6 +149,7 @@ $(".period-button").click(function () {
     } else {
         $('.highlighted').removeClass('highlighted')
         $(this).addClass('highlighted');
+        $("#slider").css('filter', 'brightness(100%)');
     }
 });
 

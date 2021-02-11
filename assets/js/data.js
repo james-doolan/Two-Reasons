@@ -4584,7 +4584,7 @@ let wws = [
         battle: "Little Boy",
         coords: { lat: 34.383333, lng: 132.45 },
         startDate: "08/06/1945",
-        endDate: "08/06/1945",
+        endDate: "08/08/1945",
         allies: "United States",
         adversaries: "Empire of Japan",
         victor: "a",
@@ -4612,16 +4612,5 @@ let wws = [
         victor: "a",
         battleType: "Political",
         description: "On August 28, the occupation of Japan led by the Supreme Commander for the Allied Powers began. The surrender ceremony was held aboard the United States Navy battleship USS Missouri, at which officials from the Japanese government signed the Japanese Instrument of Surrender, thereby ending the hostilities. Allied civilians and military personnel alike celebrated V-J Day."
-    },
-    {
-        battle: "Soviet–Japanese War",
-        coords: { lat: 43, lng: 125 },
-        startDate: "08/09/1945",
-        endDate: "09/03/1945",
-        allies: "Soviet Union",
-        adversaries: "Empire of Japan",
-        victor: "a",
-        battleType: "Political",
-        description: "The Soviet–Japanese War (Russian: Советско-японская война; Japanese: ソ連対日参戦, soren tai nichi sansen 'Soviet Union entry into war against Japan') was a military conflict within the Second World War beginning soon after midnight on August 9, 1945, with the Soviet invasion of the Japanese puppet state of Manchukuo."
     },
 ];
