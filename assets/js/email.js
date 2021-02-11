@@ -10,16 +10,15 @@ function sendMail(contactForm) {
         .then(
             function (response) {
                 successMessage();
-                console.log("SUCCESS", response);
             },
             function (error) {
                 inputFields.reset();
-                console.log("FAILED", error);
+                alert("Sorry, it failed to send! Please Retry.")
             });
     return false;
 };
 
 function successMessage () {
     console.log("it's doing something");
-    $("#feedbackContainer").html('<h1>Thanks For the feedback!!</h1><a href="index.html" class="main-link">Back to Main</a>');
+    $("#feedbackContainer").html('<h1 class="feedback-response">Thanks For the feedback!!</h1><a href="index.html" class="main-link">Back to Main</a>');
 }

@@ -63,7 +63,7 @@ let initContent = (function () {
             $(".key").css({ "height": "400px", "transform": "scale(1)" });
             $(".map-button-container").css("visibility", "visible");
             $("#buttonsNMap").addClass("map-button-container").removeClass("init-map-button-container");
-            $(".contact-link").css('opacity', '100%')
+            $(".contact-link").css({'opacity': '100%', 'transform': 'scale(1)'})
             setTimeout(initMapWithMarkers, 1000);
         }
     };
@@ -504,8 +504,24 @@ function battleInfoDiv(battleTitle, startDate) {
     const adversaries = wws.find(x => x.battle === battleTitle).adversaries;
     const titleLink = battleTitle.replace(/ /g, '_');
     const wikiLink = "https://en.wikipedia.org/wiki/" + titleLink;
-    $(".page-container").css("height", "250vh");
+    let alliesL;
+    let adversL;
+    $(".page-container").css("height", "260vh");
     $(".page-container").css("transition", "none");
+    if (typeof allies == 'object') {
+        let aLen = allies.length;
+        aLen > 11 ? aLen = 11 : aLen;
+        alliesL = allies.slice(0,aLen);
+    } else {
+        alliesL = allies;
+    }
+    if (typeof adversaries == 'object') {
+        let aLen = adversaries.length;
+        aLen > 11 ? aLen = 11 : aLen;
+        adversL = adversaries.slice(0,aLen);
+    } else {
+        adversL = adversaries;
+    }
     $("#battleInfoBox").html(
         "<div class='fFlagsNpole'><div class='flagpole friendly-flagpole'></div><div class='flags fFlags' id='friendly-flags'></div></div>" +
         "<table class='infoBoxTable'>" +
@@ -517,7 +533,7 @@ function battleInfoDiv(battleTitle, startDate) {
         "<td>End Date: " + endDate + "</td>" +
         "</tr>" +
         "<tr>" +
-        "<td>Allies: " + allies + "</td>" +
+        "<td>Allies: " + alliesL + "</td>" +
         "<td>Antagonists: " + adversaries + "</td>" +
         "</tr>" +
         "<tr>" +
