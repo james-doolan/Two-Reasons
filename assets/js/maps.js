@@ -63,7 +63,7 @@ let initContent = (function () {
             $(".key").css({ "height": "400px", "transform": "scale(1)" });
             $(".map-button-container").css("visibility", "visible");
             $("#buttonsNMap").addClass("map-button-container").removeClass("init-map-button-container");
-            $(".contact-link").css({'opacity': '100%', 'transform': 'scale(1)'})
+            $(".contact-link").css({ 'opacity': '100%', 'transform': 'scale(1)' })
             setTimeout(initMapWithMarkers, 1000);
         }
     };
@@ -506,19 +506,24 @@ function battleInfoDiv(battleTitle, startDate) {
     const wikiLink = "https://en.wikipedia.org/wiki/" + titleLink;
     let alliesL;
     let adversL;
-    $(".page-container").css("height", "260vh");
+    console.log($(".page-container").css('height'));
+    if ($(".key").css('flex-wrap') == 'wrap') {
+        $(".page-container").css("height", "300vh");
+    } else {
+        $(".page-container").css("height", "260vh");
+    }
     $(".page-container").css("transition", "none");
     if (typeof allies == 'object') {
         let aLen = allies.length;
         aLen > 11 ? aLen = 11 : aLen;
-        alliesL = allies.slice(0,aLen);
+        alliesL = allies.slice(0, aLen);
     } else {
         alliesL = allies;
     }
     if (typeof adversaries == 'object') {
         let aLen = adversaries.length;
         aLen > 11 ? aLen = 11 : aLen;
-        adversL = adversaries.slice(0,aLen);
+        adversL = adversaries.slice(0, aLen);
     } else {
         adversL = adversaries;
     }

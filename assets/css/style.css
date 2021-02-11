@@ -36,6 +36,7 @@ h4 {
     font-family: 'Roboto', 'Arial', 'sans-serif';
     text-align: center;
     margin-top: 3vw;
+    width: 95%;
 }
 
 .intro p {
@@ -155,13 +156,13 @@ li img {
 }
 
 .ww {
-    align-self: flex-end;
+    align-self: flex-start;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(5vw + 30px);
-    height: calc(5vw + 30px);
-    min-width: calc(5vw + 30px);
+    width: calc(5vw + 50px);
+    height: calc(5vw + 50px);
+    min-width: calc(5vw + 50px);
     border-radius: 50%;
     margin: 3vw;
     background: url("/assets/flag_images/globe.png"), rgba(189, 137, 60, 0.568);
@@ -420,8 +421,7 @@ li img {
 
 #battleInfoBox {
     position: relative;
-    margin-top: 2%;
-    width: 90%;
+    width: 90vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -514,9 +514,13 @@ td {
     visibility: hidden;
   }
 
+  .start-end-date {
+      margin-top: 0px;
+  }
+
   #map {
       width: 100%;
-      margin-left: -12px;
+      left: 0px;
   }
 }
 
@@ -527,7 +531,31 @@ td {
   }
 
   .page-container {
-      height: 300vh;
+      height: 220vh;
+  }
+
+  .key {
+      margin-top: -300px;
+      flex-wrap: wrap;
+  }
+
+  .ww1 {
+      order: 1;
+      margin: 50px;
+  }
+
+  .ww2 {
+      order: 2;
+      margin: 50px;
+  }
+
+  .key-table {
+      order: 3;
+      width: 100%;
+  }
+
+  .pb1, .pb2 {
+      visibility: collapse;
   }
 
   .contact-link {
@@ -535,6 +563,34 @@ td {
       height: 37px;
       font-size: 16px;
       margin: 60px 5px 0px 0px;
+  }
+
+  .infoBoxTable {
+      width: 100%;
+  }
+
+  .battle-description {
+      left: 0px;
+      width: 100%;
+      margin: 20px 0px 0px;
+  }
+
+  .fFlagsNpole {
+    width: 0px;
+    visibility: collapse;
+  }
+
+  .eFlagsNpole {
+    width: 0px;
+    visibility: collapse;
+  }
+
+  #battleInfoBox, tr, .battle-description {
+      max-width: 98vw;
+  }
+
+  th, td {
+      max-width: 50%;
   }
 }
 
