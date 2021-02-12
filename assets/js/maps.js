@@ -508,9 +508,9 @@ function battleInfoDiv(battleTitle, startDate) {
     let adversL;
     console.log($(".page-container").css('height'));
     if ($(".key").css('flex-wrap') == 'wrap') {
-        $(".page-container").css("height", "300vh");
+        $(".page-container").css("height", "2000px");
     } else {
-        $(".page-container").css("height", "260vh");
+        $(".page-container").css("height", "calc(140vh + 1200px)");
     }
     $(".page-container").css("transition", "none");
     if (typeof allies == 'object') {
